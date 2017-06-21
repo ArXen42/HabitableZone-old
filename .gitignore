@@ -1,0 +1,9 @@
+/Source/HabitableZoneUnity/Library
+/Source/HabitableZoneUnity/Temp
+/Source/HabitableZoneUnity/obj
+/Source/HabitableZoneUnity/*.sln
+/Source/HabitableZoneUnity/*.csproj
+/Source/HabitableZoneUnity/Assets/Plugins/CoreBuildTarget*
+bin/
+obj/
+packages/

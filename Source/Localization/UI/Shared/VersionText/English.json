@@ -1,0 +1,5 @@
+﻿{
+	"__type": "Stardust.Localization.Common.LocalizationString",
+	"Description": "Version text usually displayed near the corner of screen.",
+	"Value": "Stardust Alpha v. 0.07"
+}

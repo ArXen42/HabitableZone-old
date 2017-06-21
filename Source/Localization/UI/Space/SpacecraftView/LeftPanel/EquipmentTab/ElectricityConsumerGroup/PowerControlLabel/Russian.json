@@ -1,0 +1,5 @@
+﻿{
+	"__type": "Stardust.Localization.Common.LocalizationString",
+	"Description": "Надпись у контрола генерируемой энергии.",
+	"Value": "Потребляемая мощность"
+}

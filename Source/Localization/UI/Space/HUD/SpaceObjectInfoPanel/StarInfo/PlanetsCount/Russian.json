@@ -1,0 +1,5 @@
+﻿{
+	"__type": "Stardust.Localization.Common.LocalizationString",
+	"Description": "Количество планет у звезды",
+	"Value": "Планет"
+}
