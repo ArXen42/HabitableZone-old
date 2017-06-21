@@ -1,5 +1,5 @@
 ﻿{
-	"__type": "Stardust.Localization.Common.LocalizationString",
+	"__type": "HabitableZone.Localization.Common.LocalizationString",
 	"Description": "Label of the power control (slider, probably).",
 	"Value": "Consuming power"
 }

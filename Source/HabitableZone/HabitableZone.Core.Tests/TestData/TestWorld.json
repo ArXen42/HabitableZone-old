@@ -1,0 +1,981 @@
+﻿{
+	"__type": "HabitableZone.Core.World.WorldContextData",
+	"WorldCtlData": 
+		{
+			"Date": "3042-01-01T00:00:00"
+		},
+	"StarSystemsData": 
+		{
+			"StarSystems": 
+				[
+					{
+						"ID": "655054be-92cb-47f7-b282-ad130c2560ff",
+						"UniverseMapPosition": 
+							{
+								"x": 0,
+								"y": 0.425686181
+							}
+					},
+					{
+						"ID": "ef8897c7-8b69-48d7-8b2d-28920deb51ca",
+						"UniverseMapPosition": 
+							{
+								"x": 14.35956,
+								"y": 6.59023333
+							}
+					},
+					{
+						"ID": "5e8ae8db-620d-4707-9468-dbbc66ecb0fe",
+						"UniverseMapPosition": 
+							{
+								"x": 23.0900269,
+								"y": 1.36505067
+							}
+					},
+					{
+						"ID": "875e1de7-e343-4557-9d61-7d24ce1ad694",
+						"UniverseMapPosition": 
+							{
+								"x": 30.3235931,
+								"y": 0
+							}
+					},
+					{
+						"ID": "bebca0bd-b830-4fec-937d-7a5b52a47253",
+						"UniverseMapPosition": 
+							{
+								"x": 2.38813734,
+								"y": 15.0333109
+							}
+					},
+					{
+						"ID": "6f5cf0c5-c95e-4f7f-bd28-338f6f880a07",
+						"UniverseMapPosition": 
+							{
+								"x": 13.8909512,
+								"y": 10.1393108
+							}
+					},
+					{
+						"ID": "a1dce597-d558-4b8b-9668-2c8ef77fb0cf",
+						"UniverseMapPosition": 
+							{
+								"x": 15.0278893,
+								"y": 18.0297527
+							}
+					},
+					{
+						"ID": "e493a9f0-0f18-4982-8b5d-4c2ab79300d9",
+						"UniverseMapPosition": 
+							{
+								"x": 31.6019478,
+								"y": 12.1641979
+							}
+					},
+					{
+						"ID": "48053467-cd14-4069-90d6-073f9ee83cfd",
+						"UniverseMapPosition": 
+							{
+								"x": 1.25504041,
+								"y": 19.3991871
+							}
+					},
+					{
+						"ID": "68edd1ab-564e-491b-bbb0-74aa7c806791",
+						"UniverseMapPosition": 
+							{
+								"x": 12.8550892,
+								"y": 21.6285477
+							}
+					},
+					{
+						"ID": "d0760638-f601-4a63-bd79-5de3fe122de3",
+						"UniverseMapPosition": 
+							{
+								"x": 21.2125854,
+								"y": 20.7271767
+							}
+					},
+					{
+						"ID": "0308b2f7-bd00-441b-bb0b-a43927dbbb2a",
+						"UniverseMapPosition": 
+							{
+								"x": 30.4953156,
+								"y": 20.2551651
+							}
+					},
+					{
+						"ID": "c3a4187a-cf90-458c-bdd9-91a8d7bb7583",
+						"UniverseMapPosition": 
+							{
+								"x": 0.932111263,
+								"y": 29.9428825
+							}
+					},
+					{
+						"ID": "3f943f97-0b2a-469a-bc13-7c48d2429e66",
+						"UniverseMapPosition": 
+							{
+								"x": 7.837713,
+								"y": 30.9376526
+							}
+					},
+					{
+						"ID": "02acdacb-a56b-4a36-add5-f58b6ae94101",
+						"UniverseMapPosition": 
+							{
+								"x": 20.4279175,
+								"y": 31.7574329
+							}
+					},
+					{
+						"ID": "32f73498-b00a-4c86-a568-2e9fae4968eb",
+						"UniverseMapPosition": 
+							{
+								"x": 32.7334061,
+								"y": 26.8722115
+							}
+					}
+				]
+		},
+	"SpaceObjectsData": 
+		{
+			"SpaceObjects": 
+				[
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 5.54434648E+25,
+						"Mass": 1.2119566E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 5.462355E+08,
+						"SurfaceTemperature": 4023.78174,
+						"Type": "Red",
+						"ID": "fae0af98-464e-40e8-892c-0c12782d95f2",
+						"LocationID": "655054be-92cb-47f7-b282-ad130c2560ff",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 4.60903043E+26,
+						"Mass": 2.08604049E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 9.449156E+08,
+						"SurfaceTemperature": 5194.786,
+						"Type": "Yellow",
+						"ID": "4610b0f9-85c4-4348-9339-db53f90f561f",
+						"LocationID": "ef8897c7-8b69-48d7-8b2d-28920deb51ca",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 3.91194051E+26,
+						"Mass": 2.00014691E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 957433536,
+						"SurfaceTemperature": 4953.42432,
+						"Type": "Yellow",
+						"ID": "353795b0-1f2e-4091-bf72-a1cf997028d7",
+						"LocationID": "5e8ae8db-620d-4707-9468-dbbc66ecb0fe",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 8.035161E+26,
+						"Mass": 2.40556079E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 6.569954E+08,
+						"SurfaceTemperature": 7158.61963,
+						"Type": "Yellow",
+						"ID": "c8a4dd76-0b0a-43f5-b00c-934f53161a49",
+						"LocationID": "875e1de7-e343-4557-9d61-7d24ce1ad694",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 9.272974E+26,
+						"Mass": 2.49557892E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 6.906597E+08,
+						"SurfaceTemperature": 7236.59863,
+						"Type": "Yellow",
+						"ID": "cb5a2e7f-cd35-4602-82d9-48c4f750b35c",
+						"LocationID": "bebca0bd-b830-4fec-937d-7a5b52a47253",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 7.865002E+25,
+						"Mass": 1.32563068E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 730647040,
+						"SurfaceTemperature": 3796.931,
+						"Type": "Red",
+						"ID": "87e60dac-01a2-4458-815d-9ecae322d157",
+						"LocationID": "6f5cf0c5-c95e-4f7f-bd28-338f6f880a07",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 3.07890326E+26,
+						"Mass": 1.881032E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 5.849045E+08,
+						"SurfaceTemperature": 5969.23,
+						"Type": "Yellow",
+						"ID": "0484e583-c8e2-4994-ac66-b0210a2fbbc4",
+						"LocationID": "a1dce597-d558-4b8b-9668-2c8ef77fb0cf",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 9.224713E+25,
+						"Mass": 1.38095657E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 1.37441318E+09,
+						"SurfaceTemperature": 2880.9873,
+						"Type": "Red",
+						"ID": "373b6526-bd5e-461c-ae5f-e46451df9e58",
+						"LocationID": "e493a9f0-0f18-4982-8b5d-4c2ab79300d9",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 4.79490461E+26,
+						"Mass": 2.10729537E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 1.03373043E+09,
+						"SurfaceTemperature": 5015.949,
+						"Type": "Yellow",
+						"ID": "c01e1be5-33bb-4875-bd11-b6be50ce5be4",
+						"LocationID": "48053467-cd14-4069-90d6-073f9ee83cfd",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 1.37391834E+25,
+						"Mass": 8.474826E+29,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 438820384,
+						"SurfaceTemperature": 3167.44165,
+						"Type": "Red",
+						"ID": "68970148-90f0-421f-b867-b291805fe863",
+						"LocationID": "68edd1ab-564e-491b-bbb0-74aa7c806791",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 2.147194E+25,
+						"Mass": 9.502796E+29,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 246471424,
+						"SurfaceTemperature": 4725.48438,
+						"Type": "Red",
+						"ID": "9827d7e0-8ba7-4ea4-a0ed-26f7df24a4a8",
+						"LocationID": "d0760638-f601-4a63-bd79-5de3fe122de3",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 4.45855066E+24,
+						"Mass": 6.35047E+29,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 605806464,
+						"SurfaceTemperature": 2034.66663,
+						"Type": "Red",
+						"ID": "7aa7f15f-ab4e-4270-9eb5-c1db26f6cc39",
+						"LocationID": "0308b2f7-bd00-441b-bb0b-a43927dbbb2a",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 1.05867813E+25,
+						"Mass": 7.926946E+29,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 191611936,
+						"SurfaceTemperature": 4490.984,
+						"Type": "Red",
+						"ID": "017a8b46-0c0c-4fb3-b6a7-469bd9e5cab8",
+						"LocationID": "c3a4187a-cf90-458c-bdd9-91a8d7bb7583",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 9.872249E+26,
+						"Mass": 2.535975E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 707508864,
+						"SurfaceTemperature": 7262.72949,
+						"Type": "Yellow",
+						"ID": "6f80fd08-1cc6-448b-b07a-c292ebcb468e",
+						"LocationID": "3f943f97-0b2a-469a-bc13-7c48d2429e66",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 7.92557645E+26,
+						"Mass": 2.39710572E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 7.951427E+08,
+						"SurfaceTemperature": 6484.80566,
+						"Type": "Yellow",
+						"ID": "e9d515d2-4e61-415e-b42f-03f74732c274",
+						"LocationID": "02acdacb-a56b-4a36-add5-f58b6ae94101",
+						"Name": "Yellow starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.StarData",
+						"Luminosity": 6.35637677E+25,
+						"Mass": 1.255184E+30,
+						"Position": 
+							{
+								"x": 0,
+								"y": 0
+							},
+						"Radius": 1.74786E+09,
+						"SurfaceTemperature": 2327.61353,
+						"Type": "Red",
+						"ID": "c33264ef-ec42-4035-b78d-4374c9e05120",
+						"LocationID": "32f73498-b00a-4c86-a568-2e9fae4968eb",
+						"Name": "Red starData"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 3.50175045E+27,
+						"OrbitDegreeString": "256.00:00:00",
+						"OrbitRadius": 2.25488945E+11,
+						"ParentStarID": "fae0af98-464e-40e8-892c-0c12782d95f2",
+						"RingsMass": 0,
+						"RotationSpeed": -0.611388445,
+						"Temperature": 248.201843,
+						"Type": "Gas",
+						"ID": "4cf9d764-b815-4d9b-ac19-f5fef489cdc1",
+						"LocationID": "655054be-92cb-47f7-b282-ad130c2560ff",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.876314E+27,
+						"OrbitDegreeString": "47.00:00:00",
+						"OrbitRadius": 5.05523773E+10,
+						"ParentStarID": "4610b0f9-85c4-4348-9339-db53f90f561f",
+						"RingsMass": 0,
+						"RotationSpeed": -0.450400829,
+						"Temperature": 814.6228,
+						"Type": "Gas",
+						"ID": "887dea06-69e9-46b5-a563-d7fe7fd646ff",
+						"LocationID": "ef8897c7-8b69-48d7-8b2d-28920deb51ca",
+						"Name": "PLANET0"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 1.20296169E+27,
+						"OrbitDegreeString": "118.00:00:00",
+						"OrbitRadius": 1.00972904E+11,
+						"ParentStarID": "4610b0f9-85c4-4348-9339-db53f90f561f",
+						"RingsMass": 0,
+						"RotationSpeed": -0.550080955,
+						"Temperature": 533.1612,
+						"Type": "Gas",
+						"ID": "f511bcee-c3c5-4a9a-bd56-b863dd27af95",
+						"LocationID": "ef8897c7-8b69-48d7-8b2d-28920deb51ca",
+						"Name": "PLANET3"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.94594167E+27,
+						"OrbitDegreeString": "133.00:00:00",
+						"OrbitRadius": 1.739562E+11,
+						"ParentStarID": "4610b0f9-85c4-4348-9339-db53f90f561f",
+						"RingsMass": 0,
+						"RotationSpeed": -0.4215003,
+						"Temperature": 496.3407,
+						"Type": "Gas",
+						"ID": "a51fb1d7-a003-4792-9ced-cf1ea3f61a3b",
+						"LocationID": "ef8897c7-8b69-48d7-8b2d-28920deb51ca",
+						"Name": "PLANET11"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 9.768408E+24,
+						"OrbitDegreeString": "72.00:00:00",
+						"OrbitRadius": 2.23067226E+11,
+						"ParentStarID": "353795b0-1f2e-4091-bf72-a1cf997028d7",
+						"RingsMass": 0,
+						"RotationSpeed": -0.6299177,
+						"Temperature": 398.9128,
+						"Type": "Desert",
+						"ID": "c7de1292-dec7-42be-bf82-702f3133c348",
+						"LocationID": "5e8ae8db-620d-4707-9468-dbbc66ecb0fe",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.64062E+27,
+						"OrbitDegreeString": "239.00:00:00",
+						"OrbitRadius": 5.08258345E+10,
+						"ParentStarID": "c8a4dd76-0b0a-43f5-b00c-934f53161a49",
+						"RingsMass": 0,
+						"RotationSpeed": -0.247321188,
+						"Temperature": 915.6484,
+						"Type": "Gas",
+						"ID": "aa3d693d-34ae-483a-82a3-7f753bf4a4a7",
+						"LocationID": "875e1de7-e343-4557-9d61-7d24ce1ad694",
+						"Name": "PLANET0"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.495599E+27,
+						"OrbitDegreeString": "114.00:00:00",
+						"OrbitRadius": 1.92907657E+11,
+						"ParentStarID": "cb5a2e7f-cd35-4602-82d9-48c4f750b35c",
+						"RingsMass": 0,
+						"RotationSpeed": -0.5818966,
+						"Temperature": 562.0741,
+						"Type": "Gas",
+						"ID": "c5cd0177-b043-4456-ba9f-c3c2b61994a0",
+						"LocationID": "bebca0bd-b830-4fec-937d-7a5b52a47253",
+						"Name": "PLANET14"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.117601E+27,
+						"OrbitDegreeString": "251.00:00:00",
+						"OrbitRadius": 2.25014514E+11,
+						"ParentStarID": "cb5a2e7f-cd35-4602-82d9-48c4f750b35c",
+						"RingsMass": 0,
+						"RotationSpeed": -0.287771374,
+						"Temperature": 508.4007,
+						"Type": "Gas",
+						"ID": "b35f2814-bd8d-4dcb-8b64-6f7a4151d038",
+						"LocationID": "bebca0bd-b830-4fec-937d-7a5b52a47253",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 2.14568218E+27,
+						"OrbitDegreeString": "273.00:00:00",
+						"OrbitRadius": 7.043647E+10,
+						"ParentStarID": "87e60dac-01a2-4458-815d-9ecae322d157",
+						"RingsMass": 0,
+						"RotationSpeed": -0.5825209,
+						"Temperature": 533.8749,
+						"Type": "Gas",
+						"ID": "b0c3f8da-96ee-41be-a517-8e63ccd36c84",
+						"LocationID": "6f5cf0c5-c95e-4f7f-bd28-338f6f880a07",
+						"Name": "PLANET1"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.954655E+27,
+						"OrbitDegreeString": "135.00:00:00",
+						"OrbitRadius": 1.58843322E+11,
+						"ParentStarID": "87e60dac-01a2-4458-815d-9ecae322d157",
+						"RingsMass": 0,
+						"RotationSpeed": -0.6157019,
+						"Temperature": 343.456848,
+						"Type": "Gas",
+						"ID": "926eec2b-4458-44af-a94a-662b25be5e96",
+						"LocationID": "6f5cf0c5-c95e-4f7f-bd28-338f6f880a07",
+						"Name": "PLANET9"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 1.11897408E+25,
+						"OrbitDegreeString": "187.00:00:00",
+						"OrbitRadius": 2.23784239E+11,
+						"ParentStarID": "87e60dac-01a2-4458-815d-9ecae322d157",
+						"RingsMass": 0,
+						"RotationSpeed": -0.66878,
+						"Temperature": 241.285934,
+						"Type": "Terra",
+						"ID": "09b9e801-8e56-4544-bbe1-74a0299c8a86",
+						"LocationID": "6f5cf0c5-c95e-4f7f-bd28-338f6f880a07",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 1.87801328E+27,
+						"OrbitDegreeString": "201.00:00:00",
+						"OrbitRadius": 7.174657E+10,
+						"ParentStarID": "0484e583-c8e2-4994-ac66-b0210a2fbbc4",
+						"RingsMass": 0,
+						"RotationSpeed": -0.2707926,
+						"Temperature": 718.7243,
+						"Type": "Gas",
+						"ID": "4ab91722-075e-40fa-9db2-86da9b183653",
+						"LocationID": "a1dce597-d558-4b8b-9668-2c8ef77fb0cf",
+						"Name": "PLANET1"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 3.05283579E+27,
+						"OrbitDegreeString": "230.00:00:00",
+						"OrbitRadius": 1.1012191E+11,
+						"ParentStarID": "0484e583-c8e2-4994-ac66-b0210a2fbbc4",
+						"RingsMass": 0,
+						"RotationSpeed": -0.631726563,
+						"Temperature": 559.5113,
+						"Type": "Gas",
+						"ID": "82b0045f-7879-46d6-bc1d-520140553d5b",
+						"LocationID": "a1dce597-d558-4b8b-9668-2c8ef77fb0cf",
+						"Name": "PLANET4"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.303189E+27,
+						"OrbitDegreeString": "43.00:00:00",
+						"OrbitRadius": 2.21759062E+11,
+						"ParentStarID": "0484e583-c8e2-4994-ac66-b0210a2fbbc4",
+						"RingsMass": 0,
+						"RotationSpeed": -0.524319,
+						"Temperature": 380.9837,
+						"Type": "Gas",
+						"ID": "3cdbe38c-d9be-4d26-b580-57c84d1c217b",
+						"LocationID": "a1dce597-d558-4b8b-9668-2c8ef77fb0cf",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 3.47979E+27,
+						"OrbitDegreeString": "238.00:00:00",
+						"OrbitRadius": 6.85527654E+10,
+						"ParentStarID": "373b6526-bd5e-461c-ae5f-e46451df9e58",
+						"RingsMass": 0,
+						"RotationSpeed": -0.222681671,
+						"Temperature": 508.490356,
+						"Type": "Gas",
+						"ID": "9754e23c-1c48-4d31-8692-786cbc65ec2e",
+						"LocationID": "e493a9f0-0f18-4982-8b5d-4c2ab79300d9",
+						"Name": "PLANET1"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.707934E+27,
+						"OrbitDegreeString": "101.00:00:00",
+						"OrbitRadius": 1.1372802E+11,
+						"ParentStarID": "373b6526-bd5e-461c-ae5f-e46451df9e58",
+						"RingsMass": 0,
+						"RotationSpeed": -0.211632729,
+						"Temperature": 391.849518,
+						"Type": "Gas",
+						"ID": "b76fe911-81a9-4699-8062-cb1a6766ca03",
+						"LocationID": "e493a9f0-0f18-4982-8b5d-4c2ab79300d9",
+						"Name": "PLANET4"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.35203738E+27,
+						"OrbitDegreeString": "42.00:00:00",
+						"OrbitRadius": 2.086347E+11,
+						"ParentStarID": "373b6526-bd5e-461c-ae5f-e46451df9e58",
+						"RingsMass": 0,
+						"RotationSpeed": -0.688395858,
+						"Temperature": 313.1311,
+						"Type": "Gas",
+						"ID": "cc81fbc9-c176-4ca3-b844-e3d949bf5db9",
+						"LocationID": "e493a9f0-0f18-4982-8b5d-4c2ab79300d9",
+						"Name": "PLANET16"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.839945E+27,
+						"OrbitDegreeString": "96.00:00:00",
+						"OrbitRadius": 1.340881E+11,
+						"ParentStarID": "c01e1be5-33bb-4875-bd11-b6be50ce5be4",
+						"RingsMass": 0,
+						"RotationSpeed": -0.497907162,
+						"Temperature": 572.2276,
+						"Type": "Gas",
+						"ID": "42262ac7-3225-4893-889b-4c91d5338259",
+						"LocationID": "48053467-cd14-4069-90d6-073f9ee83cfd",
+						"Name": "PLANET6"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.76572968E+27,
+						"OrbitDegreeString": "261.00:00:00",
+						"OrbitRadius": 2.26062238E+11,
+						"ParentStarID": "c01e1be5-33bb-4875-bd11-b6be50ce5be4",
+						"RingsMass": 0,
+						"RotationSpeed": -0.20160684,
+						"Temperature": 368.937256,
+						"Type": "Gas",
+						"ID": "5bd7be96-99a1-4e52-a9cb-a735abed93b9",
+						"LocationID": "48053467-cd14-4069-90d6-073f9ee83cfd",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 1.697498E+27,
+						"OrbitDegreeString": "145.00:00:00",
+						"OrbitRadius": 1.57041787E+11,
+						"ParentStarID": "68970148-90f0-421f-b867-b291805fe863",
+						"RingsMass": 0,
+						"RotationSpeed": -0.451473981,
+						"Temperature": 186.155167,
+						"Type": "Gas",
+						"ID": "2214f87d-d54d-458d-84ae-f32c341c109f",
+						"LocationID": "68edd1ab-564e-491b-bbb0-74aa7c806791",
+						"Name": "PLANET9"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 2.80940931E+27,
+						"OrbitDegreeString": "128.00:00:00",
+						"OrbitRadius": 2.25312473E+11,
+						"ParentStarID": "68970148-90f0-421f-b867-b291805fe863",
+						"RingsMass": 0,
+						"RotationSpeed": -0.4971262,
+						"Temperature": 175.072433,
+						"Type": "Gas",
+						"ID": "a8af8f0d-182e-45cb-8025-2daf4dd989d2",
+						"LocationID": "68edd1ab-564e-491b-bbb0-74aa7c806791",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.96942631E+26,
+						"OrbitDegreeString": "252.00:00:00",
+						"OrbitRadius": 4.820488E+10,
+						"ParentStarID": "9827d7e0-8ba7-4ea4-a0ed-26f7df24a4a8",
+						"RingsMass": 0,
+						"RotationSpeed": -0.269946,
+						"Temperature": 411.917847,
+						"Type": "Gas",
+						"ID": "e8c98eab-ea39-4741-91b9-fe977bcf75f5",
+						"LocationID": "d0760638-f601-4a63-bd79-5de3fe122de3",
+						"Name": "PLANET0"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.172511E+27,
+						"OrbitDegreeString": "241.00:00:00",
+						"OrbitRadius": 8.810952E+10,
+						"ParentStarID": "7aa7f15f-ab4e-4270-9eb5-c1db26f6cc39",
+						"RingsMass": 0,
+						"RotationSpeed": -0.312336057,
+						"Temperature": 196.833374,
+						"Type": "Gas",
+						"ID": "6065e05f-455a-4c54-b1d2-93a899efd3a6",
+						"LocationID": "0308b2f7-bd00-441b-bb0b-a43927dbbb2a",
+						"Name": "PLANET2"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.28294143E+27,
+						"OrbitDegreeString": "137.00:00:00",
+						"OrbitRadius": 6.893201E+10,
+						"ParentStarID": "017a8b46-0c0c-4fb3-b6a7-469bd9e5cab8",
+						"RingsMass": 0,
+						"RotationSpeed": -0.608975649,
+						"Temperature": 324.5332,
+						"Type": "Gas",
+						"ID": "01b80ffd-7219-4297-a8b7-6efdd43ca45d",
+						"LocationID": "c3a4187a-cf90-458c-bdd9-91a8d7bb7583",
+						"Name": "PLANET1"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.62144567E+27,
+						"OrbitDegreeString": "300.00:00:00",
+						"OrbitRadius": 2.16476484E+11,
+						"ParentStarID": "017a8b46-0c0c-4fb3-b6a7-469bd9e5cab8",
+						"RingsMass": 0,
+						"RotationSpeed": -0.237621948,
+						"Temperature": 157.302887,
+						"Type": "Gas",
+						"ID": "75185b66-93cb-44fe-be54-466f67921989",
+						"LocationID": "c3a4187a-cf90-458c-bdd9-91a8d7bb7583",
+						"Name": "PLANET18"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 3.82154084E+27,
+						"OrbitDegreeString": "125.00:00:00",
+						"OrbitRadius": 5.02118646E+10,
+						"ParentStarID": "6f80fd08-1cc6-448b-b07a-c292ebcb468e",
+						"RingsMass": 0,
+						"RotationSpeed": -0.6929029,
+						"Temperature": 1143.66333,
+						"Type": "Gas",
+						"ID": "71df2b5a-a03c-4d04-8d81-8c314ba8aca3",
+						"LocationID": "3f943f97-0b2a-469a-bc13-7c48d2429e66",
+						"Name": "PLANET0"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 5.788522E+27,
+						"OrbitDegreeString": "99.00:00:00",
+						"OrbitRadius": 9.776782E+10,
+						"ParentStarID": "6f80fd08-1cc6-448b-b07a-c292ebcb468e",
+						"RingsMass": 0,
+						"RotationSpeed": -0.307160527,
+						"Temperature": 824.1798,
+						"Type": "Gas",
+						"ID": "a1428423-9498-4f23-a25e-43e9bf031c28",
+						"LocationID": "3f943f97-0b2a-469a-bc13-7c48d2429e66",
+						"Name": "PLANET3"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 4.386735E+27,
+						"OrbitDegreeString": "177.00:00:00",
+						"OrbitRadius": 2.093073E+11,
+						"ParentStarID": "6f80fd08-1cc6-448b-b07a-c292ebcb468e",
+						"RingsMass": 0,
+						"RotationSpeed": -0.5685874,
+						"Temperature": 567.6813,
+						"Type": "Gas",
+						"ID": "88fe0625-f8c1-4ec6-8633-c5aac2c83b0b",
+						"LocationID": "3f943f97-0b2a-469a-bc13-7c48d2429e66",
+						"Name": "PLANET17"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 7.500804E+26,
+						"OrbitDegreeString": "264.00:00:00",
+						"OrbitRadius": 8.586883E+10,
+						"ParentStarID": "e9d515d2-4e61-415e-b42f-03f74732c274",
+						"RingsMass": 0,
+						"RotationSpeed": -0.374569774,
+						"Temperature": 694.6694,
+						"Type": "Gas",
+						"ID": "46375eae-11e8-4f45-9099-9bc4f0890336",
+						"LocationID": "02acdacb-a56b-4a36-add5-f58b6ae94101",
+						"Name": "PLANET2"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 1.268774E+25,
+						"OrbitDegreeString": "31.00:00:00",
+						"OrbitRadius": 2.2420788E+11,
+						"ParentStarID": "e9d515d2-4e61-415e-b42f-03f74732c274",
+						"RingsMass": 0,
+						"RotationSpeed": -0.6634906,
+						"Temperature": 425.148315,
+						"Type": "Desert",
+						"ID": "82454d35-d522-471d-98ce-162380fbbe22",
+						"LocationID": "02acdacb-a56b-4a36-add5-f58b6ae94101",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.World.Universe.CelestialBodies.PlanetData",
+						"Mass": 2.557106E+27,
+						"OrbitDegreeString": "191.00:00:00",
+						"OrbitRadius": 2.23816352E+11,
+						"ParentStarID": "c33264ef-ec42-4035-b78d-4374c9e05120",
+						"RingsMass": 0,
+						"RotationSpeed": -0.658771932,
+						"Temperature": 259.518951,
+						"Type": "Gas",
+						"ID": "546cf860-0467-4e89-972c-bcf2120f7139",
+						"LocationID": "32f73498-b00a-4c86-a568-2e9fae4968eb",
+						"Name": "PLANET19"
+					},
+					{
+						"__type": "HabitableZone.Core.ShipLogic.ShipData",
+						"FlightTaskData": 
+							{
+								"__type": "HabitableZone.Core.ShipLogic.FlightTasks.IdleFlightTaskData"
+							},
+						"Position": 
+							{
+								"x": 4.2E+10,
+								"y": 4E+09
+							},
+						"Rotation": 0,
+						"Velocity": 
+							{
+								"x": 100000,
+								"y": 199990
+							},
+						"HardpointsData": 
+							[
+								{
+									"Name": "Cockpit",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "Reactor1",
+									"InstalledEquipmentData": 
+										{
+											"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.ReactorData",
+											"ElectricityProducerData": 
+												{
+													"MinPower": 50000000,
+													"OptimalPower": 100000000,
+													"MaxPower": 120000000,
+													"TargetProducingPower": 120000000
+												},
+											"Name": "Reactor1",
+											"DryMass": 30000,
+											"TargetEnabled": true
+										}
+								},
+								{
+									"Name": "Reactor2",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "BackHP1",
+									"InstalledEquipmentData": 
+										{
+											"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.EngineInletData",
+											"ElectricityConsumerData": 
+												{
+													"MinPower": 50000000,
+													"OptimalPower": 60000000,
+													"MaxPower": 70000000,
+													"TargetConsumingPower": 50000000,
+													"Priority": 0
+												},
+											"Name": "EngineInlet1",
+											"DryMass": 15000,
+											"TargetEnabled": true
+										}
+								},
+								{
+									"Name": "BackHP2",
+									"InstalledEquipmentData": 
+										{
+											"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.EngineInletData",
+											"ElectricityConsumerData": 
+												{
+													"MinPower": 50000000,
+													"OptimalPower": 60000000,
+													"MaxPower": 70000000,
+													"TargetConsumingPower": 50000000,
+													"Priority": 1
+												},
+											"Name": "EngineInlet2",
+											"DryMass": 15000,
+											"TargetEnabled": true
+										}
+								},
+								{
+									"Name": "MidHP1",
+									"InstalledEquipmentData": 
+										{
+											"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.HyperdriveData",
+											"MaxJumpDist": 100,
+											"HyperjumpInfo": null,
+											"Name": "Hyperdrive",
+											"DryMass": 1000,
+											"TargetEnabled": true
+										}
+								},
+								{
+									"Name": "FwdHP1",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "FwdHP2",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "LeftHP1",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "LeftHP2",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "LeftHP3",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "LeftHP4",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "RightHP1",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "RightHP2",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "RightHP3",
+									"InstalledEquipmentData": null
+								},
+								{
+									"Name": "RightHP4",
+									"InstalledEquipmentData": null
+								}
+							],
+						"ID": "d29c1833-7856-4db5-9611-cbf9e44fc3b3",
+						"LocationID": "655054be-92cb-47f7-b282-ad130c2560ff",
+						"Name": "\u041A\u043E\u0440\u0430\u0431\u043B\u044C \u0438\u0433\u0440\u043E\u043A\u0430"
+					}
+				]
+		},
+	"CaptainsData": 
+		{
+			"PlayerData": 
+				{
+					"CurrentShipID": "d29c1833-7856-4db5-9611-cbf9e44fc3b3"
+				}
+		}
+}

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C32B5E26-1703-4C76-ACFB-1D683B32DF97}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HabitableZone.Core</RootNamespace>
+    <AssemblyName>HabitableZone.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>../../HabitableZoneUnity/Assets/Plugins/CoreBuildTarget</OutputPath>
+    <DefineConstants>DEBUG;TRACE;ASSERTIONS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>../../HabitableZoneUnity/Assets/Plugins/CoreBuildTarget</OutputPath>
+    <DefineConstants>TRACE;ASSERTIONS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Pathfinding.JsonFx, Version=1.4.1003.3008, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\lib\Pathfinding.JsonFx.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\lib\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Localization\LocalizationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShipLogic\FlightTasks\FlightTask.cs" />
+    <Compile Include="ShipLogic\FlightTasks\FlyToPointFlightTask.cs" />
+    <Compile Include="ShipLogic\FlightTasks\FlyToPointFlightTask.Trajectory.cs" />
+    <Compile Include="ShipLogic\FlightTasks\HyperjumpFlightTask.cs" />
+    <Compile Include="ShipLogic\FlightTasks\IdleFlightTask.cs" />
+    <Compile Include="ShipLogic\Ship.cs" />
+    <Compile Include="ShipLogic\TrajectoryPoint.cs" />
+    <Compile Include="SpacecraftStructure\Hardpoint.cs" />
+    <Compile Include="SpacecraftStructure\Hardpoint.InstalledEquipmentManagement.cs" />
+    <Compile Include="SpacecraftStructure\Hardpoint.Mass.cs" />
+    <Compile Include="SpacecraftStructure\Hardpoint.Ownership.cs" />
+    <Compile Include="SpacecraftStructure\Hardpoints.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Electricity\ElectricityComponent.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Electricity\ElectricityConsumer.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Electricity\ElectricityProducer.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Electricity\ElectricitySubsystem.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Electricity\EquipmentNetwork.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Equipment.ActiveState.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Equipment.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Equipment.Mass.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\Equipment.Ownership.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\EquipmentComponent.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\EquipmentTrackingSubsystem.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\EquipmentTypes\EngineInlet.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\EquipmentTypes\Hyperdrive.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\EquipmentTypes\Reactor.cs" />
+    <Compile Include="SpacecraftStructure\Hardware\IEquipmentEngagementDependency.cs" />
+    <Compile Include="SpacecraftStructure\MassChangedEventArgs.cs" />
+    <Compile Include="SpacecraftStructure\Spacecraft.cs" />
+    <Compile Include="SpacecraftStructure\Spacecraft.Mass.cs" />
+    <Compile Include="World\Society\Captain.cs" />
+    <Compile Include="World\Society\Captains.cs" />
+    <Compile Include="World\SpaceObject.cs" />
+    <Compile Include="World\Universe\CelestialBodies\AsteroidField.cs" />
+    <Compile Include="World\Universe\CelestialBodies\Planet.cs" />
+    <Compile Include="World\Universe\CelestialBodies\Star.cs" />
+    <Compile Include="World\Universe\Constants.cs" />
+    <Compile Include="World\Universe\SpaceObjects.cs" />
+    <Compile Include="World\Universe\StarSystem.cs" />
+    <Compile Include="World\Universe\StarSystems.cs" />
+    <Compile Include="World\Universe\UniverseGeneration.cs" />
+    <Compile Include="World\WorldContext.cs" />
+    <Compile Include="World\WorldCtl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HabitableZone.Common\HabitableZone.Common.csproj">
+      <Project>{d558124e-7b7f-44cf-a1ab-613ceacabf73}</Project>
+      <Name>HabitableZone.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HabitableZone.Localization.Common\HabitableZone.Localization.Common.csproj">
+      <Project>{e8f3c14f-153f-4d80-bb92-6bd7c64bcb6c}</Project>
+      <Name>HabitableZone.Localization.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitableZone.Localization.Common", "HabitableZone.Localization.Common/HabitableZone.Localization.Common.csproj", "{E8F3C14F-153F-4D80-BB92-6BD7C64BCB6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitableZone.Localization.Aggregator", "HabitableZone.Localization.Aggregator\HabitableZone.Localization.Aggregator.csproj", "{A9B64FF3-4107-4022-B8CC-91F63B0D73F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitableZone.Core", "HabitableZone.Core\HabitableZone.Core.csproj", "{C32B5E26-1703-4C76-ACFB-1D683B32DF97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitableZone.Common", "HabitableZone.Common\HabitableZone.Common.csproj", "{D558124E-7B7F-44CF-A1AB-613CEACABF73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitableZone.Core.Tests", "HabitableZone.Core.Tests\HabitableZone.Core.Tests.csproj", "{9DEB15A1-97DC-4A91-8DB0-E5F96C10BBAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "..\HabitableZoneUnity\Assembly-CSharp.csproj", "{12946D00-8C8C-F8FD-1B5F-5F0A1888BE5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8F3C14F-153F-4D80-BB92-6BD7C64BCB6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F3C14F-153F-4D80-BB92-6BD7C64BCB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F3C14F-153F-4D80-BB92-6BD7C64BCB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F3C14F-153F-4D80-BB92-6BD7C64BCB6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12946D00-8C8C-F8FD-1B5F-5F0A1888BE5F}.Debug|Any CPU.Build.1 = Debug|Any CPU
+		{12946D00-8C8C-F8FD-1B5F-5F0A1888BE5F}.Release|Any CPU.Build.1 = Release|Any CPU
+		{A9B64FF3-4107-4022-B8CC-91F63B0D73F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B64FF3-4107-4022-B8CC-91F63B0D73F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9B64FF3-4107-4022-B8CC-91F63B0D73F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9B64FF3-4107-4022-B8CC-91F63B0D73F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32B5E26-1703-4C76-ACFB-1D683B32DF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32B5E26-1703-4C76-ACFB-1D683B32DF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32B5E26-1703-4C76-ACFB-1D683B32DF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32B5E26-1703-4C76-ACFB-1D683B32DF97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D558124E-7B7F-44CF-A1AB-613CEACABF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D558124E-7B7F-44CF-A1AB-613CEACABF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D558124E-7B7F-44CF-A1AB-613CEACABF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D558124E-7B7F-44CF-A1AB-613CEACABF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DEB15A1-97DC-4A91-8DB0-E5F96C10BBAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DEB15A1-97DC-4A91-8DB0-E5F96C10BBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DEB15A1-97DC-4A91-8DB0-E5F96C10BBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DEB15A1-97DC-4A91-8DB0-E5F96C10BBAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12946D00-8C8C-F8FD-1B5F-5F0A1888BE5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12946D00-8C8C-F8FD-1B5F-5F0A1888BE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

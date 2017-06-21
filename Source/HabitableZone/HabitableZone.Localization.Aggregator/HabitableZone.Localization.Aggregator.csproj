@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9B64FF3-4107-4022-B8CC-91F63B0D73F7}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HabitableZone.Localization.Aggregator</RootNamespace>
+    <AssemblyName>HabitableZone.Localization.Aggregator</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <LangVersion>6</LangVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentCommandLineParser, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\FluentCommandLineParser.1.4.3\lib\net35\FluentCommandLineParser.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\lib\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LocalizationSourcesScanner.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--Localization files added for more easy editing.-->
+    <Content Include="Localization\Shared\Units\AU\English.json" />
+    <Content Include="Localization\Shared\Units\AU\Russian.json" />
+    <Content Include="Localization\Shared\Units\Days\English.json" />
+    <Content Include="Localization\Shared\Units\Days\Russian.json" />
+    <Content Include="Localization\Shared\Units\Kelvins\English.json" />
+    <Content Include="Localization\Shared\Units\Kelvins\Russian.json" />
+    <Content Include="Localization\Shared\Units\kmps\English.json" />
+    <Content Include="Localization\Shared\Units\kmps\Russian.json" />
+    <Content Include="Localization\Shared\Units\Megawatts\English.json" />
+    <Content Include="Localization\Shared\Units\Megawatts\Russian.json" />
+    <Content Include="Localization\Shared\Units\mps^2\English.json" />
+    <Content Include="Localization\Shared\Units\mps^2\Russian.json" />
+    <Content Include="Localization\Shared\Units\Tons\English.json" />
+    <Content Include="Localization\Shared\Units\Tons\Russian.json" />
+    <Content Include="Localization\Shared\Units\Years\English.json" />
+    <Content Include="Localization\Shared\Units\Years\Russian.json" />
+    <Content Include="Localization\UI\MainMenu\LoadWorldButton\English.json" />
+    <Content Include="Localization\UI\MainMenu\LoadWorldButton\Russian.json" />
+    <Content Include="Localization\UI\MainMenu\NewWorldButton\English.json" />
+    <Content Include="Localization\UI\MainMenu\NewWorldButton\Russian.json" />
+    <Content Include="Localization\UI\MainMenu\QuitButton\English.json" />
+    <Content Include="Localization\UI\MainMenu\QuitButton\Russian.json" />
+    <Content Include="Localization\UI\MainMenu\SettingsButton\English.json" />
+    <Content Include="Localization\UI\MainMenu\SettingsButton\Russian.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Acceleration\English.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Acceleration\Russian.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Mass\English.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Mass\Russian.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Temperature\English.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Temperature\Russian.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Velocity\English.json" />
+    <Content Include="Localization\UI\Shared\CommonLabels\Velocity\Russian.json" />
+    <Content Include="Localization\UI\Shared\VersionText\English.json" />
+    <Content Include="Localization\UI\Shared\VersionText\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\PlanetTypes\Desert\English.json" />
+    <Content Include="Localization\UI\Space\HUD\PlanetTypes\Desert\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\PlanetTypes\Gas\English.json" />
+    <Content Include="Localization\UI\Space\HUD\PlanetTypes\Gas\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\PlanetTypes\Terra\English.json" />
+    <Content Include="Localization\UI\Space\HUD\PlanetTypes\Terra\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\SpaceObjectInfoPanel\PlanetInfo\OrbitalPeriod\English.json" />
+    <Content Include="Localization\UI\Space\HUD\SpaceObjectInfoPanel\PlanetInfo\OrbitalPeriod\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\SpaceObjectInfoPanel\PlanetInfo\OrbitRadius\English.json" />
+    <Content Include="Localization\UI\Space\HUD\SpaceObjectInfoPanel\PlanetInfo\OrbitRadius\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\SpaceObjectInfoPanel\StarInfo\PlanetsCount\English.json" />
+    <Content Include="Localization\UI\Space\HUD\SpaceObjectInfoPanel\StarInfo\PlanetsCount\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\Blue\English.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\Blue\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\Red\English.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\Red\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\White\English.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\White\Russian.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\Yellow\English.json" />
+    <Content Include="Localization\UI\Space\HUD\StarTypes\Yellow\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\ButtonLabel\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\ButtonLabel\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\ElectricityConsumerGroup\PowerControlLabel\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\ElectricityConsumerGroup\PowerControlLabel\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\ElectricityProducerGroup\PowerControlLabel\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\ElectricityProducerGroup\PowerControlLabel\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\EquipmentDisabledValue\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\EquipmentDisabledValue\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\EquipmentEnabledValue\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\EquipmentTab\EquipmentEnabledValue\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\ButtonLabel\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\ButtonLabel\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\HardpointNotSelected\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\HardpointNotSelected\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\InstalledEquipmentNameTitle\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\InstalledEquipmentNameTitle\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\InstalledEquipmentNullValue\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\LeftPanel\HardpointTab\InstalledEquipmentNullValue\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Available\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Available\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Consumption\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Consumption\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Generation\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Generation\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\PowerLoad\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\PowerLoad\Russian.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Title\English.json" />
+    <Content Include="Localization\UI\Space\SpacecraftView\OverallInfoPanel\Title\Russian.json" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HabitableZone.Common\HabitableZone.Common.csproj">
+      <Project>{d558124e-7b7f-44cf-a1ab-613ceacabf73}</Project>
+      <Name>HabitableZone.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HabitableZone.Localization.Common\HabitableZone.Localization.Common.csproj">
+      <Project>{E8F3C14F-153F-4D80-BB92-6BD7C64BCB6C}</Project>
+      <Name>HabitableZone.Localization.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

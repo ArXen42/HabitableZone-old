@@ -1,0 +1,137 @@
+﻿{
+	"__type": "HabitableZone.Core.ShipLogic.ShipData",
+	"FlightTaskData":
+	{
+		"__type": "HabitableZone.Core.ShipLogic.FlightTasks.IdleFlightTaskData"
+	},
+	"Position":
+	{
+		"x": 4.2E+10,
+		"y": 4E+09
+	},
+	"Rotation": 0,
+	"Velocity":
+	{
+		"x": 100000,
+		"y": 199990
+	},
+	"HardpointsData":
+	[
+		{
+			"Name": "Cockpit",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "Reactor1",
+			"InstalledEquipmentData":
+			{
+				"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.ReactorData",
+				"ElectricityProducerData":
+				{
+					"MinPower": 50000000,
+					"OptimalPower": 100000000,
+					"MaxPower": 120000000,
+					"TargetProducingPower": 120000000
+				},
+				"Name": "Reactor1",
+				"DryMass": 30000,
+				"TargetEnabled": true
+			}
+		},
+		{
+			"Name": "Reactor2",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "BackHP1",
+			"InstalledEquipmentData":
+			{
+				"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.EngineInletData",
+				"ElectricityConsumerData":
+				{
+					"MinPower": 50000000,
+					"OptimalPower": 60000000,
+					"MaxPower": 70000000,
+					"TargetConsumingPower": 65000000,
+					"Priority": 0
+				},
+				"Name": "EngineInlet1",
+				"DryMass": 15000,
+				"TargetEnabled": true
+			}
+		},
+		{
+			"Name": "BackHP2",
+			"InstalledEquipmentData":
+			{
+				"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.EngineInletData",
+				"ElectricityConsumerData":
+				{
+					"MinPower": 50000000,
+					"OptimalPower": 60000000,
+					"MaxPower": 70000000,
+					"TargetConsumingPower": 50000000,
+					"Priority": 1
+				},
+				"Name": "EngineInlet2",
+				"DryMass": 15000,
+				"TargetEnabled": true
+			}
+		},
+		{
+			"Name": "MidHP1",
+			"InstalledEquipmentData":
+			{
+				"__type": "HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes.HyperdriveData",
+				"MaxJumpDist": 100,
+				"HyperjumpInfo": null,
+				"Name": "Hyperdrive",
+				"DryMass": 1000,
+				"TargetEnabled": true
+			}
+		},
+		{
+			"Name": "FwdHP1",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "FwdHP2",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "LeftHP1",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "LeftHP2",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "LeftHP3",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "LeftHP4",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "RightHP1",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "RightHP2",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "RightHP3",
+			"InstalledEquipmentData": null
+		},
+		{
+			"Name": "RightHP4",
+			"InstalledEquipmentData": null
+		}
+	],
+	"ID": "d29c1833-7836-8db5-9611-cbf9e44fc3b3",
+	"LocationID": "ef8897c7-8b69-48d7-8b2d-28920deb51ca",
+	"Name": "Some ship"
+}

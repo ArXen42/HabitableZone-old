@@ -1,5 +1,5 @@
 ﻿{
-	"__type": "Stardust.Localization.Common.LocalizationString",
+	"__type": "HabitableZone.Localization.Common.LocalizationString",
 	"Description": "Title of UI elements used for displaying temperature of something.",
 	"Value": "Temperature"
 }

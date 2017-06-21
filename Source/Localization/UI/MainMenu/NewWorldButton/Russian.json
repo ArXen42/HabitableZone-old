@@ -1,5 +1,5 @@
 ﻿{
-	"__type": "Stardust.Localization.Common.LocalizationString",
+	"__type": "HabitableZone.Localization.Common.LocalizationString",
 	"Description": "Кнопка начала игры в новом мире.",
 	"Value": "Новый мир"
 }
