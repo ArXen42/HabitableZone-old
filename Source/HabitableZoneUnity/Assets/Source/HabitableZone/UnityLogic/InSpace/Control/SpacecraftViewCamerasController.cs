@@ -5,20 +5,12 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 {
 	public class SpacecraftViewCamerasController : MonoBehaviour
 	{
-		public Camera HullCamera
-		{
-			get { return _hullCamera; }
-		}
-
-		public Camera StructureCamera
-		{
-			get { return _structureCamera; }
-		}
+		public Camera HullCamera => _hullCamera;
+		public Camera StructureCamera => _structureCamera;
 
 		private void OnEnable()
 		{
-			transform.parent = GameObject.Find("IPDK(Clone)").transform;
-			//TODO: временно, в дальнейшем может использоваться для любых кораблей
+			transform.parent = GameObject.Find("IPDK(Clone)").transform; //Crutch
 			transform.localPosition = Vector3.zero;
 		}
 
