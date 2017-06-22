@@ -82,7 +82,7 @@
 	"UI.Shared.VersionText": 
 		{
 			"Description": "Version text usually displayed near the corner of screen.",
-			"Value": "HabitableZone Alpha v. 0.07"
+			"Value": "Habitable Zone Prototype"
 		},
 	"UI.Space.HUD.PlanetTypes.Desert": 
 		{
