@@ -1,2 +1,3 @@
 # HabitableZone
-Turn-based space game inspired by such games as Space Rangers, Elite and X Series.
+
+One day this will become a complex and realistic turn-based space game. As for now, that's just a prototype.
