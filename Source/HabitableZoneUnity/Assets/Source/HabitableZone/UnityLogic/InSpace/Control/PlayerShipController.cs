@@ -9,10 +9,12 @@ using UnityEngine.EventSystems;
 namespace HabitableZone.UnityLogic.InSpace.Control
 {
 	/// <summary>
-	///    Обрабатывает действия игрока по управлению кораблем.
-	///    Также вызывает автоостановку хода по выполнению задачи
-	///    и изменение StarSystemViewController.ObservingSystem при перемещении корабля игрока в другую систему.
+	///    Handles player ship-controlling input.
+	///    Also handles turn stop on FlightTask completion and controls StarSystemViewController.ObservingSystem.
 	/// </summary>
+	/// <remarks>
+	///    Not very Single Responsibility.
+	/// </remarks>
 	public class PlayerShipController : MonoBehaviour
 	{
 		private void Start()
@@ -48,7 +50,7 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 
 		private void HandleInput()
 		{
-			if (!Input.GetButtonDown("Fire1") || EventSystem.current.IsPointerOverGameObject())
+			if (!Input.GetButtonDown("MouseClick") || EventSystem.current.IsPointerOverGameObject())
 				return;
 
 			var targetPosition = Units.UnityUnitsPositionToMeters(
@@ -65,7 +67,6 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 			else
 			{
 				Debug.LogWarning("No thrust. Enable thrusters in order to have moving abilities.");
-				//TODO: функционал вывода подобных сообщений игроку
 			}
 		}
 

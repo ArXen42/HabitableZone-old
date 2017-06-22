@@ -16,7 +16,7 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.Minimap
 
 		private void Update()
 		{
-			if (Input.GetButtonDown("Fire1"))
+			if (Input.GetButtonDown("MouseClick"))
 				if (UIHelp.Contains(_minimapScreen, Input.mousePosition))
 					MinimapClickHandle();
 		}
