@@ -14,7 +14,6 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 			_buttonComponent = GetComponent<Button>();
 			_buttonComponent.onClick.AddListener(OnButtonClick);
 
-			_universeMapStarsController = GetComponentInParent<UniverseMapStarsController>();
 			_universeMapStarsController.TargetedStarSystemChanged += OnTargetedStarSystemChanged;
 			OnTargetedStarSystemChanged(_universeMapStarsController.TargetedStarSystem); //Инициализация
 		}
@@ -43,8 +42,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 		}
 
 		[SerializeField] private SharedGOSpawner _sharedGOSpawner;
-
+		[SerializeField] private UniverseMapStarsController _universeMapStarsController;
+		
 		private Button _buttonComponent;
-		private UniverseMapStarsController _universeMapStarsController;
 	}
 }

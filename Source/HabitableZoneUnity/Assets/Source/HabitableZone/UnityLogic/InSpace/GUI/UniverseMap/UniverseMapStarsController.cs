@@ -26,8 +26,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 
 		public event Action<StarSystem> TargetedStarSystemChanged;
 
-		private void Awake()
+		private void OnEnable()
 		{
+			
 			InstantiateStarIcons();
 		}
 
@@ -46,13 +47,12 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 
 			foreach (var system in starSystems)
 			{
-				GameObject instantiatedStarIcon = (GameObject) Instantiate(_starIconPrefab);
+				var instantiatedStarIcon = (GameObject) Instantiate(_starIconPrefab);
 				var instantiatedRectTransform = instantiatedStarIcon.GetComponent<RectTransform>();
 
 				var capturedStarSystem = system;
 				instantiatedRectTransform.SetParent(_starIconsRectTransform, false);
-				instantiatedRectTransform.anchoredPosition = system.UniverseMapPosition *
-				                                             StarPositionsMultiplier;
+				instantiatedRectTransform.anchoredPosition = system.UniverseMapPosition * StarPositionsMultiplier;
 				instantiatedStarIcon.GetComponent<Button>()
 					.onClick.AddListener(
 						() => TargetedStarSystem = capturedStarSystem);

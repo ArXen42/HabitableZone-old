@@ -19,11 +19,20 @@ namespace HabitableZone.UnityLogic.Shared
 		public GameObject SharedGO { get; private set; }
 
 		/// <summary>
-		///    More laconical way to get WorldContext from WorldHolder attached to SharedGO.
+		///    Provides more laconical way to get WorldContext from WorldHolder attached to SharedGO.
 		/// </summary>
-		public WorldContext WorldContext => SharedGO.GetComponent<WorldHolder>().WorldContext;
+		public WorldContext WorldContext
+		{
+			get
+			{
+				if (SharedGO == null)
+					InitializeSharedGO(); //In case it was called before OnEnable
+				
+				return SharedGO.GetComponent<WorldHolder>().WorldContext;
+			}
+		}
 
-		private void OnEnable()
+		private void InitializeSharedGO()
 		{
 			var found = GameObject.Find(_sharedGOPrefab.name);
 			if (found == null)
@@ -39,6 +48,11 @@ namespace HabitableZone.UnityLogic.Shared
 			{
 				SharedGO = found;
 			}
+		}
+
+		private void OnEnable() //Initializes SharedGO on startup (works in most cases)
+		{
+			InitializeSharedGO();
 		}
 
 		[SerializeField] private GameObject _sharedGOPrefab;

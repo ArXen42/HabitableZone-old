@@ -1,0 +1,207 @@
+﻿{
+	"Shared.Units.AU": 
+		{
+			"Description": "AU",
+			"Value": "AU"
+		},
+	"Shared.Units.Days": 
+		{
+			"Description": "Days",
+			"Value": "d."
+		},
+	"Shared.Units.Kelvins": 
+		{
+			"Description": "Kelvins",
+			"Value": "K"
+		},
+	"Shared.Units.Megawatts": 
+		{
+			"Description": "Megawatts",
+			"Value": "MW"
+		},
+	"Shared.Units.Tons": 
+		{
+			"Description": "Tons",
+			"Value": "t"
+		},
+	"Shared.Units.Years": 
+		{
+			"Description": "Years",
+			"Value": "y."
+		},
+	"Shared.Units.kmps": 
+		{
+			"Description": "Kilometres per second",
+			"Value": "km/s"
+		},
+	"Shared.Units.mps^2": 
+		{
+			"Description": "m/s^2",
+			"Value": "m/s^2"
+		},
+	"UI.MainMenu.LoadWorldButton": 
+		{
+			"Description": "Load saved world button.",
+			"Value": "Load world"
+		},
+	"UI.MainMenu.NewWorldButton": 
+		{
+			"Description": "New world button.",
+			"Value": "New world"
+		},
+	"UI.MainMenu.QuitButton": 
+		{
+			"Description": "Quit button.",
+			"Value": "Quit"
+		},
+	"UI.MainMenu.SettingsButton": 
+		{
+			"Description": "Settings button.",
+			"Value": "Settings"
+		},
+	"UI.Shared.CommonLabels.Acceleration": 
+		{
+			"Description": "Title of UI elements used for displaying acceleration of something.",
+			"Value": "Acceleration"
+		},
+	"UI.Shared.CommonLabels.Mass": 
+		{
+			"Description": "Title of UI elements used for displaying mass of something.",
+			"Value": "Mass"
+		},
+	"UI.Shared.CommonLabels.Temperature": 
+		{
+			"Description": "Title of UI elements used for displaying temperature of something.",
+			"Value": "Temperature"
+		},
+	"UI.Shared.CommonLabels.Velocity": 
+		{
+			"Description": "Title of UI elements used for displaying velocity of something.",
+			"Value": "Velocity"
+		},
+	"UI.Shared.VersionText": 
+		{
+			"Description": "Version text usually displayed near the corner of screen.",
+			"Value": "HabitableZone Alpha v. 0.07"
+		},
+	"UI.Space.HUD.PlanetTypes.Desert": 
+		{
+			"Description": "",
+			"Value": "Desert"
+		},
+	"UI.Space.HUD.PlanetTypes.Gas": 
+		{
+			"Description": "",
+			"Value": "Gas giant"
+		},
+	"UI.Space.HUD.PlanetTypes.Terra": 
+		{
+			"Description": "",
+			"Value": "Terra"
+		},
+	"UI.Space.HUD.SpaceObjectInfoPanel.PlanetInfo.OrbitRadius": 
+		{
+			"Description": "Planet's orbit radius.",
+			"Value": "Orbit radius"
+		},
+	"UI.Space.HUD.SpaceObjectInfoPanel.PlanetInfo.OrbitalPeriod": 
+		{
+			"Description": "Planet's orbital period.",
+			"Value": "Orbital period"
+		},
+	"UI.Space.HUD.SpaceObjectInfoPanel.StarInfo.PlanetsCount": 
+		{
+			"Description": "Planets count.",
+			"Value": "Planets"
+		},
+	"UI.Space.HUD.StarTypes.Blue": 
+		{
+			"Description": "",
+			"Value": "Blue star"
+		},
+	"UI.Space.HUD.StarTypes.Red": 
+		{
+			"Description": "",
+			"Value": "Red dwarf"
+		},
+	"UI.Space.HUD.StarTypes.White": 
+		{
+			"Description": "",
+			"Value": "White star"
+		},
+	"UI.Space.HUD.StarTypes.Yellow": 
+		{
+			"Description": "",
+			"Value": "Yellow dwarf"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.EquipmentTab.ButtonLabel": 
+		{
+			"Description": "Title of the tab",
+			"Value": "Equipment"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.EquipmentTab.ElectricityConsumerGroup.PowerControlLabel": 
+		{
+			"Description": "Label of the power control (slider, probably).",
+			"Value": "Consuming power"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.EquipmentTab.ElectricityProducerGroup.PowerControlLabel": 
+		{
+			"Description": "Label of the power control (slider, probably).",
+			"Value": "Generating power"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.EquipmentTab.EquipmentDisabledValue": 
+		{
+			"Description": "",
+			"Value": "Disabled"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.EquipmentTab.EquipmentEnabledValue": 
+		{
+			"Description": "",
+			"Value": "Enabled"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.HardpointTab.ButtonLabel": 
+		{
+			"Description": "Title of the tab",
+			"Value": "Hardpoint"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.HardpointTab.HardpointNotSelected": 
+		{
+			"Description": "",
+			"Value": "Hardpoint not selected"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.HardpointTab.InstalledEquipmentNameTitle": 
+		{
+			"Description": "",
+			"Value": "Installed"
+		},
+	"UI.Space.SpacecraftView.LeftPanel.HardpointTab.InstalledEquipmentNullValue": 
+		{
+			"Description": "",
+			"Value": "Nothing"
+		},
+	"UI.Space.SpacecraftView.OverallInfoPanel.Available": 
+		{
+			"Description": "",
+			"Value": "Available"
+		},
+	"UI.Space.SpacecraftView.OverallInfoPanel.Consumption": 
+		{
+			"Description": "",
+			"Value": "Consumption"
+		},
+	"UI.Space.SpacecraftView.OverallInfoPanel.Generation": 
+		{
+			"Description": "",
+			"Value": "Generating"
+		},
+	"UI.Space.SpacecraftView.OverallInfoPanel.PowerLoad": 
+		{
+			"Description": "",
+			"Value": "Power load"
+		},
+	"UI.Space.SpacecraftView.OverallInfoPanel.Title": 
+		{
+			"Description": "Title of panel",
+			"Value": "Spacecraft info"
+		}
+}
