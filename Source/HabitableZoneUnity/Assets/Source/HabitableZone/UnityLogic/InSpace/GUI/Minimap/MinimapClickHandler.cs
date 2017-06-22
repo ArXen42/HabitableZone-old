@@ -24,7 +24,6 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.Minimap
 		private void OnEnable()
 		{
 			_minimapCamera = GetComponentInChildren<Camera>();
-			//Мы ведь не будем делать больше одной камеры для миникарты?
 			_minimapScreen = GameObject.Find("MinimapScreen").GetComponent<RectTransform>();
 			_mainCameraTransform = Camera.main.gameObject.transform;
 		}
