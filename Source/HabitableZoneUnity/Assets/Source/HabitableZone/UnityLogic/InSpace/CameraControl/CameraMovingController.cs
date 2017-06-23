@@ -4,7 +4,7 @@ using UnityEngine;
 namespace HabitableZone.UnityLogic.InSpace.CameraControl
 {
 	/// <summary>
-	///    Контроллирует перемещение камеры.
+	///    Controls camera movement.
 	/// </summary>
 	public class CameraMovingController : MonoBehaviour
 	{
@@ -35,13 +35,17 @@ namespace HabitableZone.UnityLogic.InSpace.CameraControl
 			if (translateVector != Vector2.zero)
 				GetComponent<CameraController>().SetFree();
 			_transform.Translate(translateVector * Time.deltaTime * SpeedFactor);
+
+			_camera.orthographicSize += Input.GetAxis("MouseScrollWheel");
 		}
 
 		private void OnEnable()
 		{
 			_transform = GetComponent<Transform>();
+			_camera = GetComponent<Camera>();
 		}
 
 		private Transform _transform;
+		private Camera _camera;
 	}
 }
