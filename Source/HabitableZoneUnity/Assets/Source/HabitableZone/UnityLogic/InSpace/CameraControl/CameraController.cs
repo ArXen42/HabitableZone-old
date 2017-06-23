@@ -7,7 +7,7 @@ using UnityEngine;
 namespace HabitableZone.UnityLogic.InSpace.CameraControl
 {
 	/// <summary>
-	///    Контроллер состояний камеры.
+	///    Camera's states controller.
 	/// </summary>
 	public class CameraController : MonoBehaviour
 	{
@@ -62,7 +62,7 @@ namespace HabitableZone.UnityLogic.InSpace.CameraControl
 
 		private void Update()
 		{
-			if (Input.GetKeyDown(KeyCode.C))
+			if (Input.GetButtonDown("JumpToShipButton"))
 			{
 				var worldContext = _starSystemViewController.ObservingStarSystem.WorldContext;
 
