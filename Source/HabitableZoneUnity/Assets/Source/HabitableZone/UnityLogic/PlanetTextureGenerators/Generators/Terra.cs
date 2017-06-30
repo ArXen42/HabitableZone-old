@@ -8,6 +8,9 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 {
 	public sealed class Terra : PlanetTextureGenerator
 	{
+		private const Single SnowRoughness = 0.03f; //TODO: при необходимости - добавить возможность изменения
+		private const Single GreenRoughness = 0.1f;
+
 		public Terra(Int32 ySize, PlanetData planetData, Single waterLevel = 0.25f, Single roughness = 1.5f)
 			: base(ySize, planetData)
 		{
@@ -16,9 +19,6 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 			Roughness = roughness;
 			WaterLevel = waterLevel;
 		}
-
-		private const Single SnowRoughness = 0.03f; //TODO: при необходимости - добавить возможность изменения
-		private const Single GreenRoughness = 0.1f;
 
 		public Single Roughness
 		{
@@ -31,8 +31,76 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 					ParametersChanged = true;
 				}
 				else
+				{
 					throw new ArgumentException("Roughness should be greater then zero!");
+				}
 			}
+		}
+
+		protected override Color[] GenerateTextureColors()
+		{
+			_heighmapGen.GenerateDiamondSquareHeighmap();
+			_heighmapGen.Sqr();
+
+			_snowEdge = YSize / 6;
+			_greenEdge = YSize / 2;
+			GenerateBiomes();
+
+			var colors = new Color[YSize * XSize];
+
+			Int32 counter = 0;
+			for (Int32 y = 0; y < YSize; y++)
+			for (Int32 x = 0; x < XSize; x++)
+			{
+				Single height = _heighmapGen.Heighmap[x, y];
+
+				if (height < WaterLevel)
+				{
+					colors[counter] = OceanColor(height);
+				}
+				else
+				{
+					if (Curves.CheckInRange(y + Random.Range(-10, 10), _southGreen[x], _northGreen[x]))
+					{
+						colors[counter] = DesertColor(height);
+						if (height < WaterLevel + 0.1f + Random.Range(-0.1f, 0.1f))
+							colors[counter] = GreenColor(height);
+					}
+					else
+					{
+						colors[counter] = GreenColor(height);
+					}
+
+					if (height > 0.82f + Random.Range(-0.05f, 0.05f))
+						colors[counter] = MountainsColor(height);
+				}
+				if (y < _southSnow[x] + Random.Range(-10, 10) || y > _northSnow[x] + Random.Range(-10, 10))
+					colors[counter] = SnowColor(height);
+
+				counter++;
+			}
+
+			return colors;
+		}
+
+		protected override Color[] GenerateHeighmapColors()
+		{
+			var colors = new Color[YSize * XSize];
+
+			Int32 counter = 0;
+			for (Int32 y = 0; y < YSize; y++)
+			for (Int32 x = 0; x < XSize; x++)
+			{
+				Single height = _heighmapGen.Heighmap[x, y];
+				if (height > 1.1f)
+					height = 1f;
+
+				colors[counter] = new Color(height, height, height);
+
+				counter++;
+			}
+
+			return colors;
 		}
 
 		private Single WaterLevel
@@ -46,7 +114,9 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 					ParametersChanged = true;
 				}
 				else
+				{
 					throw new ArgumentException("Water level should be greater then zero!");
+				}
 			}
 		}
 
@@ -115,68 +185,6 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 				height * height / 2 + rnd - 0.1f,
 				height * height / 2 + rnd - 0.05f
 			);
-		}
-
-		protected override Color[] GenerateTextureColors()
-		{
-			_heighmapGen.GenerateDiamondSquareHeighmap();
-			_heighmapGen.Sqr();
-
-			_snowEdge = YSize / 6;
-			_greenEdge = YSize / 2;
-			GenerateBiomes();
-
-			var colors = new Color[YSize * XSize];
-
-			Int32 counter = 0;
-			for (Int32 y = 0; y < YSize; y++)
-			for (Int32 x = 0; x < XSize; x++)
-			{
-				Single height = _heighmapGen.Heighmap[x, y];
-
-				if (height < WaterLevel)
-					colors[counter] = OceanColor(height);
-				else
-				{
-					if (Curves.CheckInRange(y + Random.Range(-10, 10), _southGreen[x], _northGreen[x]))
-					{
-						colors[counter] = DesertColor(height);
-						if (height < WaterLevel + 0.1f + Random.Range(-0.1f, 0.1f))
-							colors[counter] = GreenColor(height);
-					}
-					else
-						colors[counter] = GreenColor(height);
-
-					if (height > 0.82f + Random.Range(-0.05f, 0.05f))
-						colors[counter] = MountainsColor(height);
-				}
-				if ((y < _southSnow[x] + Random.Range(-10, 10)) || (y > _northSnow[x] + Random.Range(-10, 10)))
-					colors[counter] = SnowColor(height);
-
-				counter++;
-			}
-
-			return colors;
-		}
-
-		protected override Color[] GenerateHeighmapColors()
-		{
-			var colors = new Color[YSize * XSize];
-
-			Int32 counter = 0;
-			for (Int32 y = 0; y < YSize; y++)
-			for (Int32 x = 0; x < XSize; x++)
-			{
-				Single height = _heighmapGen.Heighmap[x, y];
-				if (height > 1.1f)
-					height = 1f;
-
-				colors[counter] = new Color(height, height, height);
-
-				counter++;
-			}
-
-			return colors;
 		}
 
 

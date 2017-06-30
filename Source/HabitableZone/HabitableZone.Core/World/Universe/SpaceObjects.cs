@@ -16,29 +16,17 @@ namespace HabitableZone.Core.World.Universe
 			_spaceObjectsDictionary = new Dictionary<Guid, SpaceObject>();
 		}
 
-		public SpaceObjectsData GetSerializationData()
-		{
-			return new SpaceObjectsData(this);
-		}
-
-		/// <summary>
-		///    Called immediately after constructor. Separated because initialization of WorldContext fields first is required.
-		/// </summary>
-		internal void InitializeFromData(SpaceObjectsData data)
-		{
-			foreach (var spaceObjectData in data.SpaceObjects.Where(soData => soData is StarData))
-				spaceObjectData.GetInstanceFromData(WorldContext);
-
-			foreach (var spaceObjectData in data.SpaceObjects.Where(soData => !(soData is StarData)))
-				spaceObjectData.GetInstanceFromData(WorldContext);
-		}
-
 		public WorldContext WorldContext { get; }
 
 		/// <summary>
 		///    Returns collection of all objects in the world.
 		/// </summary>
 		public IEnumerable<SpaceObject> All => _spaceObjectsDictionary.Values;
+
+		public SpaceObjectsData GetSerializationData()
+		{
+			return new SpaceObjectsData(this);
+		}
 
 		/// <summary>
 		///    Returns collection of all objects in the world of given type.
@@ -70,6 +58,18 @@ namespace HabitableZone.Core.World.Universe
 		public void Remove(SpaceObject spaceObject)
 		{
 			_spaceObjectsDictionary.Remove(spaceObject.ID);
+		}
+
+		/// <summary>
+		///    Called immediately after constructor. Separated because initialization of WorldContext fields first is required.
+		/// </summary>
+		internal void InitializeFromData(SpaceObjectsData data)
+		{
+			foreach (var spaceObjectData in data.SpaceObjects.Where(soData => soData is StarData))
+				spaceObjectData.GetInstanceFromData(WorldContext);
+
+			foreach (var spaceObjectData in data.SpaceObjects.Where(soData => !(soData is StarData)))
+				spaceObjectData.GetInstanceFromData(WorldContext);
 		}
 
 		private readonly Dictionary<Guid, SpaceObject> _spaceObjectsDictionary;

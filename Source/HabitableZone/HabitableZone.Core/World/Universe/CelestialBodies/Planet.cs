@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Xml;
-using System.Xml.Serialization;
-using Pathfinding.Serialization.JsonFx;
 using HabitableZone.Common;
+using Pathfinding.Serialization.JsonFx;
 using UnityEngine;
 
 namespace HabitableZone.Core.World.Universe.CelestialBodies
@@ -33,10 +31,7 @@ namespace HabitableZone.Core.World.Universe.CelestialBodies
 			return new PlanetData(this);
 		}
 
-		public override Vector2 Position
-		{
-			get { return PositionAtDate(WorldContext.WorldCtl.Date); }
-		}
+		public override Vector2 Position => PositionAtDate(WorldContext.WorldCtl.Date);
 
 		public Single Mass { get; set; }
 
@@ -122,7 +117,7 @@ namespace HabitableZone.Core.World.Universe.CelestialBodies
 		{
 			OrbitPeriod = new TimeSpan(0, 0, 0,
 				(Int32) (2 * Math.PI * Mathf.Sqrt(_radius * _radius * _radius /
-				                                  (Constants.GravitationalConstant * ParentStar.Mass))));
+															 (Constants.GravitationalConstant * ParentStar.Mass))));
 		}
 
 		private Guid _parentStarID;
@@ -147,14 +142,11 @@ namespace HabitableZone.Core.World.Universe.CelestialBodies
 			OrbitDegree = planet.OrbitDegree;
 		}
 
-		public Single Mass;
-		public String OrbitDegreeString;
-		public Single OrbitRadius;
-		public Guid ParentStarID;
-		public Single RingsMass;
-		public Single RotationSpeed;
-		public Single Temperature;
-		public PlanetType Type;
+
+		public override SpaceObject GetInstanceFromData(WorldContext worldContext)
+		{
+			return new Planet(worldContext, this);
+		}
 
 		[JsonIgnore]
 		public TimeSpan OrbitDegree
@@ -168,10 +160,13 @@ namespace HabitableZone.Core.World.Universe.CelestialBodies
 			set { OrbitDegreeString = value.ToString(); }
 		}
 
-
-		public override SpaceObject GetInstanceFromData(WorldContext worldContext)
-		{
-			return new Planet(worldContext, this);
-		}
+		public Single Mass;
+		public String OrbitDegreeString;
+		public Single OrbitRadius;
+		public Guid ParentStarID;
+		public Single RingsMass;
+		public Single RotationSpeed;
+		public Single Temperature;
+		public PlanetType Type;
 	}
 }

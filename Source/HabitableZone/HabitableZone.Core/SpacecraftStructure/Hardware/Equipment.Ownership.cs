@@ -1,6 +1,5 @@
 using System;
 using HabitableZone.Common;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware
 {

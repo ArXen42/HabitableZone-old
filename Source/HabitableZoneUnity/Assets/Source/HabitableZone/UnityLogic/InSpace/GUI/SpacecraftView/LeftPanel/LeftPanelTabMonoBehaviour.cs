@@ -21,6 +21,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.LeftPanel
 
 		protected ElectricitySubsystem SpacecraftElectricitySubsystem => SpacecraftViewController.Spacecraft.ElectricitySubsystem;
 
+		protected abstract void OnEnableAction();
+		protected abstract void OnDisableAction();
+
 		private void OnEnable()
 		{
 			SpacecraftViewController = GetComponentInParent<SpacecraftViewController>();
@@ -38,8 +41,5 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.LeftPanel
 			SelectedHardpoint = null;
 			SelectedHardpointEquipment = null;
 		}
-
-		protected abstract void OnEnableAction();
-		protected abstract void OnDisableAction();
 	}
 }

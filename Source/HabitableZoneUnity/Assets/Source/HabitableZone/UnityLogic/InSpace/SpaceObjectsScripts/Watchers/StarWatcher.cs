@@ -6,9 +6,8 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts.Watchers
 {
 	public class StarWatcher : SpaceObjectWatcher
 	{
-		public Star Star;
-
 		public override SpaceObject SpaceObject => Star;
+		public Star Star;
 
 		private void OnEnable()
 		{

@@ -18,39 +18,18 @@ namespace HabitableZone.Core.World.Universe
 			VoidID = Guid.Empty;
 		}
 
-		public StarSystemsData GetSerializationData()
-		{
-			return new StarSystemsData(this);
-		}
-
-		/// <summary>
-		///    Called immediately after constructor. Separated because initialization of WorldContext fields is required.
-		/// </summary>
-		internal void InitializeFromData(StarSystemsData data)
-		{
-			if (Void != null) throw new InvalidOperationException("Already initialized.");
-
-			Void = new StarSystem(WorldContext, new StarSystemData() {ID = VoidID, UniverseMapPosition = Vector2.zero});
-
-			foreach (var starSystemData in data.StarSystems)
-				starSystemData.GetInstanceFromData(WorldContext);
-		}
-
-		public WorldContext WorldContext { get; private set; }
+		public WorldContext WorldContext { get; }
 
 		/// <summary>
 		///    Пустая система, служащая временным буфером.
 		/// </summary>
 		public StarSystem Void { get; private set; }
 
-		/// <summary>
-		///    Пустая система, служащая временным буфером.
-		/// </summary>
-		public readonly Guid VoidID;
+		public IEnumerable<StarSystem> All => _starSystemsDictionary.Values.Except(new[] {Void});
 
-		public IEnumerable<StarSystem> All
+		public StarSystemsData GetSerializationData()
 		{
-			get { return _starSystemsDictionary.Values.Except(new[] {Void}); }
+			return new StarSystemsData(this);
 		}
 
 		/// <summary>
@@ -70,6 +49,24 @@ namespace HabitableZone.Core.World.Universe
 		public void Add(StarSystem starSystem)
 		{
 			_starSystemsDictionary.Add(starSystem.ID, starSystem);
+		}
+
+		/// <summary>
+		///    Пустая система, служащая временным буфером.
+		/// </summary>
+		public readonly Guid VoidID;
+
+		/// <summary>
+		///    Called immediately after constructor. Separated because initialization of WorldContext fields is required.
+		/// </summary>
+		internal void InitializeFromData(StarSystemsData data)
+		{
+			if (Void != null) throw new InvalidOperationException("Already initialized.");
+
+			Void = new StarSystem(WorldContext, new StarSystemData {ID = VoidID, UniverseMapPosition = Vector2.zero});
+
+			foreach (var starSystemData in data.StarSystems)
+				starSystemData.GetInstanceFromData(WorldContext);
 		}
 
 		private readonly Dictionary<Guid, StarSystem> _starSystemsDictionary;

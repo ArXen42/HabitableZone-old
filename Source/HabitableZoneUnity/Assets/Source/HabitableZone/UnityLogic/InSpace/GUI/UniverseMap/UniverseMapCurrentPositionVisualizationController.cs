@@ -9,10 +9,11 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 		{
 			var player = _sharedGOSpawner.WorldContext.Captains.Player;
 			_shipIcon.anchoredPosition = player.CurrentShip.Location.UniverseMapPosition *
-			                             GetComponentInParent<UniverseMapStarsController>().StarPositionsMultiplier;
+												  GetComponentInParent<UniverseMapStarsController>().StarPositionsMultiplier;
 		}
 
-		[SerializeField] private RectTransform _shipIcon;
 		[SerializeField] private SharedGOSpawner _sharedGOSpawner;
+
+		[SerializeField] private RectTransform _shipIcon;
 	}
 }

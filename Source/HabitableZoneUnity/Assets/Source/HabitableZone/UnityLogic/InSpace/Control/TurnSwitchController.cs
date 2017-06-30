@@ -11,17 +11,16 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 	/// </summary>
 	public class TurnSwitchController : MonoBehaviour
 	{
-		public Boolean AutoStartNextTurnEnabled;
-		public Boolean FastTurnSwitchModeEnabled;
-
 		/// <summary>
-		///   Если ход неактивен, начинает новый ход,
-		///   в противном случае выключает автопродолжение.
+		///    Если ход неактивен, начинает новый ход,
+		///    в противном случае выключает автопродолжение.
 		/// </summary>
 		public void CallTurnToggle()
 		{
 			if (_worldContext.WorldCtl.IsTurnActive)
+			{
 				CallTurnStop();
+			}
 			else
 			{
 				CallStartNextTurn();
@@ -30,7 +29,7 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 		}
 
 		/// <summary>
-		///   Вызывает начало следующего хода.
+		///    Вызывает начало следующего хода.
 		/// </summary>
 		public void CallStartNextTurn()
 		{
@@ -46,6 +45,9 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 			AutoStartNextTurnEnabled = false;
 		}
 
+		public Boolean AutoStartNextTurnEnabled;
+		public Boolean FastTurnSwitchModeEnabled;
+
 		private void OnEnable()
 		{
 			_worldContext = _sharedGOSpawner.WorldContext;
@@ -60,12 +62,10 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 		private void HandleTurnTimerCheck()
 		{
 			if (_worldContext.WorldCtl.IsTurnActive)
-			{
 				if (FastTurnSwitchModeEnabled)
 					_worldContext.WorldCtl.StopTurn();
 				else
 					_worldContext.WorldCtl.UpdateAndCheckTimer();
-			}
 		}
 
 		private void HandleTurnSwitchMode()

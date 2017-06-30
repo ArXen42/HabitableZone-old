@@ -9,9 +9,6 @@ namespace HabitableZone.UnityLogic.InSpace
 	/// </summary>
 	public class Units
 	{
-		public const Int64 AuToMeters = 149597870700;
-		public const Single MetersToAu = 1.0f / AuToMeters;
-
 		public static readonly Int32 Multiplier = 10; //Столько млн км содержится в 1 единице transform
 
 		public static Single UnityUnitsToMeters(Single uu)
@@ -38,5 +35,8 @@ namespace HabitableZone.UnityLogic.InSpace
 		{
 			return Math.Round(watts / 1e6f, 1).ToString(CultureInfo.InvariantCulture);
 		}
+
+		public const Int64 AuToMeters = 149597870700;
+		public const Single MetersToAu = 1.0f / AuToMeters;
 	}
 }

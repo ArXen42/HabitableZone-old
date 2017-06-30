@@ -6,9 +6,8 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts.Watchers
 {
 	public class ShipWatcher : SpaceObjectWatcher
 	{
-		public Ship Ship;
-
 		public override SpaceObject SpaceObject => Ship;
+		public Ship Ship;
 
 		private void Start()
 		{

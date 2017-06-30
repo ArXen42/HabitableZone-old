@@ -1,7 +1,6 @@
 ﻿using System;
 using HabitableZone.Common;
 using UnityEngine;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 {
@@ -19,7 +18,7 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		{
 			String str = String.Empty;
 
-			Node iteratingNode = _head;
+			var iteratingNode = First;
 			str += iteratingNode.InputPower;
 			do
 			{
@@ -31,19 +30,28 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		}
 
 		/// <summary>
+		///    Occurs when some node's input power has changed.
+		/// </summary>
+		/// <remarks>
+		///    Usually changing some node's input power causing chain reaction.
+		///    This event is called once only after new power state will be fully established and carries initial node.
+		/// </remarks>
+		public event CEventHandler<EquipmentNetwork> PowerStateChanged;
+
+		/// <summary>
 		///    Gets the number of nodes actually contained in the network (or however it can be called).
 		/// </summary>
-		public Int32 Count => _count;
+		public Int32 Count { get; private set; }
 
 		/// <summary>
 		///    Gets the first node.
 		/// </summary>
-		public Node First => _head;
+		public Node First { get; private set; }
 
 		/// <summary>
 		///    Gets the last node.
 		/// </summary>
-		public Node Last => _head?._prev;
+		public Node Last => First?._prev;
 
 		/// <summary>
 		///    Used to easily determine overall producing power.
@@ -55,27 +63,18 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		public Node LastProducerNode { get; private set; }
 
 		/// <summary>
-		///    Occurs when some node's input power has changed.
-		/// </summary>
-		/// <remarks>
-		///    Usually changing some node's input power causing chain reaction.
-		///    This event is called once only after new power state will be fully established and carries initial node.
-		/// </remarks>
-		public event CEventHandler<EquipmentNetwork> PowerStateChanged;
-
-		/// <summary>
 		///    Finds node associated with given equipment.
 		/// </summary>
 		public Node Find(Equipment equipment)
 		{
-			Node node = _head;
+			var node = First;
 			if (node == null) return null;
 
 			do
 			{
 				if (node.Equipment == equipment) return node;
 				node = node._next;
-			} while (node != _head);
+			} while (node != First);
 
 			return null;
 		}
@@ -90,14 +89,14 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		public Node InsertEquipment(Equipment equipment)
 		{
 			var node = Node.CreateNode(this, equipment);
-			if (_head == null)
+			if (First == null)
 			{
 				InsertNodeToEmptyList(node);
 				return node;
 			}
 
 			Int16 priority = node.Priority;
-			Node iteratingNode = _head;
+			var iteratingNode = First;
 			while (iteratingNode.Next != null && iteratingNode.Next.Priority <= priority)
 				iteratingNode = iteratingNode._next;
 
@@ -121,11 +120,30 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		}
 
 		/// <summary>
+		///    Determines whether some node started a chain of InputPower/OutputPower properties changes.
+		///    This property is used to guarantee calling PowerStateChanged only at the end of the process.
+		/// </summary>
+		private Boolean PowerRedistributionInProcess
+		{
+			get { return _powerRedistributionInProcess; }
+			set
+			{
+				Assert.IsFalse(!value && !_powerRedistributionInProcess,
+					"This shouldn't be setted to false twice because it indicates the end of power changes cascade.");
+
+				if (!value && PowerStateChanged != null)
+					PowerStateChanged.Invoke(this); //Invoking power state changed at the end of changes cascade.
+
+				_powerRedistributionInProcess = value;
+			}
+		}
+
+		/// <summary>
 		///    Removes node from internal linked list.
 		/// </summary>
 		private void RemoveNode(Node node)
 		{
-			Assert.IsFalse(_head == null, "This method shouldn't be called on empty list.");
+			Assert.IsFalse(First == null, "This method shouldn't be called on empty list.");
 			Assert.IsFalse(node == null, "Attempted to remove null node.");
 
 			node.HandleRemoval();
@@ -135,20 +153,20 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 
 			if (node._next == node)
 			{
-				Assert.IsTrue(_count == 1 && _head == node);
-				_head = null;
+				Assert.IsTrue(Count == 1 && First == node);
+				First = null;
 			}
 			else
 			{
 				node._next._prev = node._prev;
 				node._prev._next = node._next;
 
-				if (_head == node)
-					_head = node._next;
+				if (First == node)
+					First = node._next;
 			}
 
 			node.Invalidate();
-			_count--;
+			Count--;
 		}
 
 		/// <summary>
@@ -161,8 +179,8 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		{
 			InternalInsertBefore(node, newNode);
 
-			if (node == _head)
-				_head = newNode;
+			if (node == First)
+				First = newNode;
 
 			newNode.HandleInsertion();
 		}
@@ -188,7 +206,7 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			newNode._prev = node._prev;
 			node._prev._next = newNode;
 			node._prev = newNode;
-			_count++;
+			Count++;
 		}
 
 		/// <summary>
@@ -196,36 +214,14 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		/// </summary>
 		private void InsertNodeToEmptyList(Node node)
 		{
-			Assert.IsTrue(_head == null && _count == 0, "EquipmentNetwork must be empty when this method is called.");
+			Assert.IsTrue(First == null && Count == 0, "EquipmentNetwork must be empty when this method is called.");
 			node._next = node;
 			node._prev = node;
-			_head = node;
-			_count++;
+			First = node;
+			Count++;
 
 			node.HandleInsertion();
 		}
-
-		/// <summary>
-		///    Determines whether some node started a chain of InputPower/OutputPower properties changes.
-		///    This property is used to guarantee calling PowerStateChanged only at the end of the process.
-		/// </summary>
-		private Boolean PowerRedistributionInProcess
-		{
-			get { return _powerRedistributionInProcess; }
-			set
-			{
-				Assert.IsFalse(!value && !_powerRedistributionInProcess,
-					"This shouldn't be setted to false twice because it indicates the end of power changes cascade.");
-
-				if (!value && PowerStateChanged != null)
-					PowerStateChanged.Invoke(this); //Invoking power state changed at the end of changes cascade.
-
-				_powerRedistributionInProcess = value;
-			}
-		}
-
-		private Node _head;
-		private Int32 _count;
 
 		//We don't need PowerStateChanged to occur before the new power state will be completely established,
 		//so we have this field and property.
@@ -250,8 +246,8 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 				if (producer == null && consumer != null) return new ConsumerNode(equipmentNetwork, equipment);
 
 				throw new ArgumentException("Electricity subsystem currently doesn't support electricity " +
-				                            "consumer and producer being on equipment simultaneously. " +
-				                            "If it's really needed, implement desired behaviour.");
+													 "consumer and producer being on equipment simultaneously. " +
+													 "If it's really needed, implement desired behaviour.");
 			}
 
 			/// <summary>
@@ -268,14 +264,33 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			}
 
 			/// <summary>
+			///    Occurs when the input (and probably output) power has been changed.
+			/// </summary>
+			/// <remarks>
+			///    Occurs only when the correct power state of node is established
+			///    (not between changes of InputPower and OutputPower, for example).
+			/// </remarks>
+			public event CEventHandler<Node> PowerConfigurationChanged;
+
+			/// <summary>
+			///    Occures when equipment engagement becomes allowed by this subsystem.
+			/// </summary>
+			public event CEventHandler<Node> EquipmentEngagementAllowed;
+
+			/// <summary>
+			///    Occures when equipment no longer can be enabled (or should be immediately disabled).
+			/// </summary>
+			public event CEventHandler<Node> EquipmentEngagementProhibited;
+
+			/// <summary>
 			///    Gets the next node in chain.
 			/// </summary>
-			public Node Next => _next == null || _next == EquipmentNetwork._head ? null : _next;
+			public Node Next => _next == null || _next == EquipmentNetwork.First ? null : _next;
 
 			/// <summary>
 			///    Gets the previous node in chain.
 			/// </summary>
-			public Node Previous => _prev == null || this == EquipmentNetwork._head ? null : _prev;
+			public Node Previous => _prev == null || this == EquipmentNetwork.First ? null : _prev;
 
 			/// <summary>
 			///    EquipmentNetwork this node belongs to.
@@ -341,25 +356,6 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			}
 
 			/// <summary>
-			///    Occurs when the input (and probably output) power has been changed.
-			/// </summary>
-			/// <remarks>
-			///    Occurs only when the correct power state of node is established
-			///    (not between changes of InputPower and OutputPower, for example).
-			/// </remarks>
-			public event CEventHandler<Node> PowerConfigurationChanged;
-
-			/// <summary>
-			///    Occures when equipment engagement becomes allowed by this subsystem.
-			/// </summary>
-			public event CEventHandler<Node> EquipmentEngagementAllowed;
-
-			/// <summary>
-			///    Occures when equipment no longer can be enabled (or should be immediately disabled).
-			/// </summary>
-			public event CEventHandler<Node> EquipmentEngagementProhibited;
-
-			/// <summary>
 			///    Internal method called when node is inserted to the chain.
 			/// </summary>
 			internal void HandleInsertion() //It's private
@@ -392,6 +388,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 				_next = null;
 				_prev = null;
 			}
+
+			internal Node _next; //It's private
+			internal Node _prev; //It's private
 
 			/// <summary>
 			///    This is called after the node has been inserted to the network.
@@ -437,8 +436,6 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 				PowerConfigurationChanged?.Invoke(this);
 			}
 
-			internal Node _next; //It's private
-			internal Node _prev; //It's private
 			private Int64 _inputPower;
 			private Int64 _outputPower;
 		}
@@ -456,9 +453,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 				Assert.IsNull(equipment.GetComponent<ElectricityConsumer>());
 			}
 
-			public readonly ElectricityProducer ProducerComponent;
-
 			public override Int16 Priority => -1;
+
+			public readonly ElectricityProducer ProducerComponent;
 
 			protected override void OnInsertion()
 			{
@@ -490,8 +487,8 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			{
 				if (!value && Equipment.TargetEnabled)
 					Debug.LogWarning("Some producer has been disabled while his TargetEnabled was true. " +
-					                             "This is supported behaviour, but check if it's not a bug and shutdown " +
-					                             "was caused by non-electrical reasons (or were it intended changes in electrical logic?).");
+										  "This is supported behaviour, but check if it's not a bug and shutdown " +
+										  "was caused by non-electrical reasons (or were it intended changes in electrical logic?).");
 
 				UpdateOutputPower();
 			}
@@ -524,9 +521,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 				Assert.IsNull(equipment.GetComponent<ElectricityProducer>());
 			}
 
-			public readonly ElectricityConsumer ConsumerComponent;
-
 			public override Int16 Priority => ConsumerComponent.Priority;
+
+			public readonly ElectricityConsumer ConsumerComponent;
 
 			protected override void OnInsertion()
 			{
@@ -570,7 +567,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 						Assert.IsTrue(InputPower == OutputPower, "Equipment disabled, but output power isn't equal to input.");
 					}
 					else
+					{
 						UpdateOutputPower(false);
+					}
 				}
 			}
 

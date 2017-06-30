@@ -60,14 +60,10 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 			var player = _worldContext.Captains.Player;
 
 			if (player.CurrentShip.Acceleration > 0)
-			{
 				player.CurrentShip.CurrentFlightTask =
 					new FlyToPointFlightTask(player.CurrentShip, targetPosition);
-			}
 			else
-			{
 				Debug.LogWarning("No thrust. Enable thrusters in order to have moving abilities.");
-			}
 		}
 
 		private void OnPlayerCurrentTaskCompleteOrCancelled(Ship ship, FlightTask flightTask)
@@ -90,8 +86,9 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 			}
 		}
 
-		[SerializeField] private TurnSwitchController _turnSwitchController;
 		[SerializeField] private StarSystemViewController _starSystemViewController;
+
+		[SerializeField] private TurnSwitchController _turnSwitchController;
 
 		private WorldContext _worldContext;
 	}

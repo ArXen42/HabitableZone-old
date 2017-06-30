@@ -17,7 +17,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 		{
 			var shipWatcher = watcher as ShipWatcher;
 			if (shipWatcher == null)
+			{
 				gameObject.SetActive(false);
+			}
 			else
 			{
 				UpdateValues(shipWatcher.Ship);
@@ -32,8 +34,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 			_velocityValueText.text = Mathf.RoundToInt(ship.Velocity.magnitude / 1e3f).ToString();
 		}
 
-		[SerializeField] private Text _shipNameText;
 		[SerializeField] private Text _massValueText;
+
+		[SerializeField] private Text _shipNameText;
 		[SerializeField] private Text _velocityValueText;
 	}
 }

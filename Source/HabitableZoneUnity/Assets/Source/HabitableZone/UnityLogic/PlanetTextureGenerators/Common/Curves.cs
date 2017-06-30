@@ -8,16 +8,6 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Common
 	/// </summary>
 	public static class Curves
 	{
-		private static void MidPointDisplacement1D(ref Int32[] curve, Int32 l, Int32 r, Single roughness)
-		{
-			if (r - l > 1)
-			{
-				curve[(l + r) / 2] = (curve[l] + curve[r]) / 2 + (Int32) Random.Range(-(r - l) * roughness, (r - l) * roughness);
-				MidPointDisplacement1D(ref curve, l, (l + r) / 2, roughness);
-				MidPointDisplacement1D(ref curve, (l + r) / 2, r, roughness);
-			}
-		}
-
 		/// <summary>
 		///    Проверяет вхождение значения в диапазон
 		/// </summary>
@@ -48,6 +38,16 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Common
 
 			MidPointDisplacement1D(ref curve, 0, size - 1, roughness);
 			return curve;
+		}
+
+		private static void MidPointDisplacement1D(ref Int32[] curve, Int32 l, Int32 r, Single roughness)
+		{
+			if (r - l > 1)
+			{
+				curve[(l + r) / 2] = (curve[l] + curve[r]) / 2 + (Int32) Random.Range(-(r - l) * roughness, (r - l) * roughness);
+				MidPointDisplacement1D(ref curve, l, (l + r) / 2, roughness);
+				MidPointDisplacement1D(ref curve, (l + r) / 2, r, roughness);
+			}
 		}
 	}
 }

@@ -6,9 +6,8 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts.Watchers
 {
 	public class AsteroidFieldWatcher : SpaceObjectWatcher
 	{
-		public AsteroidField AsteroidField;
-
 		public override SpaceObject SpaceObject => AsteroidField;
+		public AsteroidField AsteroidField;
 
 		private void OnEnable()
 		{

@@ -27,7 +27,7 @@ namespace HabitableZone.UnityLogic.InSpace.CameraControl
 
 			if (normalizedTimer <= 1)
 				_transform.position = (Vector3) Vector2.Lerp(_transform.position, TargetPos, normalizedTimer) +
-				                      10 * Vector3.back;
+											 10 * Vector3.back;
 			else
 				GetComponent<CameraController>().SetFree(); //Не будем городить события
 		}

@@ -23,6 +23,21 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 		/// </summary>
 		public static readonly Single SqrTargetDistanceTolerance = 1e17f;
 
+		private static Single Sqrt(Single num)
+		{
+			return Mathf.Sqrt(num);
+		}
+
+		private static Single Sqrt4(Single num)
+		{
+			return Mathf.Sqrt(Mathf.Sqrt(num));
+		}
+
+		private static Single Sqr(Single num)
+		{
+			return num * num;
+		}
+
 		public override TrajectoryPoint[] VisibleTrajectoryPoints => _visibleTrajectoryPoints;
 
 		private void CalculateTrajectory()
@@ -45,11 +60,9 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 				Single bigDenominator = Sqrt(Sqr(xNumenator) + Sqr(yNumenator));
 
 				if (pointNum % iterationsInSavedPoints == 0)
-				{
 					_trajectoryPoints.Add(
 						new TrajectoryPoint(pos, vel, 0) //Rotations will be calculated separately
 					);
-				}
 
 				Boolean targetReached = (tgt - pos).sqrMagnitude < SqrTargetDistanceTolerance;
 				if (targetReached)
@@ -87,27 +100,13 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 			for (Int32 i = 1; i < _trajectoryPoints.Count; i++)
 			{
-				Vector2 deltaVel = _trajectoryPoints[i].Velocity - _trajectoryPoints[i - 1].Velocity;
+				var deltaVel = _trajectoryPoints[i].Velocity - _trajectoryPoints[i - 1].Velocity;
 				_trajectoryPoints[i].Rotation = Geometry.EulerAngleOfVector(deltaVel);
 			}
 		}
 
-		private static Single Sqrt(Single num)
-		{
-			return Mathf.Sqrt(num);
-		}
-
-		private static Single Sqrt4(Single num)
-		{
-			return Mathf.Sqrt(Mathf.Sqrt(num));
-		}
-
-		private static Single Sqr(Single num)
-		{
-			return num * num;
-		}
+		private readonly List<TrajectoryPoint> _trajectoryPoints = new List<TrajectoryPoint>();
 
 		private TrajectoryPoint[] _visibleTrajectoryPoints;
-		private readonly List<TrajectoryPoint> _trajectoryPoints = new List<TrajectoryPoint>();
 	}
 }

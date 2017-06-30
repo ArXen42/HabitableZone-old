@@ -91,13 +91,13 @@ namespace HabitableZone.Core.World.Universe.CelestialBodies
 			Radius = astaroidField.Radius;
 		}
 
-		public Single Mass;
-		public Guid ParentStarID;
-		public Single Radius;
-
 		public override SpaceObject GetInstanceFromData(WorldContext worldContext)
 		{
 			return new AsteroidField(worldContext, this);
 		}
+
+		public Single Mass;
+		public Guid ParentStarID;
+		public Single Radius;
 	}
 }

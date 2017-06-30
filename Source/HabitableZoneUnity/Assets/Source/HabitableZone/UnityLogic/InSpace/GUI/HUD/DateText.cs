@@ -18,12 +18,12 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD
 			_dateText.text = splitted[0] + " " + splitted[1];
 
 			_timeText.text = worldCtl.Date.ToShortTimeString();
-
 		}
 
-		[SerializeField] private SharedGOSpawner _sharedGOSpawner;
-		[SerializeField] private Text _yearText;
 		[SerializeField] private Text _dateText;
+
+		[SerializeField] private SharedGOSpawner _sharedGOSpawner;
 		[SerializeField] private Text _timeText;
+		[SerializeField] private Text _yearText;
 	}
 }

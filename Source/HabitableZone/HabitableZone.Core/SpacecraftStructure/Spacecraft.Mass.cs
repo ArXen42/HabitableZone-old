@@ -6,6 +6,11 @@ namespace HabitableZone.Core.SpacecraftStructure
 	public partial class Spacecraft
 	{
 		/// <summary>
+		///    Occurs when mass is changed.
+		/// </summary>
+		public event CEventHandler<Spacecraft, MassChangedEventArgs> MassChanged;
+
+		/// <summary>
 		///    Mass of this spacecraft.
 		/// </summary>
 		public Single Mass
@@ -21,11 +26,6 @@ namespace HabitableZone.Core.SpacecraftStructure
 				MassChanged?.Invoke(this, new MassChangedEventArgs(oldValue, value));
 			}
 		}
-
-		/// <summary>
-		///    Occurs when mass is changed.
-		/// </summary>
-		public event CEventHandler<Spacecraft, MassChangedEventArgs> MassChanged;
 
 		private void RecalculateMass()
 		{

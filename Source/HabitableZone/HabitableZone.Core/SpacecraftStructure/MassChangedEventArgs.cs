@@ -14,8 +14,9 @@ namespace HabitableZone.Core.SpacecraftStructure
 			Delta = newMass - previousMass;
 		}
 
-		public readonly Single PreviousMass;
-		public readonly Single NewMass;
 		public readonly Single Delta;
+		public readonly Single NewMass;
+
+		public readonly Single PreviousMass;
 	}
 }

@@ -58,7 +58,9 @@ namespace HabitableZone.UnityLogic.InSpace.LevelInitialization
 				meshes[2].material.mainTexture = ringsTexture;
 			}
 			else
+			{
 				meshes[2].gameObject.SetActive(false);
+			}
 
 			planetGO.GetComponentInChildren<PlanetRotator>().RotationSpeed = planetData.RotationSpeed;
 			planetGO.AddComponent<PlanetWatcher>().Planet = planet;

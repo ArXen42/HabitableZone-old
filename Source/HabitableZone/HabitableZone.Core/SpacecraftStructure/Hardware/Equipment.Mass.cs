@@ -5,14 +5,14 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware
 	public partial class Equipment
 	{
 		/// <summary>
-		///    Full mass of equipment.
-		/// </summary>
-		public Single Mass => DryMass;
-
-		/// <summary>
 		///    Occurs when mass of the equipment is changed.
 		/// </summary>
 		public event Action<Equipment, MassChangedEventArgs> MassChanged;
+
+		/// <summary>
+		///    Full mass of equipment.
+		/// </summary>
+		public Single Mass => DryMass;
 
 		/// <summary>
 		///    Mass of the inactive (disabled) equipment.

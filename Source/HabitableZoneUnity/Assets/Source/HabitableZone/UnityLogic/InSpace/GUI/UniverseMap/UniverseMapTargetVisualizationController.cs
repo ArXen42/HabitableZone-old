@@ -19,12 +19,14 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 		private void OnTargetedStarSystemChanged(StarSystem starSystem)
 		{
 			if (starSystem == null)
+			{
 				_targetBoundsRectTransform.gameObject.SetActive(false);
+			}
 			else
 			{
 				_targetBoundsRectTransform.gameObject.SetActive(true);
 				_targetBoundsRectTransform.anchoredPosition = starSystem.UniverseMapPosition *
-				                                              _universeMapStarsController.StarPositionsMultiplier;
+																			 _universeMapStarsController.StarPositionsMultiplier;
 			}
 		}
 

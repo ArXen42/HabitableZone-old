@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 using HabitableZone.Common;
 using HabitableZone.Localization.Common;
+using UnityEngine;
 
 namespace HabitableZone.Core.Localization
 {
@@ -30,14 +30,14 @@ namespace HabitableZone.Core.Localization
 		}
 
 		/// <summary>
-		///    Currently loaded localization's language. SystemLanguage.Unknown if nothing is loaded.
-		/// </summary>
-		public static SystemLanguage LocalizationLanguage { get; private set; }
-
-		/// <summary>
 		///    Occurs when LocalizationLanguage is changed.
 		/// </summary>
 		public static event SEventHandler<SystemLanguage> LocalizationLanguageChanged;
+
+		/// <summary>
+		///    Currently loaded localization's language. SystemLanguage.Unknown if nothing is loaded.
+		/// </summary>
+		public static SystemLanguage LocalizationLanguage { get; private set; }
 
 		/// <summary>
 		///    Loads localization for given language from resource files.
@@ -51,7 +51,9 @@ namespace HabitableZone.Core.Localization
 			{
 				var textAsset = Resources.Load<TextAsset>(@"Localizations\" + language + @"Localization");
 				using (var stream = new MemoryStream(textAsset.bytes))
+				{
 					_localization = Serialization.DeserializeDataFromJson<GameLocalization>(stream);
+				}
 
 				LocalizationLanguage = language;
 

@@ -15,6 +15,15 @@ namespace HabitableZone.Core.SpacecraftStructure
 	/// </summary>
 	public abstract partial class Spacecraft : SpaceObject
 	{
+		/// <summary>
+		///    Deserializes spacecraft from given steam using project's json settings.
+		/// </summary>
+		public static Spacecraft DeserializeFrom(Stream stream, WorldContext worldContext)
+		{
+			var data = Serialization.DeserializeDataFromJson<SpacecraftData>(stream);
+			return (Spacecraft) data.GetInstanceFromData(worldContext);
+		}
+
 		protected Spacecraft(WorldContext worldContext, SpacecraftData data) : base(worldContext, data)
 		{
 			Hardpoints = new Hardpoints(this);
@@ -27,38 +36,6 @@ namespace HabitableZone.Core.SpacecraftStructure
 			foreach (var hardpointData in data.HardpointsData)
 				Hardpoints.Mount(hardpointData.GetInstanceFromData());
 		}
-
-		/// <summary>
-		///    Serializes spacecraft to given stream using project's json settings.
-		/// </summary>
-		public void SerializeTo(Stream stream)
-		{
-			Serialization.SerializeDataToJson(GetSerializationData(), stream);
-		}
-
-		/// <summary>
-		///    Deserializes spacecraft from given steam using project's json settings.
-		/// </summary>
-		public static Spacecraft DeserializeFrom(Stream stream, WorldContext worldContext)
-		{
-			var data = Serialization.DeserializeDataFromJson<SpacecraftData>(stream);
-			return (Spacecraft) data.GetInstanceFromData(worldContext);
-		}
-
-		/// <summary>
-		///    Provides access to basic electricity subsystem.
-		/// </summary>
-		public readonly ElectricitySubsystem ElectricitySubsystem;
-
-		/// <summary>
-		///    Provides access to EquipmentTrackingSubsystem which is useful if observable list of equipment is needed.
-		/// </summary>
-		public readonly EquipmentTrackingSubsystem EquipmentTrackingSubsystem;
-
-		/// <summary>
-		///    Collection of this spacecraft's hardpoints.
-		/// </summary>
-		public readonly Hardpoints Hardpoints;
 
 		/// <summary>
 		///    Collection of all equipment on this spacecraft.
@@ -84,6 +61,14 @@ namespace HabitableZone.Core.SpacecraftStructure
 		public Single Acceleration => GetAllEquipment<EngineInlet>().Sum(inlet => inlet.Acceleration);
 
 		/// <summary>
+		///    Serializes spacecraft to given stream using project's json settings.
+		/// </summary>
+		public void SerializeTo(Stream stream)
+		{
+			Serialization.SerializeDataToJson(GetSerializationData(), stream);
+		}
+
+		/// <summary>
 		///    Returns all equipment of specified type in this spacecraft.
 		/// </summary>
 		public List<TEquipmentType> GetAllEquipment<TEquipmentType>() where TEquipmentType : Equipment
@@ -93,6 +78,21 @@ namespace HabitableZone.Core.SpacecraftStructure
 				.Where(equipment => equipment != null)
 				.ToList();
 		}
+
+		/// <summary>
+		///    Provides access to basic electricity subsystem.
+		/// </summary>
+		public readonly ElectricitySubsystem ElectricitySubsystem;
+
+		/// <summary>
+		///    Provides access to EquipmentTrackingSubsystem which is useful if observable list of equipment is needed.
+		/// </summary>
+		public readonly EquipmentTrackingSubsystem EquipmentTrackingSubsystem;
+
+		/// <summary>
+		///    Collection of this spacecraft's hardpoints.
+		/// </summary>
+		public readonly Hardpoints Hardpoints;
 
 		private List<Hardpoint> _hardpoints;
 	}

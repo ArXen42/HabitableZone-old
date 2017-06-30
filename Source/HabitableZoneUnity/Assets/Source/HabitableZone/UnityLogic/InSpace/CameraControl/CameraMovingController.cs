@@ -19,16 +19,16 @@ namespace HabitableZone.UnityLogic.InSpace.CameraControl
 
 			if (Input.mousePosition != Vector3.zero)
 			{
-				if ((Input.mousePosition.x < 5) && (Input.mousePosition.x > -5))
+				if (Input.mousePosition.x < 5 && Input.mousePosition.x > -5)
 					translateVector += Vector2.left;
 
-				if ((Input.mousePosition.x > Screen.width - 5) && (Input.mousePosition.x < Screen.width + 5))
+				if (Input.mousePosition.x > Screen.width - 5 && Input.mousePosition.x < Screen.width + 5)
 					translateVector += Vector2.right;
 
-				if ((Input.mousePosition.y < 5) && (Input.mousePosition.y > -5))
+				if (Input.mousePosition.y < 5 && Input.mousePosition.y > -5)
 					translateVector += Vector2.down;
 
-				if ((Input.mousePosition.y > Screen.height - 5) && (Input.mousePosition.y < Screen.height + 5))
+				if (Input.mousePosition.y > Screen.height - 5 && Input.mousePosition.y < Screen.height + 5)
 					translateVector += Vector2.up;
 			}
 
@@ -45,7 +45,8 @@ namespace HabitableZone.UnityLogic.InSpace.CameraControl
 			_camera = GetComponent<Camera>();
 		}
 
-		private Transform _transform;
 		private Camera _camera;
+
+		private Transform _transform;
 	}
 }

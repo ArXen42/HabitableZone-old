@@ -8,21 +8,6 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 {
 	public class Gas : PlanetTextureGenerator
 	{
-		public Gas(Int32 YSize, PlanetData planetData) : base(YSize, planetData) { }
-
-		protected override Color[] GenerateTextureColors()
-		{
-			//Когда будет новый генератор, 60 кельвинов посреди кода валяться, конечно же, не будет
-			return PlanetData.Temperature > 60
-				? GenNormalGigantTex(RandomColor())
-				: GenIceGigantTex(RandomColor());
-		}
-
-		protected override Color[] GenerateHeighmapColors()
-		{
-			return null; //WIP
-		}
-
 		private static Color RandomColor()
 		{
 			Color resultColor;
@@ -50,6 +35,21 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 			}
 
 			return resultColor / 2;
+		}
+
+		public Gas(Int32 YSize, PlanetData planetData) : base(YSize, planetData) { }
+
+		protected override Color[] GenerateTextureColors()
+		{
+			//Когда будет новый генератор, 60 кельвинов посреди кода валяться, конечно же, не будет
+			return PlanetData.Temperature > 60
+				? GenNormalGigantTex(RandomColor())
+				: GenIceGigantTex(RandomColor());
+		}
+
+		protected override Color[] GenerateHeighmapColors()
+		{
+			return null; //WIP
 		}
 
 		/// <summary>

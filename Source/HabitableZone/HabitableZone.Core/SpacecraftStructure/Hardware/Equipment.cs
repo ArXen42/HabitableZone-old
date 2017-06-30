@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using HabitableZone.Core.World;
 using HabitableZone.Common;
+using HabitableZone.Core.World;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware
 {
@@ -21,14 +21,14 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware
 			_dependencies = new List<IEquipmentEngagementDependency>();
 		}
 
-		public abstract EquipmentData GetSerializationData();
-
 		public WorldContext WorldContext => Spacecraft.WorldContext;
 
 		/// <summary>
 		///    Name of this equipment.
 		/// </summary>
 		public String Name { get; protected set; } //TODO: localize
+
+		public abstract EquipmentData GetSerializationData();
 
 		/// <summary>
 		///    Returns component of desired type or null if that component doesn't persists on this equipment.
@@ -79,10 +79,10 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware
 			TargetEnabled = equipment.TargetEnabled;
 		}
 
-		public String Name;
-		public Single DryMass;
-		public Boolean TargetEnabled;
-
 		public abstract Equipment GetInstanceFromData();
+		public Single DryMass;
+
+		public String Name;
+		public Boolean TargetEnabled;
 	}
 }

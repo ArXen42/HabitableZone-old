@@ -13,6 +13,7 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView
 	/// </summary>
 	public class SpacecraftViewController : MonoBehaviour
 	{
+		public event EventHandler SelectionChanged;
 //		public static SpacecraftViewController Instance { get; private set; }
 
 		public Spacecraft Spacecraft => _starSystemViewController.WorldContext.Captains.Player.CurrentShip;
@@ -36,8 +37,6 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView
 
 		public Boolean AnyHardpointSelected => _selectedHardpoint != null;
 
-		public event EventHandler SelectionChanged;
-
 //		private void OnEnable()
 //		{
 //			Instance = this;
@@ -56,9 +55,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView
 				SelectedHardpoint = hardpointWatcher.Hardpoint;
 		}
 
-		private Hardpoint _selectedHardpoint;
-
 		[SerializeField] private SpacecraftViewCamerasController _camerasController;
+
+		private Hardpoint _selectedHardpoint;
 		[SerializeField] private StarSystemViewController _starSystemViewController;
 	}
 }

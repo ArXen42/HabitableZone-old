@@ -23,7 +23,7 @@ namespace HabitableZone.Common
 		[Conditional(CompilationConstant)]
 		public static void IsNotNull<T>(T value) where T : class
 		{
-			IsNotNull(value, (String) null);
+			IsNotNull(value, null);
 		}
 
 		[Conditional(CompilationConstant)]
@@ -99,7 +99,7 @@ namespace HabitableZone.Common
 		[Conditional(CompilationConstant)]
 		public static void IsFalse(Boolean condition)
 		{
-			IsFalse(condition, (String) null);
+			IsFalse(condition, null);
 		}
 
 		[Conditional(CompilationConstant)]

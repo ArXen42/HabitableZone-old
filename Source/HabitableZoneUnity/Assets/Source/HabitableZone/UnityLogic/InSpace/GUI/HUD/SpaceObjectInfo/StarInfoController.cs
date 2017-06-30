@@ -22,7 +22,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 		{
 			var starWatcher = watcher as StarWatcher;
 			if (starWatcher == null)
+			{
 				gameObject.SetActive(false);
+			}
 			else
 			{
 				UpdateValues(starWatcher.Star);
@@ -37,8 +39,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 			_planetsCountText.text = star.Planets.Count().ToString();
 		}
 
-		[SerializeField] private Text _starTypeText;
 		[SerializeField] private Text _massValueText;
 		[SerializeField] private Text _planetsCountText;
+
+		[SerializeField] private Text _starTypeText;
 	}
 }

@@ -8,51 +8,6 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 {
 	public class Desert : PlanetTextureGenerator
 	{
-		public Desert(Int32 ySize, PlanetData planetData, Single roughness = 1.5f, Single snowRoughness = 0.03f)
-			: base(ySize, planetData)
-		{
-			SnowRoughness = snowRoughness;
-
-			_heighmapGen = new HeighmapGenerator(YSize + 1, 1.5f);
-			Roughness = roughness;
-		}
-
-		public Single Roughness
-		{
-			get { return _heighmapGen.Roughness; }
-			set
-			{
-				if (value > 0)
-				{
-					_heighmapGen.Roughness = value;
-					ParametersChanged = true;
-				}
-				else
-					throw new ArgumentException("Roughness should be greater then zero!");
-			}
-		}
-
-		public Single SnowRoughness
-		{
-			get { return _snowRoughness; }
-			set
-			{
-				if (value > 0)
-				{
-					_snowRoughness = value;
-					ParametersChanged = true;
-				}
-				else
-					throw new ArgumentException("Snow roughness should be greater then zero");
-			}
-		}
-
-		private void GenerateSnowCorners()
-		{
-			_northSnow = Curves.GenerateCurve(XSize, XSize / 2 - _snowEdge, _snowRoughness);
-			_southSnow = Curves.GenerateCurve(XSize, _snowEdge, _snowRoughness);
-		}
-
 		private static Color GenerateColdColors()
 		{
 			Color clr;
@@ -75,26 +30,47 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 			return clr;
 		}
 
-		private Color GenerateHotColors()
+		public Desert(Int32 ySize, PlanetData planetData, Single roughness = 1.5f, Single snowRoughness = 0.03f)
+			: base(ySize, planetData)
 		{
-			Color clr;
+			SnowRoughness = snowRoughness;
 
-			Int32 rnd = Random.Range(0, 2);
-			switch (rnd)
+			_heighmapGen = new HeighmapGenerator(YSize + 1, 1.5f);
+			Roughness = roughness;
+		}
+
+		public Single Roughness
+		{
+			get { return _heighmapGen.Roughness; }
+			set
 			{
-				case 0:
-					clr = new Color(112f / 255, 65f / 255, 31f / 255) / 2;
-					break;
-
-				case 1:
-					clr = new Color(61f / 255, 25f / 255, 6f / 255); //TODO...
-					break;
-
-				default:
-					throw new ArgumentOutOfRangeException();
+				if (value > 0)
+				{
+					_heighmapGen.Roughness = value;
+					ParametersChanged = true;
+				}
+				else
+				{
+					throw new ArgumentException("Roughness should be greater then zero!");
+				}
 			}
+		}
 
-			return clr;
+		public Single SnowRoughness
+		{
+			get { return _snowRoughness; }
+			set
+			{
+				if (value > 0)
+				{
+					_snowRoughness = value;
+					ParametersChanged = true;
+				}
+				else
+				{
+					throw new ArgumentException("Snow roughness should be greater then zero");
+				}
+			}
 		}
 
 
@@ -116,7 +92,7 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 			for (Int32 x = 0; x < XSize; x++)
 			{
 				if (_planetData.Temperature < 310 &&
-				    (y < _southSnow[x] + Random.Range(-10, 10) || y > _northSnow[x] + Random.Range(-10, 10))) //Делаем снег
+					 (y < _southSnow[x] + Random.Range(-10, 10) || y > _northSnow[x] + Random.Range(-10, 10))) //Делаем снег
 				{
 					colors[counter] = new Color(Random.Range(0.8f, 0.85f), Random.Range(0.8f, 0.85f), Random.Range(0.85f, 0.9f));
 					colors[counter] += baseColor1 / 10;
@@ -151,6 +127,34 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 			}
 
 			return colors;
+		}
+
+		private void GenerateSnowCorners()
+		{
+			_northSnow = Curves.GenerateCurve(XSize, XSize / 2 - _snowEdge, _snowRoughness);
+			_southSnow = Curves.GenerateCurve(XSize, _snowEdge, _snowRoughness);
+		}
+
+		private Color GenerateHotColors()
+		{
+			Color clr;
+
+			Int32 rnd = Random.Range(0, 2);
+			switch (rnd)
+			{
+				case 0:
+					clr = new Color(112f / 255, 65f / 255, 31f / 255) / 2;
+					break;
+
+				case 1:
+					clr = new Color(61f / 255, 25f / 255, 6f / 255); //TODO...
+					break;
+
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+
+			return clr;
 		}
 
 		private readonly HeighmapGenerator _heighmapGen;

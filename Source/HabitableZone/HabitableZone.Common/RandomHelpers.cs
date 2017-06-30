@@ -7,7 +7,7 @@ namespace HabitableZone.Common
 		public static Single Range(this Random random, Single min, Single max)
 		{
 			Single delta = max - min;
-			return min + (Single) random.NextDouble()*delta;
+			return min + (Single) random.NextDouble() * delta;
 		}
 	}
 }

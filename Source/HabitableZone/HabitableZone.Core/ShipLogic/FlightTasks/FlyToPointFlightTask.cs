@@ -1,8 +1,8 @@
 ﻿using System;
+using HabitableZone.Common;
 using HabitableZone.Core.SpacecraftStructure.Hardware.Electricity;
 using HabitableZone.Core.World;
 using UnityEngine;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.ShipLogic.FlightTasks
 {
@@ -73,7 +73,9 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 		protected override void OnTurnStopped(WorldCtl sender)
 		{
 			if (_trajectoryPoints.Count <= SavedPointsPerTurnCount)
+			{
 				InvokeComplete();
+			}
 			else
 			{
 				CalculateTrajectory();

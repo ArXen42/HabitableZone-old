@@ -8,6 +8,14 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Common
 	/// </summary>
 	public class HeighmapGenerator
 	{
+		private static Boolean IsPowerOfTwo(Int32 value, Int32 powOfTwo = 1)
+		{
+			if (value == powOfTwo)
+				return true;
+
+			return powOfTwo <= value && IsPowerOfTwo(value, powOfTwo * 2);
+		}
+
 		/// <summary>
 		///    Создает новый экземпляр генератора с заданными разрешением и величиной перепадов высот.
 		/// </summary>
@@ -33,17 +41,16 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Common
 					WasParametersChanged = true;
 				}
 				else
+				{
 					throw new ArgumentException("Size of heighmap should be of the form 2^n + 1");
+				}
 			}
 		}
 
 		/// <summary>
 		///    Разрешение по горизонтали (в пикселах). Выводится автоматически.
 		/// </summary>
-		public Int32 XSize
-		{
-			get { return YSize * 2 - 1; }
-		}
+		public Int32 XSize => YSize * 2 - 1;
 
 		/// <summary>
 		///    Коэффициент величины перепадов высот.
@@ -70,76 +77,6 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Common
 
 				return _heighmap;
 			}
-		}
-
-		private static Boolean IsPowerOfTwo(Int32 value, Int32 powOfTwo = 1)
-		{
-			if (value == powOfTwo)
-				return true;
-
-			return powOfTwo <= value && IsPowerOfTwo(value, powOfTwo * 2);
-		}
-
-
-		private void Square(Int32 lx, Int32 ly, Int32 rx, Int32 ry)
-		{
-			Int32 l = (rx - lx) / 2;
-
-			Single a = _heighmap[lx, ly]; //  B--------C
-			Single b = _heighmap[lx, ry]; //  |        |
-			Single c = _heighmap[rx, ry]; //  |   ce   |
-			Single d = _heighmap[rx, ly]; //  |        |
-			Int32 cex = lx + l; //  A--------D
-			Int32 cey = ly + l;
-
-			_heighmap[cex, cey] = (a + b + c + d) / 4 +
-			                      Random.Range(-l * 2 * Roughness / YSize, l * 2 * Roughness / YSize);
-		}
-
-		private void Diamond(Int32 tgx, Int32 tgy, Int32 l)
-		{
-			Single a, b, c, d;
-
-			a = tgy - l >= 0
-				? _heighmap[tgx, tgy - l]
-				: _heighmap[tgx, YSize - l];
-
-			if (tgx - l >= 0)
-				b = _heighmap[tgx - l, tgy]; //      C--------
-			else //      |        |
-			if (lrflag) // B---t g----D  |
-				b = _heighmap[XSize - l, tgy]; //      |        |
-			else //      A--------
-				b = _heighmap[YSize - l, tgy];
-
-
-			c = tgy + l < YSize
-				? _heighmap[tgx, tgy + l]
-				: _heighmap[tgx, l];
-
-			if (lrflag)
-				d = tgx + l < XSize
-					? _heighmap[tgx + l, tgy]
-					: _heighmap[l, tgy];
-			else if (tgx + l < YSize)
-				d = _heighmap[tgx + l, tgy];
-			else
-				d = _heighmap[l, tgy];
-
-			_heighmap[tgx, tgy] = (a + b + c + d) / 4 +
-			                      Random.Range(-l * 2 * Roughness / YSize, l * 2 * Roughness / YSize);
-		}
-
-		private void DiamondSquare(Int32 lx, Int32 ly, Int32 rx, Int32 ry)
-		{
-			Int32 l = (rx - lx) / 2;
-
-			Square(lx, ly, rx, ry);
-
-			Diamond(lx, ly + l, l);
-			Diamond(rx, ry - l, l);
-			Diamond(rx - l, ry, l);
-			Diamond(lx + l, ly, l);
 		}
 
 		public void Sqr()
@@ -190,6 +127,68 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Common
 			}
 
 			WasParametersChanged = false;
+		}
+
+
+		private void Square(Int32 lx, Int32 ly, Int32 rx, Int32 ry)
+		{
+			Int32 l = (rx - lx) / 2;
+
+			Single a = _heighmap[lx, ly]; //  B--------C
+			Single b = _heighmap[lx, ry]; //  |        |
+			Single c = _heighmap[rx, ry]; //  |   ce   |
+			Single d = _heighmap[rx, ly]; //  |        |
+			Int32 cex = lx + l; //  A--------D
+			Int32 cey = ly + l;
+
+			_heighmap[cex, cey] = (a + b + c + d) / 4 +
+										 Random.Range(-l * 2 * Roughness / YSize, l * 2 * Roughness / YSize);
+		}
+
+		private void Diamond(Int32 tgx, Int32 tgy, Int32 l)
+		{
+			Single a, b, c, d;
+
+			a = tgy - l >= 0
+				? _heighmap[tgx, tgy - l]
+				: _heighmap[tgx, YSize - l];
+
+			if (tgx - l >= 0)
+				b = _heighmap[tgx - l, tgy]; //      C--------
+			else //      |        |
+			if (lrflag) // B---t g----D  |
+				b = _heighmap[XSize - l, tgy]; //      |        |
+			else //      A--------
+				b = _heighmap[YSize - l, tgy];
+
+
+			c = tgy + l < YSize
+				? _heighmap[tgx, tgy + l]
+				: _heighmap[tgx, l];
+
+			if (lrflag)
+				d = tgx + l < XSize
+					? _heighmap[tgx + l, tgy]
+					: _heighmap[l, tgy];
+			else if (tgx + l < YSize)
+				d = _heighmap[tgx + l, tgy];
+			else
+				d = _heighmap[l, tgy];
+
+			_heighmap[tgx, tgy] = (a + b + c + d) / 4 +
+										 Random.Range(-l * 2 * Roughness / YSize, l * 2 * Roughness / YSize);
+		}
+
+		private void DiamondSquare(Int32 lx, Int32 ly, Int32 rx, Int32 ry)
+		{
+			Int32 l = (rx - lx) / 2;
+
+			Square(lx, ly, rx, ry);
+
+			Diamond(lx, ly + l, l);
+			Diamond(rx, ry - l, l);
+			Diamond(rx - l, ry, l);
+			Diamond(lx + l, ly, l);
 		}
 
 		private Single[,] _heighmap; //TODO: перевести в byte для экономии памяти.

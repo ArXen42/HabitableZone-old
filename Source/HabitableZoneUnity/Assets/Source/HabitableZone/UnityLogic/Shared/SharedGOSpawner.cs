@@ -14,11 +14,6 @@ namespace HabitableZone.UnityLogic.Shared
 	public class SharedGOSpawner : MonoBehaviour, IWorldContextProvider
 	{
 		/// <summary>
-		///    Returns GameObject that is shared between all scenes.
-		/// </summary>
-		public GameObject SharedGO { get; private set; }
-
-		/// <summary>
 		///    Provides more laconical way to get WorldContext from WorldHolder attached to SharedGO.
 		/// </summary>
 		public WorldContext WorldContext
@@ -27,10 +22,15 @@ namespace HabitableZone.UnityLogic.Shared
 			{
 				if (SharedGO == null)
 					InitializeSharedGO(); //In case it was called before OnEnable
-				
+
 				return SharedGO.GetComponent<WorldHolder>().WorldContext;
 			}
 		}
+
+		/// <summary>
+		///    Returns GameObject that is shared between all scenes.
+		/// </summary>
+		public GameObject SharedGO { get; private set; }
 
 		private void InitializeSharedGO()
 		{

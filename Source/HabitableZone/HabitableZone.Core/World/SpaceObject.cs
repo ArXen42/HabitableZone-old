@@ -2,7 +2,6 @@
 using HabitableZone.Common;
 using HabitableZone.Core.World.Universe;
 using UnityEngine;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.World
 {
@@ -33,16 +32,22 @@ namespace HabitableZone.Core.World
 			worldContext.WorldCtl.TurnStopped += OnTurnStopped;
 		}
 
-		public abstract SpaceObjectData GetSerializationData();
-
-		public override Int32 GetHashCode() => ID.GetHashCode();
-
 		public WorldContext WorldContext { get; private set; }
 
+		public override Int32 GetHashCode()
+		{
+			return ID.GetHashCode();
+		}
+
 		/// <summary>
-		///    The unique identifier of this SpaceObject. Can't be changed.
+		///    Occurs when this SpaceObject changes location.
 		/// </summary>
-		public readonly Guid ID;
+		public event CEventHandler<SpaceObject> LocationChanged;
+
+		/// <summary>
+		///    Occurs when this SpaceObject is destroyed.
+		/// </summary>
+		public event CEventHandler<SpaceObject> Destroyed;
 
 		/// <summary>
 		///    ID of StarSystem in which that object currently is.
@@ -83,15 +88,7 @@ namespace HabitableZone.Core.World
 		/// </summary>
 		public abstract Vector2 Position { get; }
 
-		/// <summary>
-		///    Occurs when this SpaceObject changes location.
-		/// </summary>
-		public event CEventHandler<SpaceObject> LocationChanged;
-
-		/// <summary>
-		///    Occurs when this SpaceObject is destroyed.
-		/// </summary>
-		public event CEventHandler<SpaceObject> Destroyed;
+		public abstract SpaceObjectData GetSerializationData();
 
 		/// <summary>
 		///    Removes this SpaceObject from the world.
@@ -104,6 +101,11 @@ namespace HabitableZone.Core.World
 			Location.RemoveSpaceObject(this);
 			WorldContext = null;
 		}
+
+		/// <summary>
+		///    The unique identifier of this SpaceObject. Can't be changed.
+		/// </summary>
+		public readonly Guid ID;
 
 		protected virtual void OnTurnStarted(WorldCtl sender) { }
 

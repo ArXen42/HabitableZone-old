@@ -45,7 +45,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.LeftPanel.Equipmen
 				SelectedHardpointEquipment.RequestDisengagement();
 		}
 
-		[SerializeField] private Toggle _targetEnabledToggle;
 		[SerializeField] private Text _realEnabledText;
+
+		[SerializeField] private Toggle _targetEnabledToggle;
 	}
 }

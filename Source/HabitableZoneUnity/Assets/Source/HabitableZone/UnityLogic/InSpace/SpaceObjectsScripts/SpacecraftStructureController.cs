@@ -35,7 +35,8 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts
 			}
 		}
 
-		private Spacecraft _spacecraft;
 		private Dictionary<Hardpoint, GameObject> _gameObjectsDictionary;
+
+		private Spacecraft _spacecraft;
 	}
 }

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using HabitableZone.Common;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware
 {
@@ -35,13 +34,6 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware
 			return GetEnumerator();
 		}
 
-		public Int32 Count => _installedEquipment.Count;
-
-		/// <summary>
-		///    Spacecraft this subsystem is attached to.
-		/// </summary>
-		public readonly Spacecraft Spacecraft;
-
 		/// <summary>
 		///    Occurs when equipment is installed in some hardpoint.
 		/// </summary>
@@ -51,6 +43,13 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware
 		///    Occurs when equipment is uninstalled from some hardpoint.
 		/// </summary>
 		public event SEventHandler<Equipment> EquipmentDisconnected;
+
+		public Int32 Count => _installedEquipment.Count;
+
+		/// <summary>
+		///    Spacecraft this subsystem is attached to.
+		/// </summary>
+		public readonly Spacecraft Spacecraft;
 
 		private void OnHardpointMounted(Hardpoints sender, Hardpoint hardpoint)
 		{

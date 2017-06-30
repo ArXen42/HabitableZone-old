@@ -1,6 +1,6 @@
 ﻿using System.IO;
-using NUnit.Framework;
 using HabitableZone.Core.World;
+using NUnit.Framework;
 
 namespace HabitableZone.Core.Tests
 {
@@ -9,7 +9,7 @@ namespace HabitableZone.Core.Tests
 		public static WorldContext GetTestWorld()
 		{
 			return WorldContext.DeserializeFrom(
-				new FileStream($"{TestContext.CurrentContext.TestDirectory}/TestData/TestWorld.json",FileMode.Open, FileAccess.Read)
+				new FileStream($"{TestContext.CurrentContext.TestDirectory}/TestData/TestWorld.json", FileMode.Open, FileAccess.Read)
 			);
 		}
 	}

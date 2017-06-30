@@ -22,6 +22,11 @@ namespace HabitableZone.Localization.Common
 			Value = value;
 		}
 
+		public override String ToString()
+		{
+			return Value;
+		}
+
 		/// <summary>
 		///    Description of the string.
 		/// </summary>
@@ -31,10 +36,5 @@ namespace HabitableZone.Localization.Common
 		///    Translation of the string to desired language.
 		/// </summary>
 		public String Value { get; internal set; }
-
-		public override String ToString()
-		{
-			return Value;
-		}
 	}
 }

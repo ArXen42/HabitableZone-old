@@ -1,6 +1,5 @@
 ﻿using System;
 using HabitableZone.Common;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 {
@@ -19,12 +18,15 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			TargetProducingPower = data.TargetProducingPower;
 		}
 
-		public ElectricityProducerData GetSerializationData()
-		{
-			return new ElectricityProducerData(this);
-		}
+		/// <summary>
+		///    Occurs when the value of ProducingPower changes.
+		/// </summary>
+		public event CEventHandler<ElectricityProducer, PowerValueChangedEventArgs> ProducingPowerChanged;
 
-		public readonly Int64 MinPower, OptimalPower, MaxPower;
+		/// <summary>
+		///    Occurs when TargetProducingPower has changed.
+		/// </summary>
+		public event SEventHandler<ElectricityProducer, Int64> TargetProducingPowerChanged;
 
 		/// <summary>
 		///    Currently generating power.
@@ -63,15 +65,12 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			}
 		}
 
-		/// <summary>
-		///    Occurs when the value of ProducingPower changes.
-		/// </summary>
-		public event CEventHandler<ElectricityProducer, PowerValueChangedEventArgs> ProducingPowerChanged;
+		public ElectricityProducerData GetSerializationData()
+		{
+			return new ElectricityProducerData(this);
+		}
 
-		/// <summary>
-		///    Occurs when TargetProducingPower has changed.
-		/// </summary>
-		public event SEventHandler<ElectricityProducer, Int64> TargetProducingPowerChanged;
+		public readonly Int64 MinPower, OptimalPower, MaxPower;
 
 		protected override void OnNodePowerConfigurationChanged(EquipmentNetwork.Node sender)
 		{
@@ -79,8 +78,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			Assert.IsTrue(ProducingPower >= 0);
 		}
 
-		private Int64 _targetProducingPower;
 		private Int64 _producingPower;
+
+		private Int64 _targetProducingPower;
 	}
 
 	[Serializable]

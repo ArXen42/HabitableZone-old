@@ -72,12 +72,12 @@ namespace HabitableZone.UnityLogic.InSpace.CameraControl
 			}
 		}
 
-		[SerializeField] private StarSystemViewController _starSystemViewController;
-		
-		private CameraFollowToPositionController _followToPositionController;
+		private Dictionary<CameraControlState, Action> _enteringStateActions, _exitingStateActions;
 		private CameraFollowShipController _followShipController;
 
-		private Dictionary<CameraControlState, Action> _enteringStateActions, _exitingStateActions;
+		private CameraFollowToPositionController _followToPositionController;
+
+		[SerializeField] private StarSystemViewController _starSystemViewController;
 		private CameraControlState _state;
 	}
 

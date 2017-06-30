@@ -20,7 +20,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 		{
 			var planetWatcher = watcher as PlanetWatcher;
 			if (planetWatcher == null)
+			{
 				gameObject.SetActive(false);
+			}
 			else
 			{
 				UpdateValues(planetWatcher.Planet);
@@ -37,10 +39,11 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 			_planetTemperatureText.text = Mathf.RoundToInt(planet.Temperature).ToString();
 		}
 
-		[SerializeField] private Text _planetTypeText;
-		[SerializeField] private Text _planetMassValueText;
-		[SerializeField] private Text _orbitRadiusValueText;
 		[SerializeField] private Text _orbitPeriodValueText;
+		[SerializeField] private Text _orbitRadiusValueText;
+		[SerializeField] private Text _planetMassValueText;
 		[SerializeField] private Text _planetTemperatureText;
+
+		[SerializeField] private Text _planetTypeText;
 	}
 }

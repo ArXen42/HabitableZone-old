@@ -7,6 +7,11 @@ namespace HabitableZone.Core.SpacecraftStructure
 	public partial class Hardpoint
 	{
 		/// <summary>
+		///    Occurs when mass of the hardpoint is changed.
+		/// </summary>
+		public event CEventHandler<Hardpoint, MassChangedEventArgs> MassChanged;
+
+		/// <summary>
 		///    Mass of the hardpoint.
 		/// </summary>
 		public Single Mass
@@ -22,11 +27,6 @@ namespace HabitableZone.Core.SpacecraftStructure
 				MassChanged?.Invoke(this, new MassChangedEventArgs(oldValue, value));
 			}
 		}
-
-		/// <summary>
-		///    Occurs when mass of the hardpoint is changed.
-		/// </summary>
-		public event CEventHandler<Hardpoint, MassChangedEventArgs> MassChanged;
 
 		private void RecalculateMass()
 		{

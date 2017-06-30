@@ -23,12 +23,45 @@ namespace HabitableZone.Core.World.Universe
 			worldContext.StarSystems.Add(this);
 		}
 
+		public WorldContext WorldContext { get; }
+
+		/// <summary>
+		///    Occurs when some SpaceObject is added into this system.
+		/// </summary>
+		public event SEventHandler<StarSystem, SpaceObject> SpaceObjectAdded;
+
+		/// <summary>
+		///    Occurs when some SpaceObject is removed from this system.
+		/// </summary>
+		public event SEventHandler<StarSystem, SpaceObject> SpaceObjectRemoved;
+
+		/// <summary>
+		///    Returns all SpaceObjects in this system.
+		/// </summary>
+		public IEnumerable<SpaceObject> AllSpaceObjects => _spaceObjects.Values;
+
 		public StarSystemData GetSerializationData()
 		{
 			return new StarSystemData(this);
 		}
 
-		public WorldContext WorldContext { get; }
+		/// <summary>
+		///    Returns all SpaceObjects of desired type in this system.
+		/// </summary>
+		public IEnumerable<T> SpaceObjectsOfType<T>() where T : SpaceObject
+		{
+			return _spaceObjects.Values.Select(so => so as T).Where(so => so != null);
+		}
+
+		/// <summary>
+		///    Internal method used by SpaceObject.LocationID. It shouldn't be used from anywhere else.
+		/// </summary>
+		public void RemoveSpaceObject(SpaceObject spaceObject)
+		{
+			_spaceObjects.Remove(spaceObject.ID);
+
+			SpaceObjectRemoved?.Invoke(this, spaceObject);
+		}
 
 		/// <summary>
 		///    The unique identifier of this system. Can't be changed.
@@ -44,29 +77,6 @@ namespace HabitableZone.Core.World.Universe
 		public readonly Vector2 UniverseMapPosition;
 
 		/// <summary>
-		///    Returns all SpaceObjects in this system.
-		/// </summary>
-		public IEnumerable<SpaceObject> AllSpaceObjects => _spaceObjects.Values;
-
-		/// <summary>
-		///    Returns all SpaceObjects of desired type in this system.
-		/// </summary>
-		public IEnumerable<T> SpaceObjectsOfType<T>() where T : SpaceObject
-		{
-			return _spaceObjects.Values.Select(so => so as T).Where(so => so != null);
-		}
-
-		/// <summary>
-		///    Occurs when some SpaceObject is added into this system.
-		/// </summary>
-		public event SEventHandler<StarSystem, SpaceObject> SpaceObjectAdded;
-
-		/// <summary>
-		///    Occurs when some SpaceObject is removed from this system.
-		/// </summary>
-		public event SEventHandler<StarSystem, SpaceObject> SpaceObjectRemoved;
-
-		/// <summary>
 		///    Internal method used by SpaceObject.LocationID. It shouldn't be used from anywhere else.
 		/// </summary>
 		internal void AddSpaceObject(SpaceObject spaceObject)
@@ -74,16 +84,6 @@ namespace HabitableZone.Core.World.Universe
 			_spaceObjects.Add(spaceObject.ID, spaceObject);
 
 			SpaceObjectAdded?.Invoke(this, spaceObject);
-		}
-
-		/// <summary>
-		///    Internal method used by SpaceObject.LocationID. It shouldn't be used from anywhere else.
-		/// </summary>
-		public void RemoveSpaceObject(SpaceObject spaceObject)
-		{
-			_spaceObjects.Remove(spaceObject.ID);
-
-			SpaceObjectRemoved?.Invoke(this, spaceObject);
 		}
 
 		private readonly Dictionary<Guid, SpaceObject> _spaceObjects = new Dictionary<Guid, SpaceObject>();

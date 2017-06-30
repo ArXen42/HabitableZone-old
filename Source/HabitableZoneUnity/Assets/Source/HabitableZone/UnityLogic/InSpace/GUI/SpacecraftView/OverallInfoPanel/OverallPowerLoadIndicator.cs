@@ -59,7 +59,6 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.OverallInfoPanel
 			Int32 filledPointsCount = (Int32) Math.Round(consuming / producinging * _pointsCount);
 
 			for (Int32 i = 0; i < _pointsCount; i++)
-			{
 				if (i < filledPointsCount)
 				{
 					_emptyPoints[i].SetActive(false);
@@ -70,15 +69,15 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.OverallInfoPanel
 					_filledPoints[i].SetActive(false);
 					_emptyPoints[i].SetActive(true);
 				}
-			}
 		}
 
-		[SerializeField] private GameObject _filledPointPrefab;
 		[SerializeField] private GameObject _emptyPointPrefab;
-		[SerializeField] private Int32 _pointsCount; //Длина в пикселях относительно canvas
-		[SerializeField] private Int32 _length; //Длина в пикселях относительно canvas
+
+		[SerializeField] private GameObject _filledPointPrefab;
 
 		private GameObject[] _filledPoints, _emptyPoints; //Пул делений шкалы
+		[SerializeField] private Int32 _length; //Длина в пикселях относительно canvas
+		[SerializeField] private Int32 _pointsCount; //Длина в пикселях относительно canvas
 		private SpacecraftViewController _spacecraftViewController;
 	}
 }

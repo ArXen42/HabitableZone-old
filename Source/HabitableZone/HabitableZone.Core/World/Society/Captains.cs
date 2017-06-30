@@ -10,12 +10,15 @@
 			Player = data.PlayerData.GetInstanceFromData(worldContext);
 		}
 
-		public CaptainsData GetSerializationData() => new CaptainsData(this);
-
 		/// <summary>
 		///    It's you.
 		/// </summary>
 		public Captain Player { get; set; }
+
+		public CaptainsData GetSerializationData()
+		{
+			return new CaptainsData(this);
+		}
 	}
 
 	public struct CaptainsData
@@ -25,7 +28,10 @@
 			PlayerData = captains.Player.GetSerializationData();
 		}
 
-		public Captains GetInstanceFromData(WorldContext worldContext) => new Captains(worldContext, this);
+		public Captains GetInstanceFromData(WorldContext worldContext)
+		{
+			return new Captains(worldContext, this);
+		}
 
 		public CaptainData PlayerData;
 	}

@@ -1,6 +1,6 @@
 using System;
-using HabitableZone.Core.SpacecraftStructure.Hardware;
 using HabitableZone.Common;
+using HabitableZone.Core.SpacecraftStructure.Hardware;
 
 namespace HabitableZone.Core.SpacecraftStructure
 {
@@ -20,6 +20,11 @@ namespace HabitableZone.Core.SpacecraftStructure
 		///    Returns currently installed equipment or null if not installed.
 		/// </summary>
 		public Equipment InstalledEquipment { get; private set; }
+
+		/// <summary>
+		///    Is equipment installed.
+		/// </summary>
+		public Boolean IsEquipmentInstalled => InstalledEquipment != null;
 
 		/// <summary>
 		///    Detaches installed equipment from this hardpoint.
@@ -58,11 +63,6 @@ namespace HabitableZone.Core.SpacecraftStructure
 
 			return InstalledEquipment;
 		}
-
-		/// <summary>
-		///    Is equipment installed.
-		/// </summary>
-		public Boolean IsEquipmentInstalled => InstalledEquipment != null;
 
 		//Equipment that will be installed right after this hardpoint will be attached to spacecraft.
 		private Equipment _equipmentPendingInstallation;

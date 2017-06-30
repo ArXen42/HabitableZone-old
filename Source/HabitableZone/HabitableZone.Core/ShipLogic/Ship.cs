@@ -4,7 +4,6 @@ using HabitableZone.Core.ShipLogic.FlightTasks;
 using HabitableZone.Core.SpacecraftStructure;
 using HabitableZone.Core.World;
 using UnityEngine;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.ShipLogic
 {
@@ -31,22 +30,40 @@ namespace HabitableZone.Core.ShipLogic
 			return new ShipData(this);
 		}
 
+		public override Vector2 Position => Location == WorldContext.StarSystems.Void
+			? Geometry.NaN2
+			: (WorldContext.WorldCtl.IsTurnActive ? CurrentFlightTask.Position : _position);
+
+		/// <summary>
+		///    Aggregates FlightTask.Complete
+		/// </summary>
+		public event SEventHandler<Ship, FlightTask> CurrentTaskComplete;
+
+		/// <summary>
+		///    Aggregates FlightTask.Cancelled
+		/// </summary>
+		public event SEventHandler<Ship, FlightTask> CurrentTaskCancelled;
+
+		/// <summary>
+		///    Aggregates FlightTask.Updated and changing CurrentFlightTask.
+		/// </summary>
+		public event SEventHandler<Ship, FlightTask> CurrentTaskUpdatedOrChanged;
+
 		/// <summary>
 		///    Flight task that is currently being executed by the ship.
 		/// </summary>
 		/// <remarks>
 		///    Little trick: if the task is complete or cancelled at the end of the turn,
 		///    the ClearCurrentFlightTask() will be invoked and _currentFlightTask will become null.
-		///    But once the getter will be invoked with _currentFlightTask set to null, the new IdleFlightTask will be instantiated.
+		///    But once the getter will be invoked with _currentFlightTask set to null, the new IdleFlightTask will be
+		///    instantiated.
 		/// </remarks>
 		public FlightTask CurrentFlightTask
 		{
 			get
 			{
 				if (_currentFlightTask == null)
-				{
 					CurrentFlightTask = new IdleFlightTask(this, _position, _velocity, _rotation);
-				}
 
 				return _currentFlightTask;
 			}
@@ -65,10 +82,6 @@ namespace HabitableZone.Core.ShipLogic
 			}
 		}
 
-		public override Vector2 Position => Location == WorldContext.StarSystems.Void
-			? Geometry.NaN2
-			: (WorldContext.WorldCtl.IsTurnActive ? CurrentFlightTask.Position : _position);
-
 		public Single Rotation => Location == WorldContext.StarSystems.Void
 			? Single.NaN
 			: (WorldContext.WorldCtl.IsTurnActive ? CurrentFlightTask.Rotation : _rotation);
@@ -76,21 +89,6 @@ namespace HabitableZone.Core.ShipLogic
 		public Vector2 Velocity => Location == WorldContext.StarSystems.Void
 			? Geometry.NaN2
 			: (WorldContext.WorldCtl.IsTurnActive ? CurrentFlightTask.Velocity : _velocity);
-
-		/// <summary>
-		///    Aggregates FlightTask.Complete
-		/// </summary>
-		public event SEventHandler<Ship, FlightTask> CurrentTaskComplete;
-
-		/// <summary>
-		///    Aggregates FlightTask.Cancelled
-		/// </summary>
-		public event SEventHandler<Ship, FlightTask> CurrentTaskCancelled;
-
-		/// <summary>
-		///    Aggregates FlightTask.Updated and changing CurrentFlightTask.
-		/// </summary>
-		public event SEventHandler<Ship, FlightTask> CurrentTaskUpdatedOrChanged;
 
 		protected override void OnTurnStarted(WorldCtl sender)
 		{
@@ -149,8 +147,8 @@ namespace HabitableZone.Core.ShipLogic
 		private FlightTask _currentFlightTask;
 
 		private Vector2 _position;
-		private Vector2 _velocity;
 		private Single _rotation;
+		private Vector2 _velocity;
 	}
 
 	[Serializable]
@@ -166,14 +164,14 @@ namespace HabitableZone.Core.ShipLogic
 			FlightTaskData = ship.CurrentFlightTask.GetSerializationData();
 		}
 
-		public FlightTaskData FlightTaskData;
-		public Vector2 Position;
-		public Single Rotation;
-		public Vector2 Velocity;
-
 		public override SpaceObject GetInstanceFromData(WorldContext worldContext)
 		{
 			return new Ship(worldContext, this);
 		}
+
+		public FlightTaskData FlightTaskData;
+		public Vector2 Position;
+		public Single Rotation;
+		public Vector2 Velocity;
 	}
 }

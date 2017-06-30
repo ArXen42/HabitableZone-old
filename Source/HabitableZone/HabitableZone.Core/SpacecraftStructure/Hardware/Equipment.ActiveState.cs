@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using HabitableZone.Common;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware
 {
@@ -142,8 +141,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware
 			Enabled = false;
 		}
 
+		private readonly List<IEquipmentEngagementDependency> _dependencies;
+
 		private Boolean _enabled;
 		private Boolean _targetEnabled;
-		private readonly List<IEquipmentEngagementDependency> _dependencies;
 	}
 }

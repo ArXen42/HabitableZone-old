@@ -10,6 +10,7 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 {
 	public class UniverseMapStarsController : MonoBehaviour
 	{
+		public event Action<StarSystem> TargetedStarSystemChanged;
 		public Single StarPositionsMultiplier { get; private set; }
 
 		public StarSystem TargetedStarSystem
@@ -24,11 +25,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 			}
 		}
 
-		public event Action<StarSystem> TargetedStarSystemChanged;
-
 		private void OnEnable()
 		{
-			
 			InstantiateStarIcons();
 		}
 
@@ -43,7 +41,7 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 			Single maxDeltaY = starSystems.Select(starSystem => starSystem.UniverseMapPosition.y).Max();
 
 			Single xRatio = width / maxDeltaX, yRatio = height / maxDeltaY;
-			StarPositionsMultiplier = (xRatio < yRatio) ? xRatio : yRatio;
+			StarPositionsMultiplier = xRatio < yRatio ? xRatio : yRatio;
 
 			foreach (var system in starSystems)
 			{

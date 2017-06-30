@@ -6,9 +6,8 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts.Watchers
 {
 	public class PlanetWatcher : SpaceObjectWatcher
 	{
-		public Planet Planet;
-
 		public override SpaceObject SpaceObject => Planet;
+		public Planet Planet;
 
 		private void OnEnable()
 		{

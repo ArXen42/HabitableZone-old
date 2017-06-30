@@ -15,7 +15,8 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators
 		public static Int32 DefaultResolution = 256; //Разрешение текстур планет
 
 		/// <summary>
-		///    Создает новый экземпляр генератора с заданным разрешением (если оно удовлетворяет ограничениям) и зерном случайных чисел.
+		///    Создает новый экземпляр генератора с заданным разрешением (если оно удовлетворяет ограничениям) и зерном случайных
+		///    чисел.
 		/// </summary>
 		/// <param name="ySize">Вертикальное разрешение</param>
 		/// <param name="planetData">Ссылка на планету.</param>
@@ -53,10 +54,7 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators
 		/// <summary>
 		///    Разрешение по горизонтали. По умолчанию равно удвоенному вертикальному.
 		/// </summary>
-		public virtual Int32 XSize
-		{
-			get { return YSize * 2; }
-		}
+		public virtual Int32 XSize => YSize * 2;
 
 		/// <summary>
 		///    Возвращает текстуру, сгенерированную с текущими параметрами
@@ -124,12 +122,12 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators
 			ParametersChanged = false;
 		}
 
+		protected PlanetData _planetData;
+
 		/// <summary>
 		///    Если true, то при следующем вызове будет произведена перегенерация всех трех текстур
 		/// </summary>
 		protected Boolean ParametersChanged;
-
-		protected PlanetData _planetData;
 
 		protected Color[] textureColors, heighmapColors, normalmapColors;
 

@@ -30,7 +30,7 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.LeftPanel
 			var equipmentTab = _tabbedLayoutController.Tabs[1];
 
 			Boolean isEquipmentInstalled = _spacecraftViewController.AnyHardpointSelected &&
-			                               _spacecraftViewController.SelectedHardpoint.IsEquipmentInstalled;
+													 _spacecraftViewController.SelectedHardpoint.IsEquipmentInstalled;
 
 			equipmentTab.Acessible = isEquipmentInstalled;
 
@@ -40,7 +40,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.LeftPanel
 			//и этот OnEnable вызвался раньше OnEnable контроллера вкладок.
 		}
 
-		private TabbedLayoutController _tabbedLayoutController;
 		private SpacecraftViewController _spacecraftViewController;
+
+		private TabbedLayoutController _tabbedLayoutController;
 	}
 }

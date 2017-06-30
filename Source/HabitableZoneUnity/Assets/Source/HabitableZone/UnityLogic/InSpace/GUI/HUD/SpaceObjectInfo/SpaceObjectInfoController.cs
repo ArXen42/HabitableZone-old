@@ -6,6 +6,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 {
 	public class SpaceObjectInfoController : MonoBehaviour
 	{
+		public event Action<SpaceObjectWatcher> WatcherUnderCursorChanged;
+
 		public SpaceObjectWatcher WatcherUnderCursor
 		{
 			get { return _watcherUnderCursor; }
@@ -17,8 +19,6 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.HUD.SpaceObjectInfo
 				if (WatcherUnderCursorChanged != null) WatcherUnderCursorChanged.Invoke(value);
 			}
 		}
-
-		public event Action<SpaceObjectWatcher> WatcherUnderCursorChanged;
 
 		private void Update()
 		{

@@ -101,21 +101,21 @@ namespace HabitableZone.UnityLogic.InSpace.LevelInitialization
 
 			_initializers = new Dictionary<Type, Func<SpaceObject, GameObject>>
 			{
-				{typeof(Star), (so => starInitializer.InitializeStar((Star) so))},
-				{typeof(Planet), (so => planetInitializer.InitializePlanet((Planet) so))},
-				{typeof(AsteroidField), (so => asteroidFieldInitializer.InitializeAsteroidField((AsteroidField) so))},
-				{typeof(Ship), (so => shipInitializer.InitializeShip((Ship) so))}
+				{typeof(Star), so => starInitializer.InitializeStar((Star) so)},
+				{typeof(Planet), so => planetInitializer.InitializePlanet((Planet) so)},
+				{typeof(AsteroidField), so => asteroidFieldInitializer.InitializeAsteroidField((AsteroidField) so)},
+				{typeof(Ship), so => shipInitializer.InitializeShip((Ship) so)}
 			};
 		}
-
-		/// <summary>
-		///    Contains components-initializers for each kind of SpaceObject.
-		/// </summary>
-		private Dictionary<Type, Func<SpaceObject, GameObject>> _initializers;
 
 		/// <summary>
 		///    Contains all created representations of SpaceObjects in this scene.
 		/// </summary>
 		private Dictionary<SpaceObject, GameObject> _gameObjectsDictionary;
+
+		/// <summary>
+		///    Contains components-initializers for each kind of SpaceObject.
+		/// </summary>
+		private Dictionary<Type, Func<SpaceObject, GameObject>> _initializers;
 	}
 }

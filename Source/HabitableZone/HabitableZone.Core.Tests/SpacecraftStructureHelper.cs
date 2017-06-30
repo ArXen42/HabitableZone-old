@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using NUnit.Framework;
 using HabitableZone.Common;
 using HabitableZone.Core.SpacecraftStructure;
+using NUnit.Framework;
 
 namespace HabitableZone.Core.Tests
 {

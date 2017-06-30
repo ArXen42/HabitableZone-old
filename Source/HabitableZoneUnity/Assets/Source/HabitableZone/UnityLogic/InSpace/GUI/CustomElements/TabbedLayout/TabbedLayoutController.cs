@@ -17,10 +17,7 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.CustomElements.TabbedLayout
 		/// <remarks>
 		///    Изменение списка вкладок во время исполнения не поддерживается.
 		/// </remarks>
-		public Tab[] Tabs
-		{
-			get { return _tabs; }
-		}
+		public Tab[] Tabs => _tabs;
 
 		/// <summary>
 		///    Текущая активная вкладка.
@@ -87,8 +84,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.CustomElements.TabbedLayout
 				tab.Button.onClick.RemoveAllListeners();
 		}
 
-		[SerializeField] private Tab[] _tabs;
-
 		private Tab _activeTab;
+
+		[SerializeField] private Tab[] _tabs;
 	}
 }

@@ -28,7 +28,7 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 		{
 			var player = _sharedGOSpawner.WorldContext.Captains.Player;
 			_buttonComponent.interactable = starSystem != null &&
-			                                player.CurrentShip.Hyperdrive.IsJumpPossible(starSystem);
+													  player.CurrentShip.Hyperdrive.IsJumpPossible(starSystem);
 		}
 
 		private void OnButtonClick()
@@ -41,9 +41,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.UniverseMap
 			GUIScreensManager.UniverseMapScreen.Active = false;
 		}
 
+		private Button _buttonComponent;
+
 		[SerializeField] private SharedGOSpawner _sharedGOSpawner;
 		[SerializeField] private UniverseMapStarsController _universeMapStarsController;
-		
-		private Button _buttonComponent;
 	}
 }

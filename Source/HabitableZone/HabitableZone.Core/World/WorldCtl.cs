@@ -1,7 +1,6 @@
 ﻿using System;
 using HabitableZone.Common;
 using UnityEngine;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.World
 {
@@ -24,32 +23,6 @@ namespace HabitableZone.Core.World
 			Date = data.Date;
 		}
 
-		public WorldCtlData GetSerializationData()
-		{
-			return new WorldCtlData(this);
-		}
-
-		/// <summary>
-		///    Current date.
-		/// </summary>
-		public DateTime Date { get; private set; }
-
-		/// <summary>
-		///    Determines whether the turn currently active.
-		/// </summary>
-		/// <remarks>
-		///    The turn is considered active in the interval from TurnStarted invocation (not including) and to TurnStopped invocation (including).
-		/// </remarks>
-		public Boolean IsTurnActive { get; private set; }
-
-		/// <summary>
-		///    The ratio of time elapsed since TurnStarted to TurnDuration.
-		/// </summary>
-		/// <remarks>
-		///    Returns 0 if turn isn't active and 1 if time's up (at the time of TurnStopped invocation).
-		/// </remarks>
-		public Single NormalizedTurnElapsedTime { get; private set; }
-
 		/// <summary>
 		///    Occurs when the turn is started.
 		/// </summary>
@@ -65,6 +38,33 @@ namespace HabitableZone.Core.World
 		///    At this point, IsTurnActive is true and NormalizedTurnElapsedTime returns 1.
 		/// </remarks>
 		public event CEventHandler<WorldCtl> TurnStopped;
+
+		/// <summary>
+		///    Current date.
+		/// </summary>
+		public DateTime Date { get; private set; }
+
+		/// <summary>
+		///    Determines whether the turn currently active.
+		/// </summary>
+		/// <remarks>
+		///    The turn is considered active in the interval from TurnStarted invocation (not including) and to TurnStopped
+		///    invocation (including).
+		/// </remarks>
+		public Boolean IsTurnActive { get; private set; }
+
+		/// <summary>
+		///    The ratio of time elapsed since TurnStarted to TurnDuration.
+		/// </summary>
+		/// <remarks>
+		///    Returns 0 if turn isn't active and 1 if time's up (at the time of TurnStopped invocation).
+		/// </remarks>
+		public Single NormalizedTurnElapsedTime { get; private set; }
+
+		public WorldCtlData GetSerializationData()
+		{
+			return new WorldCtlData(this);
+		}
 
 		/// <summary>
 		///    Starts turn.
@@ -120,8 +120,9 @@ namespace HabitableZone.Core.World
 			}
 		}
 
-		private Single _turnStartTime;
 		private DateTime _turnStartDate;
+
+		private Single _turnStartTime;
 	}
 
 	public struct WorldCtlData

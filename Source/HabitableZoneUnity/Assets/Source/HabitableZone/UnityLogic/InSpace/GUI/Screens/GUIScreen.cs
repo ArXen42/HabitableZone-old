@@ -9,9 +9,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.Screens
 	/// </summary>
 	public class GUIScreen : MonoBehaviour
 	{
-		[SerializeField] public List<GameObject> GameObjects;
-		[SerializeField] public Boolean InitialState;
-		[SerializeField] public String Name;
+		public event EventHandler Enabled;
+		public event EventHandler Disabled;
 
 		public virtual Boolean Active
 		{
@@ -26,8 +25,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.Screens
 			}
 		}
 
-		public event EventHandler Enabled;
-		public event EventHandler Disabled;
+		[SerializeField] public List<GameObject> GameObjects;
+		[SerializeField] public Boolean InitialState;
+		[SerializeField] public String Name;
 
 		protected void OnStateChanged(Boolean state)
 		{

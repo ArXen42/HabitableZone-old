@@ -11,75 +11,6 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 	/// </summary>
 	public class PlanetRings : PlanetTextureGenerator
 	{
-		/// <summary>
-		///    Создает новый экземпляр генератора колец планет.
-		/// </summary>
-		/// <param name="ySize">Размер текстуры</param>
-		/// <param name="planetData">Информация о планете</param>
-		public PlanetRings(Int32 ySize, PlanetData planetData) : base(ySize, planetData) { }
-
-		/// <summary>
-		///    Разрешение по горизонтали, равно вертикальному.
-		/// </summary>
-		public override Int32 XSize
-		{
-			get { return YSize; }
-		}
-
-		/// <summary>
-		///    Коэффициент перепадов цветов и прозрачности колец
-		/// </summary>
-		public Single CurvesRoughness
-		{
-			get { return _curvesRoughness; }
-			set
-			{
-				if (value >= 0)
-				{
-					_curvesRoughness = value;
-					ParametersChanged = true;
-				}
-				else
-					throw new ArgumentException("CurvesRoughness should be greater then zero.");
-			}
-		}
-
-		/// <summary>
-		///    Радиус внутренней области
-		/// </summary>
-		public Single InnerRadius
-		{
-			get { return _innerRadius; }
-			set
-			{
-				if (value >= 0 && value <= 1)
-				{
-					_innerRadius = value;
-					ParametersChanged = true;
-				}
-				else
-					throw new ArgumentException("InnerRadius should be in the [0, 1] range.");
-			}
-		}
-
-		/// <summary>
-		///    Радиус внешней области
-		/// </summary>
-		public Single OuterRadius
-		{
-			get { return _outerRadius; }
-			set
-			{
-				if (value >= 0 && value <= 1)
-				{
-					_outerRadius = value;
-					ParametersChanged = true;
-				}
-				else
-					throw new ArgumentException("OuterRadius should be in the [0, 1] range.");
-			}
-		}
-
 		private static Color[] RandomRingsColors()
 		{
 			Color[] resultColor;
@@ -104,6 +35,78 @@ namespace HabitableZone.UnityLogic.PlanetTextureGenerators.Generators
 			}
 
 			return resultColor;
+		}
+
+		/// <summary>
+		///    Создает новый экземпляр генератора колец планет.
+		/// </summary>
+		/// <param name="ySize">Размер текстуры</param>
+		/// <param name="planetData">Информация о планете</param>
+		public PlanetRings(Int32 ySize, PlanetData planetData) : base(ySize, planetData) { }
+
+		/// <summary>
+		///    Разрешение по горизонтали, равно вертикальному.
+		/// </summary>
+		public override Int32 XSize => YSize;
+
+		/// <summary>
+		///    Коэффициент перепадов цветов и прозрачности колец
+		/// </summary>
+		public Single CurvesRoughness
+		{
+			get { return _curvesRoughness; }
+			set
+			{
+				if (value >= 0)
+				{
+					_curvesRoughness = value;
+					ParametersChanged = true;
+				}
+				else
+				{
+					throw new ArgumentException("CurvesRoughness should be greater then zero.");
+				}
+			}
+		}
+
+		/// <summary>
+		///    Радиус внутренней области
+		/// </summary>
+		public Single InnerRadius
+		{
+			get { return _innerRadius; }
+			set
+			{
+				if (value >= 0 && value <= 1)
+				{
+					_innerRadius = value;
+					ParametersChanged = true;
+				}
+				else
+				{
+					throw new ArgumentException("InnerRadius should be in the [0, 1] range.");
+				}
+			}
+		}
+
+		/// <summary>
+		///    Радиус внешней области
+		/// </summary>
+		public Single OuterRadius
+		{
+			get { return _outerRadius; }
+			set
+			{
+				if (value >= 0 && value <= 1)
+				{
+					_outerRadius = value;
+					ParametersChanged = true;
+				}
+				else
+				{
+					throw new ArgumentException("OuterRadius should be in the [0, 1] range.");
+				}
+			}
 		}
 
 		protected override Color[] GenerateTextureColors()

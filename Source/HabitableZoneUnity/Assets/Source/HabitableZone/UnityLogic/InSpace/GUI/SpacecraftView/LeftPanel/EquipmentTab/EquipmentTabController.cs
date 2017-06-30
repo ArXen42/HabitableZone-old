@@ -30,8 +30,9 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.LeftPanel.Equipmen
 			_consumerComponentGroup.SetActive(false);
 		}
 
+		[SerializeField] private GameObject _consumerComponentGroup;
+
 		[SerializeField] private GameObject _overallInfoGroup;
 		[SerializeField] private GameObject _producerComponentGroup;
-		[SerializeField] private GameObject _consumerComponentGroup;
 	}
 }

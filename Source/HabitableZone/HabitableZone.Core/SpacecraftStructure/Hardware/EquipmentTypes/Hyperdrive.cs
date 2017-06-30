@@ -1,10 +1,9 @@
 ﻿using System;
-using Pathfinding.Serialization.JsonFx;
 using HabitableZone.Common;
 using HabitableZone.Core.World;
 using HabitableZone.Core.World.Universe;
+using Pathfinding.Serialization.JsonFx;
 using UnityEngine;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 {
@@ -13,6 +12,10 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 	/// </summary>
 	public class Hyperdrive : Equipment
 	{
+		public static readonly Single HyperjumpDurationFactor = 1 / 30f;
+
+		public static readonly Single HyperspaceEntryPointDistance = 60e9f;
+
 		public Hyperdrive(HyperdriveData data) : base(data)
 		{
 			MaxJumpDist = data.MaxJumpDist;
@@ -24,10 +27,7 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 			return new HyperdriveData(this);
 		}
 
-		public static readonly Single HyperspaceEntryPointDistance = 60e9f;
-		public static readonly Single HyperjumpDurationFactor = 1 / 30f;
-
-		public Single MaxJumpDist { get; private set; }
+		public Single MaxJumpDist { get; }
 
 		/// <summary>
 		///    Если корабль находится в гиперпространстве, то будет содержать информацию о текущем гиперпрыжке.
@@ -60,8 +60,8 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 			if (targetStarSystem == Spacecraft.Location)
 				return false;
 
-			Vector2 currentPos = Spacecraft.Location.UniverseMapPosition;
-			Vector2 targetPos = targetStarSystem.UniverseMapPosition;
+			var currentPos = Spacecraft.Location.UniverseMapPosition;
+			var targetPos = targetStarSystem.UniverseMapPosition;
 			return Vector2.Distance(currentPos, targetPos) <= MaxJumpDist; //TODO: учет топлива
 		}
 
@@ -71,12 +71,12 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 		/// </summary>
 		public Single GetJumpAngle(StarSystem targetStarSystem)
 		{
-			Vector2 startPos =
+			var startPos =
 			(CurrentHyperjumpInfo == null
 				? Spacecraft.Location
 				: CurrentHyperjumpInfo.StartSystem).UniverseMapPosition;
 
-			Vector2 targetPos = targetStarSystem.UniverseMapPosition;
+			var targetPos = targetStarSystem.UniverseMapPosition;
 			return Geometry.EulerAngleOfVector(targetPos - startPos);
 		}
 
@@ -114,10 +114,10 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 			if (!IsJumpPossible(targetStarSystem))
 				throw new InvalidOperationException("Jump failed: can't jump from current star system.");
 
-			Vector2 currentPos = Spacecraft.Location.UniverseMapPosition;
-			Vector2 targetPos = targetStarSystem.UniverseMapPosition;
+			var currentPos = Spacecraft.Location.UniverseMapPosition;
+			var targetPos = targetStarSystem.UniverseMapPosition;
 
-			TimeSpan jumpDuration =
+			var jumpDuration =
 				new TimeSpan(Mathf.RoundToInt(Vector2.Distance(currentPos, targetPos) * HyperjumpDurationFactor) + 1, 0, 0, 0, 0);
 
 			CurrentHyperjumpInfo = new HyperjumpInfo(WorldContext.WorldCtl.Date + jumpDuration, Spacecraft.Location, targetStarSystem);
@@ -158,8 +158,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 			return new Hyperdrive(this);
 		}
 
-		public Single MaxJumpDist;
 		public HyperjumpInfo HyperjumpInfo;
+
+		public Single MaxJumpDist;
 	}
 
 	/// <summary>
@@ -177,7 +178,7 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 			_worldContext = startSystem.WorldContext;
 		}
 
-		public DateTime ArrivalDate { get; private set; }
+		public DateTime ArrivalDate { get; }
 		public Guid StarSystemID { get; private set; }
 		public Guid TargetSystemID { get; private set; }
 
@@ -195,6 +196,6 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 			set { TargetSystemID = value.ID; }
 		}
 
-		private WorldContext _worldContext;
+		private readonly WorldContext _worldContext;
 	}
 }

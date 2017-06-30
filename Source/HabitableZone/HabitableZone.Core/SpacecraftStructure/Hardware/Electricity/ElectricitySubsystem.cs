@@ -1,12 +1,11 @@
 ﻿using System;
 using HabitableZone.Common;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 {
 	/// <summary>
 	///    Carries information about power value change.
- 	/// </summary>
+	/// </summary>
 	public class PowerValueChangedEventArgs : EventArgs
 	{
 		public PowerValueChangedEventArgs(Int64 oldValue, Int64 newValue)
@@ -41,15 +40,9 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		}
 
 		/// <summary>
-		///    Spacecraft this subsystem belongs to.
+		///    Occurs when power in the electrical network were redistributed.
 		/// </summary>
-		public readonly Spacecraft Spacecraft;
-
-		/// <summary>
-		///    Actually main part of this subsystem,
-		///    contains all equipment with TargetEnabled == true and distributes power between them.
-		/// </summary>
-		public readonly EquipmentNetwork EquipmentNetwork;
+		public event CEventHandler<ElectricitySubsystem> PowerStateChanged;
 
 		/// <summary>
 		///    Total power production.
@@ -67,9 +60,15 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		public Int64 OverallConsumingPower => OverallProducingPower - AvailablePower;
 
 		/// <summary>
-		///    Occurs when power in the electrical network were redistributed.
+		///    Actually main part of this subsystem,
+		///    contains all equipment with TargetEnabled == true and distributes power between them.
 		/// </summary>
-		public event CEventHandler<ElectricitySubsystem> PowerStateChanged;
+		public readonly EquipmentNetwork EquipmentNetwork;
+
+		/// <summary>
+		///    Spacecraft this subsystem belongs to.
+		/// </summary>
+		public readonly Spacecraft Spacecraft;
 
 		private void OnEquipmentConnected(Equipment equipment)
 		{

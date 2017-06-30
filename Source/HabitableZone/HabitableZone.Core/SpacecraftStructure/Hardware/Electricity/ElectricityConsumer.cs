@@ -1,6 +1,5 @@
 ﻿using System;
 using HabitableZone.Common;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 {
@@ -20,12 +19,20 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			TargetConsumingPower = data.TargetConsumingPower;
 		}
 
-		public ElectricityConsumerData GetSerializationData()
-		{
-			return new ElectricityConsumerData(this);
-		}
+		/// <summary>
+		///    Occurs when the value of ConsumingPower changes.
+		/// </summary>
+		public event CEventHandler<ElectricityConsumer, PowerValueChangedEventArgs> ConsumingPowerChanged;
 
-		public readonly Int64 MinPower, OptimalPower, MaxPower;
+		/// <summary>
+		///    Occurs when TargetConsumingPower has changed.
+		/// </summary>
+		public event SEventHandler<ElectricityConsumer, Int64> TargetConsumingPowerChanged;
+
+		/// <summary>
+		///    Occurs when priority has changed.
+		/// </summary>
+		public event SEventHandler<ElectricityConsumer, Int16> PriorityChanged;
 
 		/// <summary>
 		///    Current power consumption.
@@ -83,20 +90,12 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 			}
 		}
 
-		/// <summary>
-		///    Occurs when the value of ConsumingPower changes.
-		/// </summary>
-		public event CEventHandler<ElectricityConsumer, PowerValueChangedEventArgs> ConsumingPowerChanged;
+		public ElectricityConsumerData GetSerializationData()
+		{
+			return new ElectricityConsumerData(this);
+		}
 
-		/// <summary>
-		///    Occurs when TargetConsumingPower has changed.
-		/// </summary>
-		public event SEventHandler<ElectricityConsumer, Int64> TargetConsumingPowerChanged;
-
-		/// <summary>
-		///    Occurs when priority has changed.
-		/// </summary>
-		public event SEventHandler<ElectricityConsumer, Int16> PriorityChanged;
+		public readonly Int64 MinPower, OptimalPower, MaxPower;
 
 		protected override void OnNodePowerConfigurationChanged(EquipmentNetwork.Node sender)
 		{
@@ -104,8 +103,8 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		}
 
 		private Int64 _consumingPower;
-		private Int64 _targetConsumingPower;
 		private Int16 _priority;
+		private Int64 _targetConsumingPower;
 	}
 
 	[Serializable]

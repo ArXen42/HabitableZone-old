@@ -13,6 +13,16 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.Screens
 		public static GUIScreen SpacecraftViewScreen { get; private set; }
 		public static GUIScreen UniverseMapScreen { get; private set; }
 
+		public void SetActiveSpacecraftViewScreen(Boolean state)
+		{
+			SpacecraftViewScreen.Active = state;
+		}
+
+		public void ToggleUniverseMapScreen()
+		{
+			UniverseMapScreen.Active = !UniverseMapScreen.Active;
+		}
+
 		private void Awake()
 		{
 			var components = GetComponents<GUIScreen>();
@@ -27,16 +37,6 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.Screens
 
 			SpacecraftViewScreen.Enabled += (sender, e) => HUDScreen.Active = false;
 			SpacecraftViewScreen.Disabled += (sender, e) => HUDScreen.Active = true;
-		}
-
-		public void SetActiveSpacecraftViewScreen(Boolean state)
-		{
-			SpacecraftViewScreen.Active = state;
-		}
-
-		public void ToggleUniverseMapScreen()
-		{
-			UniverseMapScreen.Active = !UniverseMapScreen.Active;
 		}
 	}
 }

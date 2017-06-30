@@ -26,16 +26,30 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 		public WorldContext WorldContext => Ship.WorldContext;
 
-		public abstract FlightTaskData GetSerializationData();
-
 		/// <summary>
-		///    Ship this FlightTask belongs to.
+		///    Occurs when the task is complete.
 		/// </summary>
 		/// <remarks>
-		///    Doesn't change Ship directly. Instead, Ship's properties references to corresponding from CurrentFlightTask.
-		///    Also, at the TurnStopped, Ship stores values of this properties.
+		///    Usually occurs when the turn is stopped. Can't occur twice.
 		/// </remarks>
-		public readonly Ship Ship;
+		public event CEventHandler<FlightTask> Complete;
+
+		/// <summary>
+		///    Occurs when the task is cancelled.
+		/// </summary>
+		/// <remarks>
+		///    Can't occur twice.
+		/// </remarks>
+		public event CEventHandler<FlightTask> Cancelled;
+
+		/// <summary>
+		///    Occurs when the state of the FlightTask (abstract state, not enum) is changed (for example, after acceleration
+		///    changed).
+		/// </summary>
+		/// <remarks>
+		///    Invocation is controlled by inherited flight tasks.
+		/// </remarks>
+		public event CEventHandler<FlightTask> Updated;
 
 		/// <summary>
 		///    Position of ship calculated by the FlightTask.
@@ -62,29 +76,7 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 		/// </summary>
 		public FlightTaskState State { get; private set; }
 
-		/// <summary>
-		///    Occurs when the task is complete.
-		/// </summary>
-		/// <remarks>
-		///    Usually occurs when the turn is stopped. Can't occur twice.
-		/// </remarks>
-		public event CEventHandler<FlightTask> Complete;
-
-		/// <summary>
-		///    Occurs when the task is cancelled.
-		/// </summary>
-		/// <remarks>
-		///    Can't occur twice.
-		/// </remarks>
-		public event CEventHandler<FlightTask> Cancelled;
-
-		/// <summary>
-		///    Occurs when the state of the FlightTask (abstract state, not enum) is changed (for example, after acceleration changed).
-		/// </summary>
-		/// <remarks>
-		///    Invocation is controlled by inherited flight tasks.
-		/// </remarks>
-		public event CEventHandler<FlightTask> Updated;
+		public abstract FlightTaskData GetSerializationData();
 
 		/// <summary>
 		///    Cancels the FlightTask.
@@ -98,6 +90,17 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 			Invalidate();
 		}
+
+		/// <summary>
+		///    Ship this FlightTask belongs to.
+		/// </summary>
+		/// <remarks>
+		///    Doesn't change Ship directly. Instead, Ship's properties references to corresponding from CurrentFlightTask.
+		///    Also, at the TurnStopped, Ship stores values of this properties.
+		/// </remarks>
+		public readonly Ship Ship;
+
+		protected Boolean IsInvalidating { get; private set; }
 
 		/// <summary>
 		///    Invoked by inherited flight tasks when they determine that the FlightTask is complete.
@@ -148,8 +151,6 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 			IsInvalidating = false;
 		}
-
-		protected Boolean IsInvalidating { get; private set; }
 	}
 
 	public abstract class FlightTaskData

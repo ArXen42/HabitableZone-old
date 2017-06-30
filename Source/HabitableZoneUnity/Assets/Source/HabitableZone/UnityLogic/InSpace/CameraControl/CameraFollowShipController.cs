@@ -29,15 +29,16 @@ namespace HabitableZone.UnityLogic.InSpace.CameraControl
 		{
 			Single normalizedTimer = (Time.time - _startTime) / Duration;
 			Vector2 shipPosition = _shipRepresentationTransform.position;
-			_transform.position = (Vector3) (Vector2.Lerp(_transform.position, shipPosition, normalizedTimer)) +
-			                      10 * Vector3.back;
+			_transform.position = (Vector3) Vector2.Lerp(_transform.position, shipPosition, normalizedTimer) +
+										 10 * Vector3.back;
 		}
 
-		[SerializeField] private StarSystemViewController _starSystemViewController;
-
-		private Transform _transform;
 		private Transform _shipRepresentationTransform;
+
+		[SerializeField] private StarSystemViewController _starSystemViewController;
 		private Single _startTime;
 		private Ship _target;
+
+		private Transform _transform;
 	}
 }

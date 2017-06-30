@@ -16,8 +16,8 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.LeftPanel.Equipmen
 
 
 		protected override void OnDisableAction() { }
+		[SerializeField] private Text _equipmentMassText;
 
 		[SerializeField] private Text _equipmentNameText;
-		[SerializeField] private Text _equipmentMassText;
 	}
 }

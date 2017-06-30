@@ -8,9 +8,6 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts
 {
 	public sealed class HyperjumpEffectController : MonoBehaviour
 	{
-		private ShipWatcher _watcher;
-		private ParticleSystem _particleSystem;
-
 		private void Start()
 		{
 			_watcher = GetComponentInParent<ShipWatcher>();
@@ -32,16 +29,16 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts
 		{
 			var flightTask = _watcher.Ship.CurrentFlightTask as HyperjumpFlightTask;
 			if (flightTask != null)
-			{
 				if (flightTask.InnerFlightTask is EnterHyperspaceFlightTask ||
-				    flightTask.InnerFlightTask is ExitingHyperspaceFlightTask)
+					 flightTask.InnerFlightTask is ExitingHyperspaceFlightTask)
 				{
 					_particleSystem.Play();
 					Camera.main.GetComponent<CameraController>().SetFree();
 				}
 				else
+				{
 					_particleSystem.Stop();
-			}
+				}
 			else
 				_particleSystem.Stop();
 		}
@@ -50,5 +47,8 @@ namespace HabitableZone.UnityLogic.InSpace.SpaceObjectsScripts
 		{
 			_particleSystem.Stop();
 		}
+
+		private ParticleSystem _particleSystem;
+		private ShipWatcher _watcher;
 	}
 }

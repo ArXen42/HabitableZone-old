@@ -49,9 +49,10 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.SpacecraftView.OverallInfoPanel
 				: 0.ToString();
 		}
 
+		[SerializeField] private Text _accelerationInfo;
+
 		[SerializeField] private Text _massInfo;
 		[SerializeField] private Text _powerInfo;
-		[SerializeField] private Text _accelerationInfo;
 
 		private SpacecraftViewController _spacecraftViewController;
 	}

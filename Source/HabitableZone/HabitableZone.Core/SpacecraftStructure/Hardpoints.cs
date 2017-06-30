@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using HabitableZone.Common;
-using HabitableZone.Common;
 
 namespace HabitableZone.Core.SpacecraftStructure
 {
@@ -26,18 +25,6 @@ namespace HabitableZone.Core.SpacecraftStructure
 			return GetEnumerator();
 		}
 
-		public Int32 Count => _hardpoints.Count;
-
-		public void ForEach(Action<Hardpoint> action)
-		{
-			_hardpoints.ForEach(action);
-		}
-
-		/// <summary>
-		///    Owner spacecraft.
-		/// </summary>
-		public readonly Spacecraft Spacecraft;
-
 		/// <summary>
 		///    Occurs when some hardpoint is mounted.
 		/// </summary>
@@ -47,6 +34,13 @@ namespace HabitableZone.Core.SpacecraftStructure
 		///    Occurs when some hardpoint is unmounted (no longer attached to spacecraft).
 		/// </summary>
 		public event SEventHandler<Hardpoints, Hardpoint> HardpointUnmounted;
+
+		public Int32 Count => _hardpoints.Count;
+
+		public void ForEach(Action<Hardpoint> action)
+		{
+			_hardpoints.ForEach(action);
+		}
 
 		/// <summary>
 		///    Attaches given hardpoint to the spacecraft.
@@ -72,6 +66,11 @@ namespace HabitableZone.Core.SpacecraftStructure
 
 			HardpointUnmounted?.Invoke(this, hardpoint);
 		}
+
+		/// <summary>
+		///    Owner spacecraft.
+		/// </summary>
+		public readonly Spacecraft Spacecraft;
 
 		private readonly List<Hardpoint> _hardpoints = new List<Hardpoint>();
 	}

@@ -23,10 +23,7 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes
 			return new EngineInletData(this);
 		}
 
-		public Single Acceleration
-		{
-			get { return ElectricityConsumer.ConsumingPower * AccelerationFactor / Mass; } //TODO: rework
-		}
+		public Single Acceleration => ElectricityConsumer.ConsumingPower * AccelerationFactor / Mass;
 
 		public readonly ElectricityConsumer ElectricityConsumer;
 	}

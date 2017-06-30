@@ -40,8 +40,6 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 			return new HyperjumpFlightTaskData(this);
 		}
 
-		public readonly StarSystem TargetStarSystem;
-
 		public override Vector2 Position => InnerFlightTask.Position;
 
 		public override Vector2 Velocity => InnerFlightTask.Velocity;
@@ -59,17 +57,19 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 			private set
 			{
 				_innerFlightTask = value;
-				_innerFlightTask.Cancelled += (sender) =>
+				_innerFlightTask.Cancelled += sender =>
 				{
 					ClearInnerFlightTask();
 					if (!IsInvalidating) Cancel();
 				};
-				_innerFlightTask.Complete += (sender) => ClearInnerFlightTask();
-				_innerFlightTask.Updated += (sender) => InvokeUpdated();
+				_innerFlightTask.Complete += sender => ClearInnerFlightTask();
+				_innerFlightTask.Updated += sender => InvokeUpdated();
 
 				InvokeUpdated();
 			}
 		}
+
+		public readonly StarSystem TargetStarSystem;
 
 		protected override void OnInvalidation()
 		{
@@ -78,10 +78,10 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 		private void SetMovingToEntryPoint()
 		{
-			Vector2 hyperspaceEntryPoint = Ship.Hyperdrive.GetHyperspaceEntryPoint(TargetStarSystem);
+			var hyperspaceEntryPoint = Ship.Hyperdrive.GetHyperspaceEntryPoint(TargetStarSystem);
 			InnerFlightTask = new FlyToPointFlightTask(Ship, hyperspaceEntryPoint);
 
-			InnerFlightTask.Complete += (sender) => SetEnteringHyperspace();
+			InnerFlightTask.Complete += sender => SetEnteringHyperspace();
 		}
 
 		private void SetEnteringHyperspace()
@@ -149,6 +149,11 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 	public sealed class EnterHyperspaceFlightTask : FlightTask
 	{
+		public const Single LowSpeedStageDurationFactor = 0.6f;
+		public const Single LowSpeedStageMovingDistance = 4e9f;
+		public const Single HighSpeedStageMovingDistance = 500e9f;
+		public const Single HighSpeedStageDurationFactor = 1 - LowSpeedStageDurationFactor;
+
 		public EnterHyperspaceFlightTask(Ship ship, Vector2 entryPoint) : base(ship)
 		{
 			_jumpAngle = Geometry.EulerAngleOfVector(entryPoint);
@@ -161,11 +166,6 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 		{
 			throw new InvalidOperationException("This temporary task should not be serialized.");
 		}
-
-		public const Single LowSpeedStageDurationFactor = 0.6f;
-		public const Single LowSpeedStageMovingDistance = 4e9f;
-		public const Single HighSpeedStageMovingDistance = 500e9f;
-		public const Single HighSpeedStageDurationFactor = 1 - LowSpeedStageDurationFactor;
 
 		public override Vector2 Position
 		{
@@ -185,14 +185,23 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 		public override TrajectoryPoint[] VisibleTrajectoryPoints => new TrajectoryPoint[0];
 
-		protected override void OnTurnStopped(WorldCtl sender) => InvokeComplete();
+		protected override void OnTurnStopped(WorldCtl sender)
+		{
+			InvokeComplete();
+		}
+
+		private readonly Vector2 _entryPoint, _firstStagePoint, _secondStagePoint;
 
 		private readonly Single _jumpAngle;
-		private readonly Vector2 _entryPoint, _firstStagePoint, _secondStagePoint;
 	}
 
 	public sealed class ExitingHyperspaceFlightTask : FlightTask
 	{
+		public const Single HighSpeedStageDurationFactor = 0.4f;
+		public const Single HighSpeedStageMovingDistance = 400e9f;
+		public const Single LowSpeedStageMovingDistance = 4e9f;
+		public const Single LowSpeedStageDurationFactor = 1 - HighSpeedStageDurationFactor;
+
 		public ExitingHyperspaceFlightTask(Ship ship, Vector2 hyperspaceExitPoint) : base(ship)
 		{
 			_hyperspaceExitPoint = hyperspaceExitPoint;
@@ -205,11 +214,6 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 		{
 			throw new InvalidOperationException("This temporary task should not be serialized.");
 		}
-
-		public const Single HighSpeedStageDurationFactor = 0.4f;
-		public const Single HighSpeedStageMovingDistance = 400e9f;
-		public const Single LowSpeedStageMovingDistance = 4e9f;
-		public const Single LowSpeedStageDurationFactor = 1 - HighSpeedStageDurationFactor;
 
 		public override Vector2 Position
 		{
@@ -234,7 +238,10 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 
 		public override TrajectoryPoint[] VisibleTrajectoryPoints => new TrajectoryPoint[0];
 
-		protected override void OnTurnStopped(WorldCtl sender) => InvokeComplete();
+		protected override void OnTurnStopped(WorldCtl sender)
+		{
+			InvokeComplete();
+		}
 
 		private readonly Vector2 _hyperspaceExitPoint, _highSpeedStagePoint;
 		private readonly Single _jumpExitAngle;

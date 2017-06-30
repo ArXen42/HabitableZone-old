@@ -16,7 +16,10 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 			_rotation = rotation;
 		}
 
-		public override FlightTaskData GetSerializationData() => new IdleFlightTaskData();
+		public override FlightTaskData GetSerializationData()
+		{
+			return new IdleFlightTaskData();
+		}
 
 		public override Vector2 Position => _startPosition + Velocity * WorldContext.WorldCtl.NormalizedTurnElapsedTime * 86400;
 
@@ -39,10 +42,14 @@ namespace HabitableZone.Core.ShipLogic.FlightTasks
 			}
 		}
 
-		protected override void OnTurnStopped(WorldCtl sender) => InvokeComplete();
+		protected override void OnTurnStopped(WorldCtl sender)
+		{
+			InvokeComplete();
+		}
+
+		private readonly Single _rotation;
 
 		private readonly Vector2 _startPosition;
-		private readonly Single _rotation;
 		private readonly Vector2 _velocity;
 	}
 

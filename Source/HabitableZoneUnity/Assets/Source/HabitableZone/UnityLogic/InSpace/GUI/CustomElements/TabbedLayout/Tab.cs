@@ -12,24 +12,6 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.CustomElements.TabbedLayout
 	public class Tab
 	{
 		/// <summary>
-		///    Кнопка, переклюшая вкладку.
-		/// </summary>
-		[SerializeField] public Button Button;
-
-		/// <summary>
-		///    Контроллируемый GO.
-		/// </summary>
-		[SerializeField] public GameObject ControlledGameObject;
-
-		/// <summary>
-		///    Будет установлен при инициализации в TabbedLayoutController.
-		/// </summary>
-		/// <remarks>
-		///    Не изменять, воспринимать как readonly.
-		/// </remarks>
-		[NonSerialized] public TabbedLayoutController Controller;
-
-		/// <summary>
 		///    Состояние (вкл/выкл) вкладки в данный момент.
 		/// </summary>
 		public Boolean Active
@@ -62,6 +44,24 @@ namespace HabitableZone.UnityLogic.InSpace.GUI.CustomElements.TabbedLayout
 					Controller.SwitchToFirstAcessible();
 			}
 		}
+
+		/// <summary>
+		///    Кнопка, переклюшая вкладку.
+		/// </summary>
+		[SerializeField] public Button Button;
+
+		/// <summary>
+		///    Контроллируемый GO.
+		/// </summary>
+		[SerializeField] public GameObject ControlledGameObject;
+
+		/// <summary>
+		///    Будет установлен при инициализации в TabbedLayoutController.
+		/// </summary>
+		/// <remarks>
+		///    Не изменять, воспринимать как readonly.
+		/// </remarks>
+		[NonSerialized] public TabbedLayoutController Controller;
 
 		private Boolean _acessible = true;
 		private Boolean _active;

@@ -7,10 +7,22 @@ using HabitableZone.Core.World.Universe;
 namespace HabitableZone.Core.World
 {
 	/// <summary>
-	///    Game world's root. Provides access to core facilities: space objects and star system collections, WorldCtl and so on.
+	///    Game world's root. Provides access to core facilities: space objects and star system collections, WorldCtl and so
+	///    on.
 	/// </summary>
 	public class WorldContext
 	{
+		/// <summary>
+		///    Deserializes world from given stream using project's json settings.
+		/// </summary>
+		public static WorldContext DeserializeFrom(Stream stream)
+		{
+			var data = Serialization.DeserializeDataFromJson<WorldContextData>(stream);
+			var worldContext = data.GetInstanceFromData();
+
+			return worldContext;
+		}
+
 		public WorldContext(WorldContextData data)
 		{
 			_creationDate = DateTime.Now;
@@ -30,12 +42,6 @@ namespace HabitableZone.Core.World
 			return new WorldContextData(this);
 		}
 
-		public readonly WorldCtl WorldCtl;
-		public readonly StarSystems StarSystems;
-		public readonly SpaceObjects SpaceObjects;
-		public readonly Captains Captains;
-		private readonly DateTime _creationDate;
-
 		/// <summary>
 		///    Serializes world to given stream using project's json settings.
 		/// </summary>
@@ -44,16 +50,12 @@ namespace HabitableZone.Core.World
 			Serialization.SerializeDataToJson(GetSerializationData(), stream);
 		}
 
-		/// <summary>
-		///    Deserializes world from given stream using project's json settings.
-		/// </summary>
-		public static WorldContext DeserializeFrom(Stream stream)
-		{
-			var data = Serialization.DeserializeDataFromJson<WorldContextData>(stream);
-			var worldContext = data.GetInstanceFromData();
+		public readonly Captains Captains;
+		public readonly SpaceObjects SpaceObjects;
+		public readonly StarSystems StarSystems;
 
-			return worldContext;
-		}
+		public readonly WorldCtl WorldCtl;
+		private readonly DateTime _creationDate;
 	}
 
 	/// <summary>

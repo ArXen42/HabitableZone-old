@@ -22,11 +22,6 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 		public event CEventHandler<IEquipmentEngagementDependency> EngagementProhibited;
 
 		/// <summary>
-		///    Action which performs when node reports that it's input/output power changed.
-		/// </summary>
-		protected abstract void OnNodePowerConfigurationChanged(EquipmentNetwork.Node sender);
-
-		/// <summary>
 		///    Internal property used to couple EquipmentNetwork.Node and ElectricityEquipment
 		///    when equipment is involved in the power distribution.
 		/// </summary>
@@ -52,6 +47,11 @@ namespace HabitableZone.Core.SpacecraftStructure.Hardware.Electricity
 				}
 			}
 		}
+
+		/// <summary>
+		///    Action which performs when node reports that it's input/output power changed.
+		/// </summary>
+		protected abstract void OnNodePowerConfigurationChanged(EquipmentNetwork.Node sender);
 
 		private void OnNodeAllowedEngagement(EquipmentNetwork.Node sender)
 		{

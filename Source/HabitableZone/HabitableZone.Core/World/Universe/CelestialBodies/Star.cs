@@ -64,16 +64,16 @@ namespace HabitableZone.Core.World.Universe.CelestialBodies
 			Position = star.Position;
 		}
 
+		public override SpaceObject GetInstanceFromData(WorldContext worldContext)
+		{
+			return new Star(worldContext, this);
+		}
+
 		public Single Luminosity;
 		public Single Mass;
 		public Vector2 Position;
 		public Single Radius;
 		public Single SurfaceTemperature;
 		public StarType Type;
-
-		public override SpaceObject GetInstanceFromData(WorldContext worldContext)
-		{
-			return new Star(worldContext, this);
-		}
 	}
 }

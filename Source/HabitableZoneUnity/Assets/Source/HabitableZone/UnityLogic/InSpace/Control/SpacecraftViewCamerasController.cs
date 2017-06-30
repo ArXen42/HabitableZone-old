@@ -20,8 +20,9 @@ namespace HabitableZone.UnityLogic.InSpace.Control
 			transform.Rotate(0, 0, _rotateSpeed * Input.GetAxis("Horizontal"), Space.World);
 		}
 
-		[SerializeField] private Single _rotateSpeed;
 		[SerializeField] private Camera _hullCamera;
+
+		[SerializeField] private Single _rotateSpeed;
 		[SerializeField] private Camera _structureCamera;
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using NUnit.Framework;
 using HabitableZone.Core.SpacecraftStructure.Hardware.EquipmentTypes;
+using NUnit.Framework;
 
 namespace HabitableZone.Core.Tests.SpacecraftStructure
 {
@@ -9,6 +9,12 @@ namespace HabitableZone.Core.Tests.SpacecraftStructure
 	/// </summary>
 	public class ElectricityTests
 	{
+		/// <summary>
+		///    This is what returns from EquipmentNetwork.ToString on the fresh test spacecraft.
+		/// </summary>
+		private const String InitialEquipmentNetworkString =
+			"0 - Reactor1 - 120000000 - EngineInlet1 - 55000000 - EngineInlet2 - 5000000";
+
 		[Test]
 		public void EquipmentNetwork_IsInitialStringCorrect()
 		{
@@ -133,11 +139,5 @@ namespace HabitableZone.Core.Tests.SpacecraftStructure
 
 			Assert.IsFalse(hyperdrive.Enabled);
 		}
-
-		/// <summary>
-		///    This is what returns from EquipmentNetwork.ToString on the fresh test spacecraft.
-		/// </summary>
-		private const String InitialEquipmentNetworkString =
-			"0 - Reactor1 - 120000000 - EngineInlet1 - 55000000 - EngineInlet2 - 5000000";
 	}
 }
