@@ -28,7 +28,7 @@ namespace HabitableZone.Localization.Aggregator
 
 		private void Deeper()
 		{
-			String currentPath = Path.Combine(new []{_rootPath}.Concat(_relativePath).ToArray());
+			String currentPath = Path.Combine(new[] {_rootPath}.Concat(_relativePath).ToArray());
 
 			var directories = Directory.GetDirectories(currentPath);
 			var files = Directory.GetFiles(currentPath);
@@ -57,7 +57,6 @@ namespace HabitableZone.Localization.Aggregator
 					Boolean parsingSuccesful = Enum.TryParse(Path.GetFileNameWithoutExtension(file), out language);
 
 					if (parsingSuccesful)
-					{
 						using (var stream = new FileStream(file, FileMode.Open, FileAccess.Read))
 						{
 							var localizationString = Serialization.DeserializeDataFromJson<LocalizationString>(stream);
@@ -71,7 +70,6 @@ namespace HabitableZone.Localization.Aggregator
 
 							_result[language].Add(key.ToString(), localizationString);
 						}
-					}
 					else
 						Console.WriteLine($"SystemLanguage was not recognized, skipping \"{filename}\"");
 				}
@@ -79,8 +77,8 @@ namespace HabitableZone.Localization.Aggregator
 		}
 
 		private readonly String _rootPath;
+		private List<String> _relativePath;
 
 		private Dictionary<SystemLanguage, GameLocalization> _result;
-		private List<String> _relativePath;
 	}
 }

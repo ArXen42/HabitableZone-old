@@ -1,6 +1,6 @@
-﻿using Fclp;
-using System;
+﻿using System;
 using System.IO;
+using Fclp;
 using HabitableZone.Common;
 
 namespace HabitableZone.Localization.Aggregator
