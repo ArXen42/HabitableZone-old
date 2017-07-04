@@ -1394,9 +1394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9dcfc3e35e942b4a540eb097b1f215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _starTypeText: {fileID: 490802438}
   _massValueText: {fileID: 1640114772}
   _planetsCountText: {fileID: 238922929}
+  _starTypeText: {fileID: 490802438}
 --- !u!1 &183798741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,11 +1919,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17336f1edbec495a8d7aea7e3bb3fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _planetTypeText: {fileID: 1911056189}
-  _planetMassValueText: {fileID: 1881199334}
-  _orbitRadiusValueText: {fileID: 433981871}
   _orbitPeriodValueText: {fileID: 367201171}
+  _orbitRadiusValueText: {fileID: 433981871}
+  _planetMassValueText: {fileID: 1881199334}
   _planetTemperatureText: {fileID: 1416929547}
+  _planetTypeText: {fileID: 1911056189}
 --- !u!114 &329154540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,8 +2032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b943ad497bd45497081b494e15174944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _equipmentNameText: {fileID: 1924459962}
   _equipmentMassText: {fileID: 1386197801}
+  _equipmentNameText: {fileID: 1924459962}
 --- !u!114 &329700992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3339,7 +3339,7 @@ RectTransform:
   - {fileID: 1229337386}
   - {fileID: 582853208}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3499,9 +3499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78a8bdd7501e47a793991600c73ebb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _consumerComponentGroup: {fileID: 706487039}
   _overallInfoGroup: {fileID: 329700988}
   _producerComponentGroup: {fileID: 1452649080}
-  _consumerComponentGroup: {fileID: 706487039}
 --- !u!1 &503576210 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013630944718, guid: a2ac5c78eb6b946bdaff88ff49711e49,
@@ -4228,9 +4228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e28843263a945ad960d204c0ae8cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _accelerationInfo: {fileID: 1793211771}
   _massInfo: {fileID: 1500014974}
   _powerInfo: {fileID: 773867600}
-  _accelerationInfo: {fileID: 1793211771}
 --- !u!114 &658484375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5679,8 +5679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee16613ceef7948d5893792dab77fe88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetEnabledToggle: {fileID: 2051150492}
   _realEnabledText: {fileID: 2084411680}
+  _targetEnabledToggle: {fileID: 2051150492}
 --- !u!1 &824649802
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,7 +5900,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &927393486 stripped
 MonoBehaviour:
@@ -7072,8 +7072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c3a08c7b7674de486b1a19f0aa8bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipIcon: {fileID: 2091976775}
   _sharedGOSpawner: {fileID: 43694997}
+  _shipIcon: {fileID: 2091976775}
 --- !u!1 &1124169113
 GameObject:
   m_ObjectHideFlags: 0
@@ -7924,7 +7924,7 @@ RectTransform:
   m_Children:
   - {fileID: 1142238822}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8418,8 +8418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d835b33b66f4949aa43885b74c9725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipNameText: {fileID: 873612276}
   _massValueText: {fileID: 1381705698}
+  _shipNameText: {fileID: 873612276}
   _velocityValueText: {fileID: 1180878233}
 --- !u!114 &1229337388
 MonoBehaviour:
@@ -8837,10 +8837,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadb8cc95d7f1442f963f46508675721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _filledPointPrefab: {fileID: 149136, guid: 39dc59f7479a99842895296d8d04835a, type: 2}
   _emptyPointPrefab: {fileID: 160350, guid: 86d9c2b07c3bd2a4fa119e33f49e123b, type: 2}
-  _pointsCount: 16
+  _filledPointPrefab: {fileID: 149136, guid: 39dc59f7479a99842895296d8d04835a, type: 2}
   _length: 180
+  _pointsCount: 16
 --- !u!1 &1299389092
 GameObject:
   m_ObjectHideFlags: 0
@@ -9772,7 +9772,7 @@ Transform:
   - {fileID: 1186509611}
   - {fileID: 2116034457}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431471884
 GameObject:
@@ -9803,7 +9803,7 @@ Transform:
   - {fileID: 2088753306}
   - {fileID: 703013296}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1431471887
 MonoBehaviour:
@@ -10430,7 +10430,7 @@ RectTransform:
   - {fileID: 543511807}
   - {fileID: 1162139143}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11022,7 +11022,7 @@ Transform:
   - {fileID: 1467687547}
   - {fileID: 1184580059}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &1625137366
 MonoBehaviour:
@@ -11035,8 +11035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa148b3d211d14c328463e4b3666f82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateSpeed: 5
   _hullCamera: {fileID: 1467687548}
+  _rotateSpeed: 5
   _structureCamera: {fileID: 1184580060}
 --- !u!114 &1640114772 stripped
 MonoBehaviour:
@@ -12559,7 +12559,7 @@ Transform:
   m_Children:
   - {fileID: 239188096}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1868607217
 MonoBehaviour:
@@ -13637,10 +13637,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acae06387152a411e9b4b56cf470d2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sharedGOSpawner: {fileID: 43694997}
-  _yearText: {fileID: 249291520}
   _dateText: {fileID: 1968483010}
+  _sharedGOSpawner: {fileID: 43694997}
   _timeText: {fileID: 1586923594}
+  _yearText: {fileID: 249291520}
 --- !u!114 &2015027307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14601,8 +14601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01580fe3bd1624cd7a769afa3a7930a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turnSwitchController: {fileID: 1423893619}
   _starSystemViewController: {fileID: 43694996}
+  _turnSwitchController: {fileID: 1423893619}
 --- !u!114 &2116034459
 MonoBehaviour:
   m_ObjectHideFlags: 0
