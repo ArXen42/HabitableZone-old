@@ -20,3 +20,7 @@ If I started the project now, I would probably have thought of more hardcore and
  - Open Unity project located at /Source/HabitableZoneUnity/ (you can do it simultaneously with previous step).
 	 - [Optional] Open Scenes/MainMenu.scene and check if everything works.
  - In order to produce build, check out File → Build Settings.
+
+## Old repo
+
+It contains old trash in the commits history, as well as a few old and not yet updated assets. [Link.](https://bitbucket.org/ArXen42/stardust)
