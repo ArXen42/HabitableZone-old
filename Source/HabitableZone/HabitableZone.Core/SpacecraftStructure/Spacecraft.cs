@@ -93,8 +93,6 @@ namespace HabitableZone.Core.SpacecraftStructure
 		///    Collection of this spacecraft's hardpoints.
 		/// </summary>
 		public readonly Hardpoints Hardpoints;
-
-		private List<Hardpoint> _hardpoints;
 	}
 
 	[Serializable]
