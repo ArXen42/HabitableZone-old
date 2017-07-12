@@ -11,7 +11,7 @@ It should run correctly on Linux and Windows (and probably Mac, didn't tested). 
 **C# + Unity Engine**.
 Might not the best tools for open-source game. Might not the fastest tools. But they're powerful and handy.
 
-If I started the project now, I would probably have thought of more hardcore and open-source style C++ and Urho3D. But the code was written and there is no practical reason to rewrite it all.
+If I started the project now, I would probably have thought of more hardcore and open-source style C++ and Urho3D. But the code was written and there is no practical reason to rewrite it all. Nevertheless, one day I may find non-practical reason.
 
 ## Build
 
